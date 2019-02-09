@@ -1,142 +1,142 @@
-﻿SMMA_Educational_Program,BPS_Grades_Offered
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 6,K0-5
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K0-1
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K1-3
-Elementary: Pre-K to 6,K0-5
-High Schools: 9 to 12,43781
-High Schools: 9 to 12,43720
-High Schools: 9 to 12,43720
-High Schools: 9 to 12,43720
-High Schools: 7 to 12,43628
-High Schools: 9 to 12,43720
-High Schools: 7 to 12,43658
-High Schools: 7 to 12,43658
-Elementary: Pre-K to 8,K0-8
-Elementary: Pre-K to 6,K0-5
-High Schools: 9 to 12,43720
-High Schools: 9 to 12,43720
-High Schools: 7 to 12,43628
-Elementary: Pre-K to 6,K1-5
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K1-5
-High Schools: 9 to 12,43720
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K0-6
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 8,K1-5
-Elementary: Pre-K to 8,43624
-High Schools: 7 to 12,43628
-Elementary: Pre-K to 6,K1-5
-Not Assessed,None
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K0-1
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 8,K0-8
-Middle Schools: 7 to 8,43624
-Elementary: Pre-K to 8,K0-1
-Elementary: Pre-K to 8,43504
-Not Assessed,None
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K0-3
-Not Assessed,None
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K0-5
-High Schools: 9 to 12,43720
-High Schools: 9 to 12,43720
-Middle Schools: 7 to 8,43624
-Elementary: Pre-K to 8,K1-8
-High Schools: 9 to 12,43720
-Not Assessed,None
-Elementary: Pre-K to 8,K1-8
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 8,K1-8
-Not Assessed,None
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 6,K0-1
-Elementary: Pre-K to 6,K0-4
-High Schools: 7 to 12,43597
-Elementary: Pre-K to 8,K2-7
-Elementary: Pre-K to 8,K1-8
-Elementary: Pre-K to 6,K0-2
-Elementary: Pre-K to 8,K1-8
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 8,K0-12
-Elementary: Pre-K to 8,K0-8
-Middle Schools: 7 to 8,43593
-Elementary: Pre-K to 8,K1-8
-High Schools: 9 to 12,43781
-High Schools: 9 to 12,43718
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 8,K1-3
-Elementary: Pre-K to 8,43563
-Elementary: Pre-K to 8,K0-8
-Elementary: Pre-K to 6,K0-1
-Elementary: Pre-K to 8,K0-8
-Elementary: Pre-K to 8,K1-8
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 8,K2-8
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K0-5
-Middle Schools: 7 to 8,43624
-Elementary: Pre-K to 8,K2-8
-Middle Schools: 7 to 8,43624
-High Schools: 9 to 12,K2-5
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 8,K0-8
-Elementary: Pre-K to 8,K0-8
-Elementary: Pre-K to 6,K1-5
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 8,K0-8
-High Schools: 9 to 12,43720
-High Schools: 7 to 12,43658
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 8,43532
-Elementary: Pre-K to 8,K1-8
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K2-5
-Elementary: Pre-K to 8,K1-8
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K0-5
-High Schools: 7 to 12,43628
-Not Assessed,43628
-Not Assessed,None
-Elementary: Pre-K to 8,K1-1
-Elementary: Pre-K to 8,43504
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 6,K0-1
-High Schools: 9 to 12,43720
-Not Assessed,43720
-Not Assessed,43720
-Not Assessed,None
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 6,K0-5
-High Schools: 7 to 12,43628
-Middle Schools: 7 to 8,43624
-Elementary: Pre-K to 8,K0-8
-Elementary: Pre-K to 8,K1-7
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 8,K2-8
-Middle Schools: 7 to 8,43624
-Elementary: Pre-K to 8,K1-5
-Elementary: Pre-K to 6,K1-5
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 8,K0-6
-Elementary: Pre-K to 8,43654
-High Schools: 9 to 12,43720
-Elementary: Pre-K to 6,K0-1
-Elementary: Pre-K to 6,K0-5
-Elementary: Pre-K to 6,K1-5
-Elementary: Pre-K to 8,K1-8
+SchoolTypeId,SchoolId,SchoolTypology,GradesOffered
+11,1,Elementary School,K0-5
+12,2,Elementary School,K0-5
+13,3,High School,9-12
+14,4,Early Learning,K0-1
+15,5,Elementary School,K1-5
+16,6,Elementary School,K1-3
+17,7,Elementary School,K0-5
+18,8,Special,11-12
+19,9,High School,9-12
+20,10,High School,9-12
+21,11,Special,9-12
+22,12,High School,6-12
+23,13,High School,9-12
+24,14,High School,7-12
+25,15,High School,7-12
+26,16,K-8,K0-8
+27,17,Elementary School,K0-5
+28,18,High School,9-12
+29,19,High School,9-12
+30,20,Special,6-12
+31,21,Elementary School,K1-5
+32,22,High School,9-12
+33,23,Elementary School,K1-5
+34,24,Elementary School,K1-5
+35,25,Special,9-12
+36,26,High School,9-12
+37,27,Elementary School,K0-6
+38,28,Elementary School,K0-5
+39,29,K-8,K1-5
+40,30,K-8,6-8
+41,31,High School,6-12
+42,32,Elementary School,K1-5
+43,33,Elementary School,None
+44,34,High School,9-12
+45,35,Elementary School,K1-5
+46,36,Early Learning,K0-1
+47,37,High School,9-12
+48,38,K-8,K0-8
+49,39,Middle School,6-8
+50,40,K-8,K0-1
+51,41,K-8,2-8
+52,42,K-8,None
+53,43,Elementary School,K1-5
+54,44,Early Learning,K0-3
+55,45,Elementary School,None
+56,46,High School,9-12
+57,47,Elementary School,K0-5
+58,48,High School,9-12
+59,49,High School,9-12
+60,50,Middle School,6-8
+61,51,K-8,K1-8
+62,52,High School,9-12
+63,53,High School,None
+64,54,K-8,K1-8
+65,55,Elementary School,K1-5
+66,56,Elementary School,K1-5
+67,57,Elementary School,K1-5
+68,58,K-8,K1-8
+69,59,Elementary School,None
+70,60,Elementary School,K0-5
+71,61,Early Learning,K0-1
+72,62,Elementary School,K0-4
+73,63,High School,5-12
+74,64,K-8,K2-7
+75,65,K-8,K1-8
+76,66,Elementary School,K0-2
+77,67,K-8,K1-8
+78,68,Elementary School,K1-5
+79,69,Special,K0-12
+80,70,K-8,K0-8
+81,71,Middle School,5-8
+82,72,K-8,K1-8
+83,73,High School,11-12
+84,74,High School,9-10
+85,75,Elementary School,K1-5
+86,76,Elementary School,K0-5
+87,77,Elementary School,K0-5
+88,78,K-8,K1-3
+89,79,K-8,4-8
+90,80,K-8,K0-8
+91,81,Early Learning,K0-1
+92,82,K-8,K0-8
+93,83,K-8,K1-8
+94,84,High School,9-12
+95,85,K-8,K2-8
+96,86,High School,9-12
+97,87,Elementary School,K1-5
+98,88,Elementary School,K0-5
+99,89,Elementary School,K1-5
+100,90,Elementary School,K0-5
+101,91,Middle School,6-8
+102,92,K-8,K2-8
+103,93,Special,6-8
+104,94,Special,K2-5
+105,95,Special,9-12
+106,96,Elementary School,K1-5
+107,97,K-8,K0-8
+108,98,K-8,K0-8
+109,99,Elementary School,K1-5
+110,100,High School,9-12
+111,101,K-8,K0-8
+112,102,High School,9-12
+113,103,High School,7-12
+114,104,Elementary School,K1-5
+115,105,K-8,3-8
+116,106,K-8,K1-8
+117,107,Elementary School,K1-5
+118,108,Elementary School,K2-5
+119,109,K-8,K1-8
+120,110,Elementary School,K1-5
+121,111,Elementary School,K0-5
+122,112,High School,6-12
+123,113,High School,6-12
+124,114,Middle School,None
+125,115,K-8,K1-1
+126,116,K-8,2-8
+127,117,Elementary School,K0-5
+128,118,Elementary School,K0-1
+129,119,High School,9-12
+130,120,High School,9-12
+131,121,High School,9-12
+132,122,Elementary School,None
+133,123,Elementary School,K1-5
+134,124,Elementary School,K0-5
+135,125,High School,6-12
+136,126,Middle School,6-8
+137,127,K-8,K0-8
+138,128,K-8,K1-7
+139,129,Elementary School,K0-5
+140,130,K-8,K2-8
+141,131,Middle School,6-8
+142,132,K-8,K1-5
+143,133,Elementary School,K1-5
+144,134,High School,9-12
+145,135,K-8,K0-6
+146,136,K-8,7-8
+147,137,High School,9-12
+148,138,Early Learning,K0-1
+149,139,Elementary School,K0-5
+150,140,Elementary School,K1-5
+151,141,K-8,K1-8
