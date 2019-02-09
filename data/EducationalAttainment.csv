@@ -1,149 +1,93 @@
 ﻿EdAttainmentId,DemographicsId,EdType,EdPopulation
-,,less than High School,837
-,,High School or GED,"1,274"
-,,Some College or Associate's Degree,"1,323"
-,,Bachelor's Degree or Higher,"6,186"
-,,,
-,,,
-,,less than High School,325
-,,High School or GED,613
-,,Some College or Associate's Degree,"1,002"
-,,Bachelor's Degree or Higher,"11,659"
-,,,
-,,,
-,,less than High School,134
-,,High School or GED,127
-,,Some College or Associate's Degree,502
-,,Bachelor's Degree or Higher,"6,546"
-,,,
-,,,
-,,less than High School,"2,952"
-,,High School or GED,"4,637"
-,,Some College or Associate's Degree,"4,495"
-,,Bachelor's Degree or Higher,"2,952"
-,,,
-,,,
-,,less than High School,"1,213"
-,,High School or GED,"2,147"
-,,Some College or Associate's Degree,"1,762"
-,,Bachelor's Degree or Higher,"8,367"
-,,,
-,,,
-,,less than High School,"17,202"
-,,High School or GED,"24,991"
-,,Some College or Associate's Degree,"19,632"
-,,Bachelor's Degree or Higher,"20,203"
-,,,
-,,,
-,,less than High School,"2,360"
-,,High School or GED,"1,292"
-,,Some College or Associate's Degree,"1,254"
-,,Bachelor's Degree or Higher,"6,677"
-,,,
-,,,
-,,less than High School,"10,114"
-,,High School or GED,"9,744"
-,,Some College or Associate's Degree,"5,150"
-,,Bachelor's Degree or Higher,"6,449"
-,,,
-,,,
-,,less than High School,625
-,,High School or GED,"1,021"
-,,Some College or Associate's Degree,"1,606"
-,,Bachelor's Degree or Higher,"9,087"
-,,,
-,,,
-,,less than High School,89
-,,High School or GED,91
-,,Some College or Associate's Degree,55
-,,Bachelor's Degree or Higher,11
-,,,
-,,,
-,,less than High School,"1,552"
-,,High School or GED,"5,139"
-,,Some College or Associate's Degree,"4,985"
-,,Bachelor's Degree or Higher,"12,601"
-,,,
-,,,
-,,,
-,,less than High School,223
-,,High School or GED,397
-,,Some College or Associate's Degree,538
-,,Bachelor's Degree or Higher,"3,522"
-,,,
-,,,
-,,,
-,,less than High School,"3,149"
-,,High School or GED,"2,755"
-,,Some College or Associate's Degree,"2,824"
-,,Bachelor's Degree or Higher,"16,045"
-,,,
-,,,
-,,,
-,,less than High School,"2,951"
-,,High School or GED,"5,467"
-,,Some College or Associate's Degree,"3,780"
-,,Bachelor's Degree or Higher,"15,622"
-,,,
-,,,
-,,,
-,,less than High School,35
-,,High School or GED,286
-,,Some College or Associate's Degree,202
-,,Bachelor's Degree or Higher,"1,912"
-,,,
-,,,
-,,,
-,,less than High School,"7,680"
-,,High School or GED,"8,766"
-,,Some College or Associate's Degree,"7,540"
-,,Bachelor's Degree or Higher,"6,223"
-,,,
-,,,
-,,,
-,,less than High School,"2,336"
-,,High School or GED,"4,995"
-,,Some College or Associate's Degree,"4,652"
-,,Bachelor's Degree or Higher,"8,721"
-,,,
-,,,
-,,,
-,,less than High School,410
-,,High School or GED,505
-,,Some College or Associate's Degree,630
-,,Bachelor's Degree or Higher,"5,954"
-,,,
-,,,
-,,,
-,,less than High School,"1,305"
-,,High School or GED,"1,725"
-,,Some College or Associate's Degree,"1,526"
-,,Bachelor's Degree or Higher,"4,069"
-,,,
-,,,
-,,,
-,,less than High School,"3,588"
-,,High School or GED,"5,675"
-,,Some College or Associate's Degree,"4,890"
-,,Bachelor's Degree or Higher,"2,704"
-,,,
-,,,
-,,,
-,,less than High School,38
-,,High School or GED,83
-,,Some College or Associate's Degree,61
-,,Bachelor's Degree or Higher,410
-,,,
-,,,
-,,,
-,,less than High School,"2,335"
-,,High School or GED,"4,338"
-,,Some College or Associate's Degree,"3,947"
-,,Bachelor's Degree or Higher,"18,246"
-,,,
-,,,
-,,,
-,,less than High School,"2,823"
-,,High School or GED,"7,664"
-,,Some College or Associate's Degree,"7,387"
-,,Bachelor's Degree or Higher,"6,246"
+1,1,less than High School,837
+2,1,High School or GED,"1,274"
+3,1,Some College or Associate's Degree,"1,323"
+4,1,Bachelor's Degree or Higher,"6,186"
+5,2,less than High School,325
+6,2,High School or GED,613
+7,2,Some College or Associate's Degree,"1,002"
+8,2,Bachelor's Degree or Higher,"11,659"
+9,3,less than High School,134
+10,3,High School or GED,127
+11,3,Some College or Associate's Degree,502
+12,3,Bachelor's Degree or Higher,"6,546"
+13,4,less than High School,"2,952"
+14,4,High School or GED,"4,637"
+15,4,Some College or Associate's Degree,"4,495"
+16,4,Bachelor's Degree or Higher,"2,952"
+17,5,less than High School,"1,213"
+18,5,High School or GED,"2,147"
+19,5,Some College or Associate's Degree,"1,762"
+20,5,Bachelor's Degree or Higher,"8,367"
+21,6,less than High School,"17,202"
+22,6,High School or GED,"24,991"
+23,6,Some College or Associate's Degree,"19,632"
+24,6,Bachelor's Degree or Higher,"20,203"
+25,7,less than High School,"2,360"
+26,7,High School or GED,"1,292"
+27,7,Some College or Associate's Degree,"1,254"
+28,7,Bachelor's Degree or Higher,"6,677"
+29,8,less than High School,"10,114"
+30,8,High School or GED,"9,744"
+31,8,Some College or Associate's Degree,"5,150"
+32,8,Bachelor's Degree or Higher,"6,449"
+33,9,less than High School,625
+34,9,High School or GED,"1,021"
+35,9,Some College or Associate's Degree,"1,606"
+36,9,Bachelor's Degree or Higher,"9,087"
+37,10,less than High School,89
+38,10,High School or GED,91
+39,10,Some College or Associate's Degree,55
+40,10,Bachelor's Degree or Higher,11
+41,11,less than High School,"1,552"
+42,11,High School or GED,"5,139"
+43,11,Some College or Associate's Degree,"4,985"
+44,11,Bachelor's Degree or Higher,"12,601"
+45,12,less than High School,223
+46,12,High School or GED,397
+47,12,Some College or Associate's Degree,538
+48,12,Bachelor's Degree or Higher,"3,522"
+49,13,less than High School,"3,149"
+50,13,High School or GED,"2,755"
+51,13,Some College or Associate's Degree,"2,824"
+52,13,Bachelor's Degree or Higher,"16,045"
+53,14,less than High School,"2,951"
+54,14,High School or GED,"5,467"
+55,14,Some College or Associate's Degree,"3,780"
+56,14,Bachelor's Degree or Higher,"15,622"
+57,15,less than High School,35
+58,15,High School or GED,286
+59,15,Some College or Associate's Degree,202
+60,15,Bachelor's Degree or Higher,"1,912"
+61,16,less than High School,"7,680"
+62,16,High School or GED,"8,766"
+63,16,Some College or Associate's Degree,"7,540"
+64,16,Bachelor's Degree or Higher,"6,223"
+65,17,less than High School,"2,336"
+66,17,High School or GED,"4,995"
+67,17,Some College or Associate's Degree,"4,652"
+68,17,Bachelor's Degree or Higher,"8,721"
+69,18,less than High School,410
+70,18,High School or GED,505
+71,18,Some College or Associate's Degree,630
+72,18,Bachelor's Degree or Higher,"5,954"
+73,19,less than High School,"1,305"
+74,19,High School or GED,"1,725"
+75,19,Some College or Associate's Degree,"1,526"
+76,19,Bachelor's Degree or Higher,"4,069"
+77,20,less than High School,"3,588"
+78,20,High School or GED,"5,675"
+79,20,Some College or Associate's Degree,"4,890"
+80,20,Bachelor's Degree or Higher,"2,704"
+81,21,less than High School,38
+82,21,High School or GED,83
+83,21,Some College or Associate's Degree,61
+84,21,Bachelor's Degree or Higher,410
+85,22,less than High School,"2,335"
+86,22,High School or GED,"4,338"
+87,22,Some College or Associate's Degree,"3,947"
+88,22,Bachelor's Degree or Higher,"18,246"
+89,23,less than High School,"2,823"
+90,23,High School or GED,"7,664"
+91,23,Some College or Associate's Degree,"7,387"
+92,23,Bachelor's Degree or Higher,"6,246"
