@@ -3,39 +3,42 @@ USE Hublyfe;
 
 
 
-DROP TABLE IF EXISTS DemographicAgeData;
 DROP TABLE IF EXISTS Ethnicity;
-DROP TABLE IF EXISTS EducationAttainment;
+DROP TABLE IF EXISTS EducationalAttainment;
+DROP TABLE IF EXISTS AgeData;
 DROP TABLE IF EXISTS Demographics;
 DROP TABLE IF EXISTS Restaurants;
 DROP TABLE IF EXISTS Rent;
-DROP TABLE IF EXISTS WickedFreeWifi;
-DROP TABLE IF EXISTS JobDepartment;
 DROP TABLE IF EXISTS JobDetails;
+DROP TABLE IF EXISTS JobDepartment;
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS SchoolTypes;
 DROP TABLE IF EXISTS PublicSchools;
-DROP TABLE IF EXISTS ZipCode;
-DROP TABLE IF EXISTS Neighborhood;
+DROP TABLE IF EXISTS ZipCodes;
+DROP TABLE IF EXISTS Neighborhoods;
 
 
 
-CREATE TABLE Neighborhood (
-	NeighborhoodId INT AUTO_INCREMENT,
-	NeighborhoodName VARCHAR(255) UNIQUE,
-	CONSTRAINT pk_Neighborhood_NeighborhoodId 
-		PRIMARY KEY (NeighborhoodId),
-	CONSTRAINT fk_Neighborhood_NeighborhoodName
-		FOREIGN KEY (NeighborhoodName)
-        		REFERENCES Zipcode(NeighborhoodName)
-        		ON UPDATE CASCADE ON DELETE SET NULL
+
+
+CREATE TABLE Neighborhoods (
+	NeighborhoodName VARCHAR(255),
+	CONSTRAINT pk_Neighborhoods_NeighborhoodName 
+		PRIMARY KEY (NeighborhoodName)
 );
 
-CREATE TABLE ZipCode (
+
+CREATE TABLE ZipCodes (
 	Zip INT,
-	CONSTRAINT pk_ZipCode_Zip
-		PRIMARY KEY (Zip)
+    NeighborhoodName VARCHAR(255),
+	CONSTRAINT pk_ZipCodes_Zip
+		PRIMARY KEY (Zip),
+	CONSTRAINT fk_ZipCodes_NeighborhoodName
+		FOREIGN KEY (NeighborhoodName)
+        		REFERENCES Neighborhoods(NeighborhoodName)
+        		#ON UPDATE CASCADE ON DELETE SET NULL
 );
+
 
 
 CREATE TABLE PublicSchools (
@@ -81,61 +84,32 @@ CREATE TABLE Users (
 	OccupationZip INT,
 	JobTitle VARCHAR(255),
 	CONSTRAINT pk_Users_Username 
-		PRIMARY KEY (Username),
-	CONSTRAINT fk_Users_ResidenceZip
-		FOREIGN KEY (ResidenceZip)
-		REFERENCES ZipCode(Zip)
-		ON UPDATE CASCADE ON DELETE SET NULL,
-	CONSTRAINT fk_Users_OccupationZip
-		FOREIGN KEY (SchoolId)
-		REFERENCES ZipCode(Zip)
-		ON UPDATE CASCADE ON DELETE SET NULL,
-	CONSTRAINT fk_Users_JobTitle
-		FOREIGN KEY (JobTitle)
-		REFERENCES JobDetails(JobTitle)
-		ON UPDATE CASCADE ON DELETE SET NULL
+		PRIMARY KEY (Username)
 );
 
 
 CREATE TABLE JobDepartment (
-	DepartmentName VARCHAR(255),
-	CONSTRAINT pk_JobDepartment_DepartmentId 
-		PRIMARY KEY (DepartmentId)
+    DepartmentName VARCHAR(255),
+	CONSTRAINT pk_JobDepartment_DepartmentName
+		PRIMARY KEY (DepartmentName)
 );
 
 CREATE TABLE JobDetails (
 	JobTitle VARCHAR(255),
-	DepartmentName INT,
+	DepartmentName VARCHAR(255),
 	Salary DOUBLE,
 	Zip INT,
 	CONSTRAINT pk_JobDetails_JobTitle 
 		PRIMARY KEY (JobTitle),
 	CONSTRAINT fk_JobDetails_Zip
 		FOREIGN KEY (Zip)
-		REFERENCES Users(OccupationZip)
+		REFERENCES ZipCode(Zip)
 		ON UPDATE CASCADE ON DELETE SET NULL,
 	CONSTRAINT fk_JobDetails_DepartmentName
 		FOREIGN KEY (DepartmentName)
-		REFERENCES JobDepartment(DepartmentId)
+		REFERENCES JobDepartment(DepartmentName)
 		ON UPDATE CASCADE ON DELETE SET NULL
 );
-
-
-
-CREATE TABLE WickedFreeWifi(
-	ObjectId INT,
-	Address VARCHAR(255),
-	Notes VARCHAR(255),
-	AP_Name VARCHAR (255),
-	NeighborhoodName VARCHAR(255),
-	CONSTRAINT pk_WickedFreeWifi_ObjectId 
-		PRIMARY KEY (ObjectId),
-	CONSTRAINT fk_WickedFreeWifi_NeighborhoodName 
-		FOREIGN KEY (NeighborhoodName) 
-		REFERENCES Neighborhood(NeighborhoodName)
-		ON UPDATE CASCADE ON DELETE SET NULL
-);
-
 
 
 
@@ -143,7 +117,7 @@ CREATE TABLE WickedFreeWifi(
 CREATE TABLE Rent(
 	RentId INT AUTO_INCREMENT,
 	NeighborhoodName VARCHAR(255),
-	OccupancyType ENUM ("One bedroom", "two bedroom"),
+	OccupancyType ENUM ("All rentals", "1 Bed", "2 Beds", "3 Beds"),
 	Price Double,
 	CONSTRAINT pk_Rent_RentId 
 		PRIMARY KEY (RentId),
@@ -169,7 +143,7 @@ CREATE TABLE Restaurants (
 		PRIMARY KEY (RestaurantId),
 	CONSTRAINT fk_Restaurants_Zip
 		FOREIGN KEY (Zip)
-		REFERENCES ZipCode(Zip)
+		REFERENCES ZipCodes(Zip)
 		ON UPDATE CASCADE ON DELETE SET NULL
 );
 
@@ -216,13 +190,13 @@ CONSTRAINT fk_EducationalAttainment_DemographicsId
 
 
 CREATE TABLE AgeData (
-	AgeDataId INT AUTO_INCREMENT,
+	AgeId INT AUTO_INCREMENT,
 	DemographicsId INT,
 	AgeRange ENUM("0-9 years", "10-19 years", "20-34 years", "35-54 years", "55-64 years", "65 years and over"),
 	AgePercentage INT,
 UNIQUE (DemographicsId, AgeRange),
-	CONSTRAINT pk_AgeData_AgeDataId
-		PRIMARY KEY (AgeDataId),
+	CONSTRAINT pk_AgeData_AgeId
+		PRIMARY KEY (AgeId),
 	CONSTRAINT fk_AgeData_DemographicsId
 		FOREIGN KEY (DemographicsId)
 		REFERENCES Demographics(DemographicsId)
