@@ -1,151 +1,110 @@
-﻿EthnicityId,DemographicsId,EthnicityType,EthnicPopulation
-,,White,"11,318"
-,,Black/ African American,"1,147"
-,,Hispanic,"3,191"
-,,Asian/PI,"3,328"
-,,Other,777
-,,,
-,,White,"13,432"
-,,Black/ African American,811
-,,Hispanic,"1,427"
-,,Asian/PI,"1,606"
-,,Other,301
-,,,
-,,White,"8,118"
-,,Black/ African American,109
-,,Hispanic,386
-,,Asian/PI,539
-,,Other,153
-,,,
-,,White,"31,946"
-,,Black/ African American,"1,951"
-,,Hispanic,"4,983"
-,,Asian/PI,"7,352"
-,,Other,"1,536"
-,,,
-,,White,"12,575"
-,,Black/ African American,"1,557"
-,,Hispanic,"1,980"
-,,Asian/PI,"1,578"
-,,Other,368
-,,,
-,,White,"27,479"
-,,Black/ African American,"54,952"
-,,Hispanic,"20,330"
-,,Asian/PI,"13,234"
-,,Other,"8,494"
-,,,
-,,White,"9,506"
-,,Black/ African American,637
-,,Hispanic,"1,061"
-,,Asian/PI,"5,191"
-,,Other,508
-,,,
-,,White,"14,400"
-,,Black/ African American,"1,065"
-,,Hispanic,"26,063"
-,,Asian/PI,"1,613"
-,,Other,"1,848"
-,,,
-,,White,"19,777"
-,,Black/ African American,"1,617"
-,,Hispanic,"3,689"
-,,Asian/PI,"6,029"
-,,Other,"1,098"
-,,,
-,,White,122
-,,Black/ African American,118
-,,Hispanic,65
-,,Asian/PI,0
-,,Other,24
-,,,
-,,White,"24,056"
-,,Black/ African American,"2,894"
-,,Hispanic,"2,921"
-,,Asian/PI,"2,314"
-,,Other,610
-,,,
-,,,
-,,White,"3,616"
-,,Black/ African American,319
-,,Hispanic,711
-,,Asian/PI,"1,114"
-,,Other,185
-,,,
-,,,
-,,White,"17,425"
-,,Black/ African American,"3,722"
-,,Hispanic,"4,359"
-,,Asian/PI,"5,184"
-,,Other,911
-,,,
-,,,
-,,White,"27,712"
-,,Black/ African American,"1,837"
-,,Hispanic,"3,742"
-,,Asian/PI,"1,616"
-,,Other,753
-,,,
-,,,
-,,White,"2,410"
-,,Black/ African American,44
-,,Hispanic,27
-,,Asian/PI,295
-,,Other,86
-,,,
-,,,
-,,White,"5,576"
-,,Black/ African American,"27,188"
-,,Hispanic,"14,848"
-,,Asian/PI,"1,616"
-,,Other,"2,024"
-,,,
-,,,
-,,White,"14,617"
-,,Black/ African American,"6,048"
-,,Hispanic,"6,483"
-,,Asian/PI,505
-,,Other,991
-,,,
-,,,
-,,White,"8,270"
-,,Black/ African American,41
-,,Hispanic,327
-,,Asian/PI,286
-,,Other,183
-,,,
-,,,
-,,White,"7,787"
-,,Black/ African American,"2,743"
-,,Hispanic,"3,039"
-,,Asian/PI,"2,768"
-,,Other,363
-,,,
-,,,
-,,White,"1,488"
-,,Black/ African American,"17,891"
-,,Hispanic,"3,863"
-,,Asian/PI,568
-,,Other,458
-,,,
-,,,
-,,White,"3,739"
-,,Black/ African American,305
-,,Hispanic,468
-,,Asian/PI,582
-,,Other,139
-,,,
-,,,
-,,White,"21,291"
-,,Black/ African American,"4,552"
-,,Hispanic,"9,979"
-,,Asian/PI,"2,165"
-,,Other,"1,253"
-,,,
-,,,
-,,White,"9,226"
-,,Black/ African American,"16,055"
-,,Hispanic,"8,375"
-,,Asian/PI,746
-,,Other,"1,183"
-,,,
+EthnicityId,DemographicsId,EthnicityType,EthnicPopulation
+1,1,White,11318
+2,1,Black/ African American,1147
+3,1,Hispanic,3191
+4,1,Asian/PI,3328
+5,1,Other,777
+6,2,White,13432
+7,2,Black/ African American,811
+8,2,Hispanic,1427
+9,2,Asian/PI,1606
+10,2,Other,301
+11,3,White,8118
+12,3,Black/ African American,109
+13,3,Hispanic,386
+14,3,Asian/PI,539
+15,3,Other,153
+16,4,White,31946
+17,4,Black/ African American,1951
+18,4,Hispanic,4983
+19,4,Asian/PI,7352
+20,4,Other,1536
+21,5,White,12575
+22,5,Black/ African American,1557
+23,5,Hispanic,1980
+24,5,Asian/PI,1578
+25,6,White,27479
+26,6,Black/ African American,54952
+27,6,Hispanic,20330
+28,6,Asian/PI,13234
+29,6,Other,8494
+30,7,White,9506
+31,7,Black/ African American,637
+32,7,Hispanic,1061
+33,7,Asian/PI,5191
+34,7,Other,508
+35,8,White,14400
+36,8,Black/ African American,1065
+37,8,Hispanic,26063
+38,8,Asian/PI,1613
+39,8,Other,1848
+40,9,White,19777
+41,9,Black/ African American,1617
+42,9,Hispanic,3689
+43,9,Asian/PI,6029
+44,9,Other,1098
+45,10,White,122
+46,10,Black/ African American,118
+47,10,Hispanic,65
+48,10,Asian/PI,0
+49,10,Other,24
+50,11,White,24056
+51,11,Black/ African American,2894
+52,11,Hispanic,2921
+53,11,Asian/PI,2314
+54,11,Other,610
+55,12,White,3616
+56,12,Black/ African American,319
+57,12,Hispanic,711
+58,12,Asian/PI,1114
+59,12,Other,185
+60,13,White,17425
+61,13,Black/ African American,3722
+62,13,Hispanic,4359
+63,13,Asian/PI,5184
+64,13,Other,911
+65,14,White,27712
+66,14,Black/ African American,1837
+67,14,Hispanic,3742
+68,14,Asian/PI,1616
+69,14,Other,753
+70,15,White,2410
+71,15,Black/ African American,44
+72,15,Hispanic,27
+73,15,Asian/PI,295
+74,15,Other,86
+75,16,White,5576
+76,16,Black/ African American,27188
+77,16,Hispanic,14848
+78,16,Asian/PI,1616
+79,16,Other,2024
+80,17,White,14617
+81,17,Black/ African American,6048
+82,17,Hispanic,6483
+83,17,Asian/PI,505
+84,17,Other,991
+85,18,White,8270
+86,18,Black/ African American,41
+87,18,Hispanic,327
+88,18,Asian/PI,286
+89,18,Other,183
+90,19,White,7787
+91,19,Black/ African American,2743
+92,19,Hispanic,3039
+93,19,Asian/PI,2768
+94,19,Other,363
+95,20,White,1488
+96,20,Black/ African American,17891
+97,20,Hispanic,3863
+98,20,Asian/PI,568
+99,20,Other,458
+100,21,White,3739
+101,21,Black/ African American,305
+102,21,Hispanic,468
+103,21,Asian/PI,582
+104,21,Other,139
+105,22,White,21291
+106,22,Black/ African American,4552
+107,22,Hispanic,9979
+108,22,Asian/PI,2165
+109,22,Other,1253
