@@ -8,7 +8,8 @@ INSERT INTO Users(Username, FirstName, LastName, Password, ResidenceZip, Occupat
     
 LOAD DATA INFILE '/var/mysql/Neighborhoods.csv' INTO TABLE Neighborhoods
 	FIELDS TERMINATED BY ','
-    LINES TERMINATED BY '\n';
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES;
    
     
 LOAD DATA INFILE '/var/mysql/ZipCodes.csv' INTO TABLE ZipCodes
@@ -16,19 +17,52 @@ LOAD DATA INFILE '/var/mysql/ZipCodes.csv' INTO TABLE ZipCodes
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;
     
-LOAD DATA INFILE '/var/mysql/JobDepartment.csv' INTO TABLE JobDepartment
+LOAD DATA INFILE '/var/mysql/Restaurants.csv' INTO TABLE Restaurants
 	FIELDS TERMINATED BY ','
-    LINES TERMINATED BY ',\n'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES;    
+    
+LOAD DATA INFILE '/var/mysql/PublicSchools.csv' INTO TABLE PublicSchools
+	FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES; 
+
+    
+LOAD DATA INFILE '/var/mysql/SchoolTypes.csv' INTO TABLE SchoolTypes
+	FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
     IGNORE 1 LINES;
+    
     
 LOAD DATA INFILE '/var/mysql/JobDepartment.csv' INTO TABLE JobDepartment
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
-INSERT INTO JobDepartment(DepartmentName)
-VALUES('POLICE DEPartment')
+LOAD DATA INFILE '/var/mysql/JobDetails.csv' INTO TABLE JobDetails
+    LINES TERMINATED BY ','
+    IGNORE 1 LINES;
+    
+LOAD DATA INFILE '/var/mysql/Rent.csv' INTO TABLE Rent
+    LINES TERMINATED BY ','
+    IGNORE 1 LINES;
+    
+LOAD DATA INFILE '/var/mysql/Demographics.csv' INTO TABLE Demographics
+    LINES TERMINATED BY ','
+    IGNORE 1 LINES;
+    
+LOAD DATA INFILE '/var/mysql/AgeData.csv' INTO TABLE AgeData
+    LINES TERMINATED BY ','
+    IGNORE 1 LINES;
+    
+LOAD DATA INFILE '/var/mysql/EducationalAttainment.csv' INTO TABLE EducationalAttainment
+    LINES TERMINATED BY ','
+    IGNORE 1 LINES;
+    
+LOAD DATA INFILE '/var/mysql/Ethnicity.csv' INTO TABLE Ethnicity
+    LINES TERMINATED BY ','
+    IGNORE 1 LINES;
     
 
-INSERT INTO ZipCodes(Zip, NeighborhoodName)
-VALUES('02134', 'Allston')
+    
+
 
