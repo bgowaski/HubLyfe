@@ -58,7 +58,7 @@ SchoolEnrollment VARCHAR(255),
 		PRIMARY KEY (SchoolId),
 	CONSTRAINT fk_PublicSchools_NeighborhoodName
 		FOREIGN KEY (NeighborhoodName)
-        		REFERENCES Neighborhood(NeighborhoodName)
+        		REFERENCES Neighborhoods(NeighborhoodName)
         		ON UPDATE CASCADE ON DELETE SET NULL
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE JobDetails (
 		PRIMARY KEY (JobTitle),
 	CONSTRAINT fk_JobDetails_Zip
 		FOREIGN KEY (Zip)
-		REFERENCES ZipCode(Zip)
+		REFERENCES ZipCodes(Zip)
 		ON UPDATE CASCADE ON DELETE SET NULL,
 	CONSTRAINT fk_JobDetails_DepartmentName
 		FOREIGN KEY (DepartmentName)
@@ -123,7 +123,7 @@ CREATE TABLE Rent(
 		PRIMARY KEY (RentId),
 	CONSTRAINT fk_Rent_NeighborhoodName
 		FOREIGN KEY (NeighborhoodName)
-		REFERENCES Neighborhood(NeighborhoodName)
+		REFERENCES Neighborhoods(NeighborhoodName)
 		ON UPDATE CASCADE ON DELETE SET NULL	
 );
 
@@ -164,7 +164,7 @@ CREATE TABLE Demographics (
 		PRIMARY KEY (DemographicsId),
 	CONSTRAINT fk_Demographics_NeighborhoodName
 		FOREIGN KEY (NeighborhoodName)
-		REFERENCES Neighborhood(NeighborhoodName)
+		REFERENCES Neighborhoods(NeighborhoodName)
 		ON UPDATE CASCADE ON DELETE SET NULL	
 );
 
