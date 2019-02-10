@@ -18,25 +18,18 @@ DROP TABLE IF EXISTS ZipCodes;
 DROP TABLE IF EXISTS Neighborhoods;
 
 
-
-
-
 CREATE TABLE Neighborhoods (
 	NeighborhoodName VARCHAR(255),
-	CONSTRAINT pk_Neighborhoods_NeighborhoodName 
-		PRIMARY KEY (NeighborhoodName)
+	CONSTRAINT pk_Neighborhoods_NeighborhoodName PRIMARY KEY (NeighborhoodName)
 );
 
 
 CREATE TABLE ZipCodes (
 	Zip INT,
     NeighborhoodName VARCHAR(255),
-	CONSTRAINT pk_ZipCodes_Zip
-		PRIMARY KEY (Zip),
-	CONSTRAINT fk_ZipCodes_NeighborhoodName
-		FOREIGN KEY (NeighborhoodName)
-        		REFERENCES Neighborhoods(NeighborhoodName)
-        		#ON UPDATE CASCADE ON DELETE SET NULL
+	CONSTRAINT pk_ZipCodes_Zip PRIMARY KEY (Zip),
+	CONSTRAINT fk_ZipCodes_NeighborhoodName FOREIGN KEY (NeighborhoodName)
+        		REFERENCES Neighborhoods(NeighborhoodName) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 
@@ -51,8 +44,8 @@ NeighborhoodName VARCHAR(255),
 EducationProgram VARCHAR(255),
 YearFounded INT,
 YearBuilt INT,
-SchoolOpen TIME,
-SchoolClose TIME,
+SchoolOpen VARCHAR(255),
+SchoolClose VARCHAR(255),
 SchoolEnrollment VARCHAR(255),
 	CONSTRAINT pk_PublicSchools_SchoolId 
 		PRIMARY KEY (SchoolId),
@@ -62,18 +55,22 @@ SchoolEnrollment VARCHAR(255),
         		ON UPDATE CASCADE ON DELETE SET NULL
 );
 
+/* Only 98 records were loaded because, certain neighborhood is a multiple option in neighborhood table*/
+
+
 CREATE TABLE SchoolTypes (
 	SchoolTypesId INT AUTO_INCREMENT,
 	SchoolId INT,
-	GradesOffered INT,
+	GradesOffered VARCHAR(20),
 	SchoolTypology ENUM("Elementary School", "High School", "Special", "k-8","Middle School"), 
-	CONSTRAINT pk_SchoolTypes_SchoolTypesId 
+	CONSTRAINT pk_DemographicsDemographicsSchoolTypes_SchoolTypesId 
 		PRIMARY KEY (SchoolTypesId),
 	CONSTRAINT fk_SchoolTypes_SchoolId
 		FOREIGN KEY (SchoolId)
         REFERENCES PublicSchools(SchoolId)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
+
 
 CREATE TABLE Users (
 	Username VARCHAR(255),
@@ -97,7 +94,7 @@ CREATE TABLE JobDepartment (
 CREATE TABLE JobDetails (
 	JobTitle VARCHAR(255),
 	DepartmentName VARCHAR(255),
-	Salary DOUBLE,
+	Salary VARCHAR(100),
 	Zip INT,
 	CONSTRAINT pk_JobDetails_JobTitle 
 		PRIMARY KEY (JobTitle),
@@ -111,14 +108,14 @@ CREATE TABLE JobDetails (
 		ON UPDATE CASCADE ON DELETE SET NULL
 );
 
-
+/*Not all zipcodes are present in zipcode table*/
 
 
 CREATE TABLE Rent(
 	RentId INT AUTO_INCREMENT,
 	NeighborhoodName VARCHAR(255),
-	OccupancyType ENUM ("All rentals", "1 Bed", "2 Beds", "3 Beds"),
-	Price Double,
+	OccupancyType ENUM ("All rentals", "Studio", "1 Bed", "2 Beds", "3 Beds"),
+	Price VARCHAR(255),
 	CONSTRAINT pk_Rent_RentId 
 		PRIMARY KEY (RentId),
 	CONSTRAINT fk_Rent_NeighborhoodName
@@ -129,32 +126,11 @@ CREATE TABLE Rent(
 
 
 
-
-CREATE TABLE Restaurants (
-	RestaurantId INT,
-	RestaurantName VARCHAR(255),
-	LicenseStatus BOOLEAN,
-	RestaurantType ENUM("Eating & Drinking", "Retail Food", "Eating & Drinking w/ Takeout"),
-	Address LONGTEXT,
-	City VARCHAR(255),
-	State VARCHAR(255),
-	Zip INT,
-	CONSTRAINT pk_Restaurants_RestaurantId 
-		PRIMARY KEY (RestaurantId),
-	CONSTRAINT fk_Restaurants_Zip
-		FOREIGN KEY (Zip)
-		REFERENCES ZipCodes(Zip)
-		ON UPDATE CASCADE ON DELETE SET NULL
-);
-
-
-
 CREATE TABLE Demographics (
 	DemographicsId INT AUTO_INCREMENT,
 	NeighborhoodName VARCHAR (255),
-	Decade VARCHAR (255),
 	Population DOUBLE,
-	Nativity INT,
+	ForiegnBorn INT,
 	FemaleLaborForce INT,
 	MaleLaborForce INT,
 	OccupiedHousingUnits INT,
@@ -181,11 +157,6 @@ CONSTRAINT fk_EducationalAttainment_DemographicsId
 		REFERENCES Demographics(DemographicsId)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
-
-
-
-
-
 
 
 
@@ -218,3 +189,23 @@ CREATE TABLE Ethnicity (
 		REFERENCES Demographics(DemographicsId)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+	CREATE TABLE Restaurants (
+		RestaurantId INT,
+		RestaurantName VARCHAR(255),
+		LicenseStatus VARCHAR(255),
+		RestaurantType ENUM("Eating & Drinking", "Retail Food", "Eating & Drinking w/ Takeout"),
+		Address LONGTEXT,
+		City VARCHAR(255),
+		State VARCHAR(255),
+		Zip INT,
+		CONSTRAINT pk_Restaurants_RestaurantId 
+			PRIMARY KEY (RestaurantId),
+		CONSTRAINT fk_Restaurants_Zip
+			FOREIGN KEY (Zip)
+			REFERENCES ZipCodes(Zip)
+			ON UPDATE CASCADE ON DELETE CASCADE
+	);
+
+
+
