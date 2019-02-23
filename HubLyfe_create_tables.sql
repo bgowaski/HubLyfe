@@ -6,35 +6,35 @@ USE Hublyfe;
 DROP TABLE IF EXISTS Ethnicity;
 DROP TABLE IF EXISTS EducationalAttainment;
 DROP TABLE IF EXISTS AgeData;
-DROP TABLE IF EXISTS Demographics;
-DROP TABLE IF EXISTS Restaurants;
+DROP TABLE IF EXISTS Demographic;
+DROP TABLE IF EXISTS Restaurant;
 DROP TABLE IF EXISTS Rent;
-DROP TABLE IF EXISTS JobDetails;
+DROP TABLE IF EXISTS JobDetail;
 DROP TABLE IF EXISTS JobDepartment;
-DROP TABLE IF EXISTS Users;
-DROP TABLE IF EXISTS SchoolTypes;
-DROP TABLE IF EXISTS PublicSchools;
-DROP TABLE IF EXISTS ZipCodes;
-DROP TABLE IF EXISTS Neighborhoods;
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS SchoolType;
+DROP TABLE IF EXISTS PublicSchool;
+DROP TABLE IF EXISTS ZipCode;
+DROP TABLE IF EXISTS Neighborhood;
 
 
-CREATE TABLE Neighborhoods (
+CREATE TABLE Neighborhood (
 	NeighborhoodName VARCHAR(255),
-	CONSTRAINT pk_Neighborhoods_NeighborhoodName PRIMARY KEY (NeighborhoodName)
+	CONSTRAINT pk_Neighborhood_NeighborhoodName PRIMARY KEY (NeighborhoodName)
 );
 
 
-CREATE TABLE ZipCodes (
+CREATE TABLE ZipCode (
 	Zip INT,
     NeighborhoodName VARCHAR(255),
 	CONSTRAINT pk_ZipCodes_Zip PRIMARY KEY (Zip),
 	CONSTRAINT fk_ZipCodes_NeighborhoodName FOREIGN KEY (NeighborhoodName)
-        		REFERENCES Neighborhoods(NeighborhoodName) ON UPDATE CASCADE ON DELETE SET NULL
+        		REFERENCES Neighborhood(NeighborhoodName) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 
 
-CREATE TABLE PublicSchools (
+CREATE TABLE PublicSchool(
 SchoolId INT AUTO_INCREMENT,
 SchoolName VARCHAR(255),
 HistoricalName VARCHAR(255),
@@ -47,32 +47,30 @@ YearBuilt INT,
 SchoolOpen VARCHAR(255),
 SchoolClose VARCHAR(255),
 SchoolEnrollment VARCHAR(255),
-	CONSTRAINT pk_PublicSchools_SchoolId 
+	CONSTRAINT pk_PublicSchool_SchoolId 
 		PRIMARY KEY (SchoolId),
-	CONSTRAINT fk_PublicSchools_NeighborhoodName
+	CONSTRAINT fk_PublicSchool_NeighborhoodName
 		FOREIGN KEY (NeighborhoodName)
-        		REFERENCES Neighborhoods(NeighborhoodName)
+        		REFERENCES Neighborhood(NeighborhoodName)
         		ON UPDATE CASCADE ON DELETE SET NULL
 );
 
-/* Only 98 records were loaded because, certain neighborhood is a multiple option in neighborhood table*/
 
-
-CREATE TABLE SchoolTypes (
-	SchoolTypesId INT AUTO_INCREMENT,
+CREATE TABLE SchoolType (
+	SchoolTypeId INT AUTO_INCREMENT,
 	SchoolId INT,
 	GradesOffered VARCHAR(20),
 	SchoolTypology ENUM("Elementary School", "High School", "Special", "k-8","Middle School"), 
-	CONSTRAINT pk_DemographicsDemographicsSchoolTypes_SchoolTypesId 
-		PRIMARY KEY (SchoolTypesId),
-	CONSTRAINT fk_SchoolTypes_SchoolId
+	CONSTRAINT pk_DemographicDemographicsSchoolType_SchoolTypeId 
+		PRIMARY KEY (SchoolTypeId),
+	CONSTRAINT fk_SchoolType_SchoolId
 		FOREIGN KEY (SchoolId)
-        REFERENCES PublicSchools(SchoolId)
+        REFERENCES PublicSchool(SchoolId)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
-CREATE TABLE Users (
+CREATE TABLE User (
 	Username VARCHAR(255),
 	FirstName VARCHAR(255),
 	LastName VARCHAR(255),
@@ -80,7 +78,7 @@ CREATE TABLE Users (
 	ResidenceZip INT,
 	OccupationZip INT,
 	JobTitle VARCHAR(255),
-	CONSTRAINT pk_Users_Username 
+	CONSTRAINT pk_User_Username 
 		PRIMARY KEY (Username)
 );
 
@@ -91,18 +89,18 @@ CREATE TABLE JobDepartment (
 		PRIMARY KEY (DepartmentName)
 );
 
-CREATE TABLE JobDetails (
+CREATE TABLE JobDetail (
 	JobTitle VARCHAR(255),
 	DepartmentName VARCHAR(255),
 	Salary VARCHAR(100),
 	Zip INT,
-	CONSTRAINT pk_JobDetails_JobTitle 
+	CONSTRAINT pk_JobDetail_JobTitle 
 		PRIMARY KEY (JobTitle),
-	CONSTRAINT fk_JobDetails_Zip
+	CONSTRAINT fk_JobDetail_Zip
 		FOREIGN KEY (Zip)
-		REFERENCES ZipCodes(Zip)
+		REFERENCES ZipCode(Zip)
 		ON UPDATE CASCADE ON DELETE SET NULL,
-	CONSTRAINT fk_JobDetails_DepartmentName
+	CONSTRAINT fk_JobDetail_DepartmentName
 		FOREIGN KEY (DepartmentName)
 		REFERENCES JobDepartment(DepartmentName)
 		ON UPDATE CASCADE ON DELETE SET NULL
@@ -120,14 +118,14 @@ CREATE TABLE Rent(
 		PRIMARY KEY (RentId),
 	CONSTRAINT fk_Rent_NeighborhoodName
 		FOREIGN KEY (NeighborhoodName)
-		REFERENCES Neighborhoods(NeighborhoodName)
+		REFERENCES Neighborhood(NeighborhoodName)
 		ON UPDATE CASCADE ON DELETE SET NULL	
 );
 
 
 
-CREATE TABLE Demographics (
-	DemographicsId INT AUTO_INCREMENT,
+CREATE TABLE Demographic (
+	DemographicId INT AUTO_INCREMENT,
 	NeighborhoodName VARCHAR (255),
 	Population DOUBLE,
 	ForiegnBorn INT,
@@ -136,25 +134,25 @@ CREATE TABLE Demographics (
 	OccupiedHousingUnits INT,
 	OwnerOccupiedUnits INT,
 	RenterOccupiedUnits INT,
-	CONSTRAINT pk_Demographics_DemographicsId 
-		PRIMARY KEY (DemographicsId),
-	CONSTRAINT fk_Demographics_NeighborhoodName
+	CONSTRAINT pk_Demographic_DemographicId 
+		PRIMARY KEY (DemographicId),
+	CONSTRAINT fk_Demographic_NeighborhoodName
 		FOREIGN KEY (NeighborhoodName)
-		REFERENCES Neighborhoods(NeighborhoodName)
+		REFERENCES Neighborhood(NeighborhoodName)
 		ON UPDATE CASCADE ON DELETE SET NULL	
 );
 
 CREATE TABLE EducationalAttainment (
 	EdAttainmentId INT AUTO_INCREMENT,
-	DemographicsId INT,
+	DemographicId INT,
 	EdType ENUM("less than High school", "High School or GED", "some college or Associate's Degree", "Bachelor's Degree or Higher"),
 	EdPopulation INT,	
-	UNIQUE (DemographicsId, EdType),
+	UNIQUE (DemographicId, EdType),
 	CONSTRAINT pk_EducationalAttainment_EdAttainmentId 
 		PRIMARY KEY (EdAttainmentId),
-CONSTRAINT fk_EducationalAttainment_DemographicsId
-		FOREIGN KEY (DemographicsId)
-		REFERENCES Demographics(DemographicsId)
+CONSTRAINT fk_EducationalAttainment_DemographicId
+		FOREIGN KEY (DemographicId)
+		REFERENCES Demographic(DemographicId)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -162,15 +160,15 @@ CONSTRAINT fk_EducationalAttainment_DemographicsId
 
 CREATE TABLE AgeData (
 	AgeId INT AUTO_INCREMENT,
-	DemographicsId INT,
+	DemographicId INT,
 	AgeRange ENUM("0-9 years", "10-19 years", "20-34 years", "35-54 years", "55-64 years", "65 years and over"),
 	AgePercentage INT,
-UNIQUE (DemographicsId, AgeRange),
+UNIQUE (DemographicId, AgeRange),
 	CONSTRAINT pk_AgeData_AgeId
 		PRIMARY KEY (AgeId),
-	CONSTRAINT fk_AgeData_DemographicsId
-		FOREIGN KEY (DemographicsId)
-		REFERENCES Demographics(DemographicsId)
+	CONSTRAINT fk_AgeData_DemographicId
+		FOREIGN KEY (DemographicId)
+		REFERENCES Demographic(DemographicId)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -178,19 +176,19 @@ UNIQUE (DemographicsId, AgeRange),
 
 CREATE TABLE Ethnicity (
 	EthnicityId INT AUTO_INCREMENT,
-	DemographicsId INT,
+	DemographicId INT,
 	EthnicityType ENUM("white", "black or african american", "hispanic", "asian or PI", "other"),
 	EthnicityPopulation INT,
-	UNIQUE (DemographicsId, EthnicityType),
+	UNIQUE (DemographicId, EthnicityType),
 	CONSTRAINT pk_Ethnicity_EthnicityId 
 		PRIMARY KEY (EthnicityId),
-	CONSTRAINT fk_Ethnicity_DemographicsId
-		FOREIGN KEY (DemographicsId)
-		REFERENCES Demographics(DemographicsId)
+	CONSTRAINT fk_Ethnicity_DemographicId
+		FOREIGN KEY (DemographicId)
+		REFERENCES Demographic(DemographicId)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-	CREATE TABLE Restaurants (
+	CREATE TABLE Restaurant (
 		RestaurantId INT,
 		RestaurantName VARCHAR(255),
 		LicenseStatus VARCHAR(255),
@@ -199,11 +197,11 @@ CREATE TABLE Ethnicity (
 		City VARCHAR(255),
 		State VARCHAR(255),
 		Zip INT,
-		CONSTRAINT pk_Restaurants_RestaurantId 
+		CONSTRAINT pk_Restaurant_RestaurantId 
 			PRIMARY KEY (RestaurantId),
-		CONSTRAINT fk_Restaurants_Zip
+		CONSTRAINT fk_Restaurant_Zip
 			FOREIGN KEY (Zip)
-			REFERENCES ZipCodes(Zip)
+			REFERENCES ZipCode(Zip)
 			ON UPDATE CASCADE ON DELETE CASCADE
 	);
 
