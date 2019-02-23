@@ -60,7 +60,7 @@ CREATE TABLE SchoolType (
 	SchoolTypeId INT AUTO_INCREMENT,
 	SchoolId INT,
 	GradesOffered VARCHAR(20),
-	SchoolTypology ENUM("Elementary School", "High School", "Special", "k-8","Middle School"), 
+	SchoolTypology ENUM("Elementary School", "High School", "Special", "k-8","Middle School", "Early Learning"), 
 	CONSTRAINT pk_DemographicDemographicsSchoolType_SchoolTypeId 
 		PRIMARY KEY (SchoolTypeId),
 	CONSTRAINT fk_SchoolType_SchoolId
