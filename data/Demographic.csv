@@ -1,4 +1,4 @@
-DemographicsId,NeighborhoodName,Population,ForeignBorn,FemaleLaborForce,MaleLaborForce,OccupiedHousingUnits,RenterOccupiedUnits,OwnerOccupiedUnits
+DemographicId,NeighborhoodName,Population,ForeignBorn,FemaleLaborForce,MaleLaborForce,OccupiedHousingUnits,RenterOccupiedUnits,OwnerOccupiedUnits
 1,Allston,19761,5646,5450,6028,6347,5708,639
 2,Back Bay,19761,3585,5988,5542,9900,3292,6608
 3,Beacon Hill,9305,948,3488,3434,5423,3655,1768

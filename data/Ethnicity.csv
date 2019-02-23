@@ -1,4 +1,4 @@
-EthnicityId,DemographicsId,EthnicityType,EthnicPopulation
+EthnicityId,DemographicId,EthnicityType,EthnicPopulation
 1,1,White,11318
 2,1,Black/ African American,1147
 3,1,Hispanic,3191

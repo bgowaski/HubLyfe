@@ -1,96 +1,96 @@
-"RentId","NeighborhoodName","OccupancyType","Price"
-"1","Roslindale","All rentals","$2265"
-"2","Roslindale","Studio","$1824"
-"3","Roslindale","1 Bed","$2142"
-"4","Roslindale","2 Beds","$2321"
-"5","Roslindale","3 Beds","$2785"
-"6","Roxbury","All rentals","$2283"
-"7","Roxbury","Studio","$2127"
-"8","Roxbury","1 Bed","$2195"
-"9","Roxbury","2 Beds","$2340"
-"10","Roxbury","3 Beds","$2432"
-"11","Jamaica Plain","All rentals","$2610"
-"12","Jamaica Plain","Studio","$2359"
-"13","Jamaica Plain","1 Bed","$2491"
-"14","Jamaica Plain","2 Beds","$2672"
-"15","Jamaica Plain","3 Beds","$3304"
-"16","East Boston","All rentals","$2633"
-"17","East Boston","Studio","$1799"
-"18","East Boston","1 Bed","$2365"
-"19","East Boston","2 Beds","$2936"
-"20","East Boston","3 Beds","$2824"
-"21","Dorchester","All rentals","$2633"
-"22","Dorchester","Studio","$2268"
-"23","Dorchester","1 Bed","$2530"
-"24","Dorchester","2 Beds","$2750"
-"25","Dorchester","3 Beds","$3600"
-"26","Allston","All rentals","$2706"
-"27","Allston","Studio","$2016"
-"28","Allston","1 Bed","$2615"
-"29","Allston","2 Beds","$3155"
-"30","Allston","3 Beds","$3659"
-"31","Brighton","All rentals","$2706"
-"32","Brighton","Studio","$2016"
-"33","Brighton","1 Bed","$2615"
-"34","Brighton","2 Beds","$3155"
-"35","Brighton","3 Beds","$3659"
-"36","Charlestown","All rentals","$3099"
-"37","Charlestown","Studio","$2392"
-"38","Charlestown","1 Bed","$2766"
-"39","Charlestown","2 Beds","$4154"
-"40","Charlestown","3 Beds","$3200"
-"41","Beacon Hill","All rentals","$3218"
-"42","Beacon Hill","Studio","$2262"
-"43","Beacon Hill","1 Bed","$3070"
-"44","Beacon Hill","2 Beds","$4017"
-"45","Beacon Hill","3 Beds","$4892"
-"46","Mission Hill","All rentals","$3222"
-"47","Mission Hill","Studio","$2181"
-"48","Mission Hill","1 Bed","$2985"
-"49","Mission Hill","2 Beds","$3632"
-"50","Mission Hill","3 Beds","$4887"
-"51","Fenway - Kenmore","All rentals","$3223"
-"52","Fenway - Kenmore","Studio","$2189"
-"53","Fenway - Kenmore","1 Bed","$3077"
-"54","Fenway - Kenmore","2 Beds","$3719"
-"55","Fenway - Kenmore","3 Beds","$5293"
-"56","South End Boston","All rentals","$3256"
-"57","South End Boston","Studio","$2380"
-"58","South End Boston","1 Bed","$3047"
-"59","South End Boston","2 Beds","$3806"
-"60","South End Boston","3 Beds","$4346"
-"61","West End Boston","All rentals","$3304"
-"62","West End Boston","Studio","$2311"
-"63","West End Boston","1 Bed","$3183"
-"64","West End Boston","2 Beds","$4033"
-"65","West End Boston","3 Beds","$4892"
-"66","South Boston","All rentals","$3412"
-"67","South Boston","Studio","$2697"
-"68","South Boston","1 Bed","$3201"
-"69","South Boston","2 Beds","$3892"
-"70","South Boston","3 Beds","$5801"
-"71","Bay Village","All rentals","$3527"
-"72","Bay Village","Studio",$2391"
-"73","Bay Village","1 Bed","$3298"
-"74","Bay Village","2 Beds",$4381"
-"75","Bay Village","3 Beds","$4517"
-"76","Downtown Boston","All rentals","$3555"
-"77","Downtown Boston","Studio","$2663"
-"78","Downtown Boston","1 Bed","$3136"
-"79","Downtown Boston","2 Beds","$4342"
-"80","Downtown Boston","3 Beds","$5213"
-"81","Chinatown","All rentals","$3605"
-"82","Chinatown","Studio","$2560"
-"83","Chinatown","1 Bed","$3337"
-"84","Chinatown","2 Beds","$4395"
-"85","Chinatown","3 Beds","$4692"
-"86","Back Bay","All rentals","$3627"
-"87","Back Bay","Studio","$2483"
-"88","Back Bay","1 Bed","$3269"
-"89","Back Bay","2 Beds","$4409"
-"90","Back Bay","3 Beds","$5750"
-"91","North End Boston","All rentals","$3674"
-"92","North End Boston","Studio","$3112"
-"93","North End Boston","1 Bed","$3137"
-"94","North End Boston","2 Beds","$4322"
-"95","North End Boston","3 Beds","$6875"
+RentId,NeighborhoodName,OccupancyType,Price
+1,Roslindale,All rentals,2265
+2,Roslindale,Studio,1824
+3,Roslindale,1 Bed,2142
+4,Roslindale,2 Beds,2321
+5,Roslindale,3 Beds,2785
+6,Roxbury,All rentals,2283
+7,Roxbury,Studio,2127
+8,Roxbury,1 Bed,2195
+9,Roxbury,2 Beds,2340
+10,Roxbury,3 Beds,2432
+11,Jamaica Plain,All rentals,2610
+12,Jamaica Plain,Studio,2359
+13,Jamaica Plain,1 Bed,2491
+14,Jamaica Plain,2 Beds,2672
+15,Jamaica Plain,3 Beds,3304
+16,East Boston,All rentals,2633
+17,East Boston,Studio,1799
+18,East Boston,1 Bed,2365
+19,East Boston,2 Beds,2936
+20,East Boston,3 Beds,2824
+21,Dorchester,All rentals,2633
+22,Dorchester,Studio,2268
+23,Dorchester,1 Bed,2530
+24,Dorchester,2 Beds,2750
+25,Dorchester,3 Beds,3600
+26,Allston,All rentals,2706
+27,Allston,Studio,2016
+28,Allston,1 Bed,2615
+29,Allston,2 Beds,3155
+30,Allston,3 Beds,3659
+31,Brighton,All rentals,2706
+32,Brighton,Studio,2016
+33,Brighton,1 Bed,2615
+34,Brighton,2 Beds,3155
+35,Brighton,3 Beds,3659
+36,Charlestown,All rentals,3099
+37,Charlestown,Studio,2392
+38,Charlestown,1 Bed,2766
+39,Charlestown,2 Beds,4154
+40,Charlestown,3 Beds,3200
+41,Beacon Hill,All rentals,3218
+42,Beacon Hill,Studio,2262
+43,Beacon Hill,1 Bed,3070
+44,Beacon Hill,2 Beds,4017
+45,Beacon Hill,3 Beds,4892
+46,Mission Hill,All rentals,3222
+47,Mission Hill,Studio,2181
+48,Mission Hill,1 Bed,2985
+49,Mission Hill,2 Beds,3632
+50,Mission Hill,3 Beds,4887
+51,Fenway - Kenmore,All rentals,3223
+52,Fenway - Kenmore,Studio,2189
+53,Fenway - Kenmore,1 Bed,3077
+54,Fenway - Kenmore,2 Beds,3719
+55,Fenway - Kenmore,3 Beds,5293
+56,South End Boston,All rentals,3256
+57,South End Boston,Studio,2380
+58,South End Boston,1 Bed,3047
+59,South End Boston,2 Beds,3806
+60,South End Boston,3 Beds,4346
+61,West End Boston,All rentals,3304
+62,West End Boston,Studio,2311
+63,West End Boston,1 Bed,3183
+64,West End Boston,2 Beds,4033
+65,West End Boston,3 Beds,4892
+66,South Boston,All rentals,3412
+67,South Boston,Studio,2697
+68,South Boston,1 Bed,3201
+69,South Boston,2 Beds,3892
+70,South Boston,3 Beds,5801
+71,Bay Village,All rentals,3527
+72,Bay Village,Studio,2391
+73,Bay Village,1 Bed,3298
+74,Bay Village,2 Beds,4381
+75,Bay Village,3 Beds,4517
+76,Downtown Boston,All rentals,3555
+77,Downtown Boston,Studio,2663
+78,Downtown Boston,1 Bed,3136
+79,Downtown Boston,2 Beds,4342
+80,Downtown Boston,3 Beds,5213
+81,Chinatown,All rentals,3605
+82,Chinatown,Studio,2560
+83,Chinatown,1 Bed,3337
+84,Chinatown,2 Beds,4395
+85,Chinatown,3 Beds,4692
+86,Back Bay,All rentals,3627
+87,Back Bay,Studio,2483
+88,Back Bay,1 Bed,3269
+89,Back Bay,2 Beds,4409
+90,Back Bay,3 Beds,5750
+91,North End Boston,All rentals,3674
+92,North End Boston,Studio,3112
+93,North End Boston,1 Bed,3137
+94,North End Boston,2 Beds,4322
+95,North End Boston,3 Beds,6875
