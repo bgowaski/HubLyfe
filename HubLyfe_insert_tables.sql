@@ -6,23 +6,23 @@ INSERT INTO Users(Username, FirstName, LastName, Password, ResidenceZip, Occupat
     ('sheela27', 'Sheela', 'Satathyanarayana', 'wadlefjkh', '2125', '2155', 'Sr Traffic Engineer'),
     ('gost444', 'Ben', 'Gostkowski', 'hhhtttt', '2368', '2132', 'Spec Library Asst V');
     
-LOAD DATA INFILE '/var/mysql/Neighborhoods.csv' INTO TABLE Neighborhoods
+LOAD DATA INFILE '/var/mysql/Neighborhoods.csv' INTO TABLE Neighborhood
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;
    
     
-LOAD DATA INFILE '/var/mysql/ZipCodes.csv' INTO TABLE ZipCodes
+LOAD DATA INFILE '/var/mysql/ZipCodes.csv' INTO TABLE ZipCode
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;
     
-LOAD DATA INFILE '/var/mysql/Restaurants.csv' INTO TABLE Restaurants
+LOAD DATA INFILE '/var/mysql/Restaurants.csv' INTO TABLE Restaurant
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;    
     
-LOAD DATA INFILE '/var/mysql/PublicSchools.csv' INTO TABLE PublicSchools
+LOAD DATA INFILE '/var/mysql/PublicSchools.csv' INTO TABLE PublicSchool
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES; 
@@ -38,7 +38,7 @@ LOAD DATA INFILE '/var/mysql/JobDepartment.csv' INTO TABLE JobDepartment
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
-LOAD DATA INFILE '/var/mysql/JobDetails.csv' INTO TABLE JobDetails
+LOAD DATA INFILE '/var/mysql/JobDetails.csv' INTO TABLE JobDetail
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
@@ -46,7 +46,7 @@ LOAD DATA INFILE '/var/mysql/Rent.csv' INTO TABLE Rent
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
-LOAD DATA INFILE '/var/mysql/Demographics.csv' INTO TABLE Demographics
+LOAD DATA INFILE '/var/mysql/Demographics.csv' INTO TABLE Demographic
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
