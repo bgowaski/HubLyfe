@@ -178,7 +178,7 @@ UNIQUE (DemographicId, AgeRange),
 CREATE TABLE Ethnicity (
 	EthnicityId INT AUTO_INCREMENT,
 	DemographicId INT,
-	EthnicityType ENUM("white", "black or african american", "hispanic", "asian or PI", "other"),
+	EthnicityType ENUM("White", "Black/ African American", "Hispanic", "Asian/PI", "Other"),
 	EthnicityPopulation INT,
 	UNIQUE (DemographicId, EthnicityType),
 	CONSTRAINT pk_Ethnicity_EthnicityId 
