@@ -90,12 +90,13 @@ CREATE TABLE JobDepartment (
 );
 
 CREATE TABLE JobDetail (
+	JobTitleId INT,
 	JobTitle VARCHAR(255),
 	DepartmentName VARCHAR(255),
 	Salary DECIMAL(10,2),
 	Zip INT,
-	CONSTRAINT pk_JobDetail_JobTitle 
-		PRIMARY KEY (JobTitle),
+	CONSTRAINT pk_JobDetail_JobTitleId 
+		PRIMARY KEY (JobTitleId),
 	CONSTRAINT fk_JobDetail_Zip
 		FOREIGN KEY (Zip)
 		REFERENCES ZipCode(Zip)
