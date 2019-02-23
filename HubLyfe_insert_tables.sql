@@ -6,29 +6,29 @@ INSERT INTO Users(Username, FirstName, LastName, Password, ResidenceZip, Occupat
     ('sheela27', 'Sheela', 'Satathyanarayana', 'wadlefjkh', '2125', '2155', 'Sr Traffic Engineer'),
     ('gost444', 'Ben', 'Gostkowski', 'hhhtttt', '2368', '2132', 'Spec Library Asst V');
     
-LOAD DATA INFILE '/var/mysql/Neighborhoods.csv' INTO TABLE Neighborhood
+LOAD DATA INFILE '/var/mysql/Neighborhood.csv' INTO TABLE Neighborhood
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;
    
     
-LOAD DATA INFILE '/var/mysql/ZipCodes.csv' INTO TABLE ZipCode
+LOAD DATA INFILE '/var/mysql/ZipCode.csv' INTO TABLE ZipCode
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;
     
-LOAD DATA INFILE '/var/mysql/Restaurants.csv' INTO TABLE Restaurant
+LOAD DATA INFILE '/var/mysql/Restaurant.csv' INTO TABLE Restaurant
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;    
     
-LOAD DATA INFILE '/var/mysql/PublicSchools.csv' INTO TABLE PublicSchool
+LOAD DATA INFILE '/var/mysql/PublicSchool.csv' INTO TABLE PublicSchool
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES; 
 
     
-LOAD DATA INFILE '/var/mysql/SchoolTypes.csv' INTO TABLE SchoolTypes
+LOAD DATA INFILE '/var/mysql/SchoolType.csv' INTO TABLE SchoolTypes
 	FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES;
@@ -38,7 +38,7 @@ LOAD DATA INFILE '/var/mysql/JobDepartment.csv' INTO TABLE JobDepartment
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
-LOAD DATA INFILE '/var/mysql/JobDetails.csv' INTO TABLE JobDetail
+LOAD DATA INFILE '/var/mysql/JobDetail.csv' INTO TABLE JobDetail
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
@@ -46,7 +46,7 @@ LOAD DATA INFILE '/var/mysql/Rent.csv' INTO TABLE Rent
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
-LOAD DATA INFILE '/var/mysql/Demographics.csv' INTO TABLE Demographic
+LOAD DATA INFILE '/var/mysql/Demographic.csv' INTO TABLE Demographic
     LINES TERMINATED BY ','
     IGNORE 1 LINES;
     
