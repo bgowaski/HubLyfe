@@ -113,7 +113,7 @@ CREATE TABLE Rent(
 	RentId INT AUTO_INCREMENT,
 	NeighborhoodName VARCHAR(255),
 	OccupancyType ENUM ("All rentals", "Studio", "1 Bed", "2 Beds", "3 Beds"),
-	Price VARCHAR(255),
+	Price DECIMAL(6,2),
 	CONSTRAINT pk_Rent_RentId 
 		PRIMARY KEY (RentId),
 	CONSTRAINT fk_Rent_NeighborhoodName
