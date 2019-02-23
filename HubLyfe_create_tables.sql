@@ -93,6 +93,7 @@ CREATE TABLE JobDetail (
 	JobTitle VARCHAR(255),
 	DepartmentName VARCHAR(255),
 	Salary VARCHAR(100),
+	Salary DECIMAL(6,2),
 	Zip INT,
 	CONSTRAINT pk_JobDetail_JobTitle 
 		PRIMARY KEY (JobTitle),
