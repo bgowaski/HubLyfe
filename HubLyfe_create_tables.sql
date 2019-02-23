@@ -60,7 +60,7 @@ CREATE TABLE SchoolType (
 	SchoolTypeId INT AUTO_INCREMENT,
 	SchoolId INT,
 	GradesOffered VARCHAR(20),
-	SchoolTypology ENUM("Elementary School", "High School", "Special", "k-8","Middle School"), 
+	SchoolTypology ENUM("Elementary School", "High School", "Special", "k-8","Middle School",  "Early Learning"), 
 	CONSTRAINT pk_DemographicDemographicsSchoolType_SchoolTypeId 
 		PRIMARY KEY (SchoolTypeId),
 	CONSTRAINT fk_SchoolType_SchoolId
@@ -192,7 +192,7 @@ CREATE TABLE Ethnicity (
 		RestaurantId INT,
 		RestaurantName VARCHAR(255),
 		LicenseStatus VARCHAR(255),
-		RestaurantType ENUM("Eating & Drinking", "Retail Food", "Eating & Drinking w/ Takeout"),
+		RestaurantType ENUM("Eating & Drinking", "Retail Food", "Eating & Drinking w/ Take Out", "Mobile Food Walk On"),
 		Address LONGTEXT,
 		City VARCHAR(255),
 		State VARCHAR(255),
