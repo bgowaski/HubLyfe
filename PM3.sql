@@ -13,7 +13,7 @@ ORDER BY((Demographic.RenterOccupiedUnits/Demographic.OwnerOccupiedUnits)*100) D
 SELECT PublicSchool.NeighborhoodName, PublicSchool.SchoolName, SchoolType.SchoolTypology
 FROM PublicSchool
 LEFT OUTER JOIN SchoolType on PublicSchool.SchoolId = SchoolType.SchoolId
-HAVING SchoolType.SchoolTypology = "Elementary School"
+HAVING SchoolType.SchoolTypology = 'Elementary School'
 ORDER BY (PublicSchool.YearBuilt) DESC LIMIT 1;
 
 #3. If a user knows where they are going to live (neighborhood/zip) they will want to know all active restaurants in their area.
@@ -68,6 +68,7 @@ ORDER BY  Count(*) DESC, ZipCode.NeighborhoodName
 LIMIT 5;
 
 #8. A rich single person wants to move to the most expensive neighborhood and live in a studio or 1 bedroom with the highest rent.
+
 SELECT * FROM ((SELECT NeighborhoodName, OccupancyType, Price FROM Rent
 WHERE OccupancyType in ('1 Bed')
 ORDER BY Price DESC LIMIT 1)
@@ -82,3 +83,11 @@ ORDER BY Price DESC LIMIT 1)) AS ExpensiveAccomodation;
 
 #10. A foreign born retired (65+) hispanic couple wants to move to a neighborhood with similar people to be able to make more friends. 
 # - Age percentage, foreign born percentage (foreign born/pop), for every neighborhood containing hispanic type.
+
+SELECT NeighborhoodName, Population, ROUND( (ForiegnBorn/Population)*100) AS '% Foriegn Born', 
+	ROUND((EthnicityPopulation/Population)*100) AS '% Hispanic', ROUND((AgePercentage/Population)*100) AS '% 65+'
+FROM Demographic
+LEFT OUTER JOIN Ethnicity ON Demographic.DemographicId = Ethnicity.DemographicId
+LEFT OUTER JOIN AgeData ON Demographic.DemographicId = AgeData.DemographicId
+WHERE EthnicityType = 'Hispanic' AND AgeData.AgeRange = '65 years and over'
+ORDER BY (AgePercentage/Population)*100 DESC,(EthnicityPopulation/Population)*100 DESC, (ForiegnBorn/Population)*100 DESC
