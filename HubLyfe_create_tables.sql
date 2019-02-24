@@ -75,6 +75,7 @@ CREATE TABLE User (
 	FirstName VARCHAR(255),
 	LastName VARCHAR(255),
 	Password VARCHAR(255),
+    Age INT,
 	ResidenceZip INT,
 	OccupationZip INT,
 	JobTitle VARCHAR(255),
@@ -163,7 +164,7 @@ CREATE TABLE AgeData (
 	AgeId INT AUTO_INCREMENT,
 	DemographicId INT,
 	AgeRange ENUM("0-9 years", "10-19 years", "20-34 years", "35-54 years", "55-64 years", "65 years and over"),
-	AgePercentage INT,
+	AgePercentage INT, # Change to age population
 UNIQUE (DemographicId, AgeRange),
 	CONSTRAINT pk_AgeData_AgeId
 		PRIMARY KEY (AgeId),
