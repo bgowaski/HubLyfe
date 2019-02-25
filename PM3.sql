@@ -110,7 +110,20 @@ UNION
 WHERE OccupancyType in ('Studio')
 ORDER BY Price DESC LIMIT 1)) AS ExpensiveAccomodation;
 
-#9. A user trying to switch careers to something more popular may want to know which job departments in the city have the most jobs.
+#9. A user trying to switch careers to something more popular may want to know which job departments and neighborhoods in the city have the most jobs.
+##A user wants to switch to a more profitable career and wants to see for each neighborhood in Boston, the Job Departments with the highest salary #Just can't get the department name
+SELECT SALARIES.Neighborhood, MAX(SALARIES.AverageSalary)
+FROM(
+SELECT  ZipCode.NeighborhoodName AS Neighborhood, SALARY.DepartmentName AS Department, AVG(SALARY.MONEY) AS AverageSalary
+FROM ZipCode
+LEFT OUTER JOIN(
+SELECT DepartmentName, Zip, AVG(Salary) AS MONEY
+FROM JobDetail
+GROUP BY DepartmentName, Salary, Zip) AS SALARY
+ON ZipCode.Zip = SALARY.Zip
+GROUP BY ZipCode.NeighborhoodName, SALARY.MONEY, SALARY.DepartmentName ) AS SALARIES
+GROUP BY SALARIES.Neighborhood;
+
 
 
 
@@ -123,4 +136,21 @@ FROM Demographic
 LEFT OUTER JOIN Ethnicity ON Demographic.DemographicId = Ethnicity.DemographicId
 LEFT OUTER JOIN AgeData ON Demographic.DemographicId = AgeData.DemographicId
 WHERE EthnicityType = 'Hispanic' AND AgeData.AgeRange = '65 years and over'
-ORDER BY (AgePercentage/Population)*100 DESC,(EthnicityPopulation/Population)*100 DESC, (ForiegnBorn/Population)*100 DESC
+ORDER BY (AgePercentage/Population)*100 DESC,(EthnicityPopulation/Population)*100 DESC, (ForiegnBorn/Population)*100 DESC;
+
+
+##ratio of average rent to number of restaurants for each neighborhood
+SELECT RESTANDRENT.Neighborhood, RESTANDRENT.AverageRent/RESTANDRENT.NumberOfRestaurants AS AverageRentPerRestaurant
+FROM (
+SELECT RESTAURANTS.NeighborhoodName AS Neighborhood, RESTAURANTS.NumberOfRestaurants AS NumberOfRestaurants , AVG(Rent.Price) AS AverageRent 
+FROM 
+(SELECT ZipCode.NeighborhoodName AS NeighborhoodName, COUNT(*) AS NumberOfRestaurants
+FROM Restaurant 
+LEFT OUTER JOIN ZipCode
+ON Restaurant.Zip = ZipCode.Zip
+GROUP BY ZipCode.NeighborhoodName) AS RESTAURANTS
+INNER JOIN Rent
+ON RESTAURANTS.NeighborhoodName = Rent.NeighborhoodName
+GROUP BY RESTAURANTS.NeighborhoodName) AS RESTANDRENT
+GROUP BY RESTANDRENT.Neighborhood
+ORDER BY AverageRentPerRestaurant;
