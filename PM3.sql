@@ -55,6 +55,39 @@ WHERE JobTitle like 'Fire Captain%'
 ORDER BY  NeighborhoodName, Salary DESC,  DepartmentName , JobDetail.Zip;
 
 #6. Based on average age percentage in a neighborhood of interest, the user can find how many schools are available for that age range.
+SELECT temp1.NeighborhoodName, temp1.AgeRange, temp1.Counts AS 'Number of Schools for Age Range', temp2.AgePercentage AS 'Age Population'
+ FROM
+(SELECT NeighborhoodName, '0-9 years' AS AgeRange, Case1 AS 'Counts' 
+FROM 
+	(SELECT NeighborhoodName,
+		COUNT(CASE WHEN SchoolTypology IN ('Elementary School', 'Early Learning', 'k-8') THEN 1 END) AS 'Case1',
+		COUNT(CASE WHEN SchoolTypology IN ('Middle School', 'High School', 'k-8') THEN 1 END) AS 'Case2'
+	FROM PublicSchool
+	INNER JOIN SchoolType ON SchoolType.SchoolId = PublicSchool.SchoolId
+	GROUP BY  NeighborhoodName
+    ) AS table1
+    
+    UNION ALL
+
+	SELECT NeighborhoodName, '10-19 years' AS AgeRange, Case2 AS 'Number of Schools' 
+	FROM 
+		(SELECT NeighborhoodName,
+			COUNT(CASE WHEN SchoolTypology IN ('Elementary School', 'Early Learning', 'k-8') THEN 1 END) AS 'Case1',
+			COUNT(CASE WHEN SchoolTypology IN ('Middle School', 'High School', 'k-8') THEN 1 END) AS 'Case2'
+		FROM PublicSchool
+		INNER JOIN SchoolType ON SchoolType.SchoolId = PublicSchool.SchoolId
+		GROUP BY  NeighborhoodName
+		) AS table2
+) AS temp1
+INNER JOIN 
+
+(SELECT NeighborhoodName, AgeRange, AgePercentage 
+FROM Demographic
+LEFT JOIN AgeData ON AgeData.DemographicId = Demographic.DemographicId
+) AS temp2
+
+ON temp1.NeighborhoodName = temp2.NeighborhoodName AND temp1.AgeRange = temp2.AgeRange
+ORDER BY temp1.NeighborhoodName;
 
 
 
