@@ -1,5 +1,3 @@
-USE Hublyfe;
-
 #1. When a user moves to a city they may want to know where most renters live, how many people live in that neighborhood, and what the average rent is of that neighborhood.
 
 SELECT Demographic.NeighborhoodName, Demographic.Population, (Demographic.RenterOccupiedUnits/Demographic.OccupiedHousingUnits)*100 AS '% Renter occupied',  Rent.Price
@@ -16,15 +14,26 @@ LEFT OUTER JOIN SchoolType on PublicSchool.SchoolId = SchoolType.SchoolId
 HAVING SchoolType.SchoolTypology = 'Elementary School'
 ORDER BY (PublicSchool.YearBuilt) DESC LIMIT 1;
 
-#3. If a user knows where they are going to live (neighborhood/zip) they will want to know all active restaurants in their area.
 
-SELECT User.UserName,Restaurant.RestaurantType, Restaurant.RestaurantName, Restaurant.LicenseStatus
+
+
+
+#3. If a user values how much they pay in rent based on how many restaurants are nearby, they can use the ratio of average rent to number of neighborhoods as a good metric.
+# (i.e. A ratio closer to 1 (or below 1) means there are as many or more restarants in the area in relation to rent paid)
+SELECT RESTANDRENT.Neighborhood, RESTANDRENT.AverageRent/RESTANDRENT.NumberOfRestaurants AS AverageRentPerRestaurant
+FROM (
+SELECT RESTAURANTS.NeighborhoodName AS Neighborhood, RESTAURANTS.NumberOfRestaurants AS NumberOfRestaurants , AVG(Rent.Price) AS AverageRent 
+FROM 
+(SELECT ZipCode.NeighborhoodName AS NeighborhoodName, COUNT(*) AS NumberOfRestaurants
 FROM Restaurant 
-INNER JOIN User on User.ResidenceZip = Restaurant.Zip
-WHERE Restaurant.LicenseStatus = "Active" 
-#AND UserName = 'gost444'
-ORDER BY UserName, RestaurantType, RestaurantName;
-
+LEFT OUTER JOIN ZipCode
+ON Restaurant.Zip = ZipCode.Zip
+GROUP BY ZipCode.NeighborhoodName) AS RESTAURANTS
+INNER JOIN Rent
+ON RESTAURANTS.NeighborhoodName = Rent.NeighborhoodName
+GROUP BY RESTAURANTS.NeighborhoodName) AS RESTANDRENT
+GROUP BY RESTANDRENT.Neighborhood
+ORDER BY AverageRentPerRestaurant;
 
 #4. A young professional would want to know which neighborhood has the most people their age and are also college educated so that they are like minded.
 
@@ -43,16 +52,19 @@ WHERE EdType = 'some college or Associate''s Degree' AND AgeData.AgeRange = (SEL
 	END AS AgeRange
 FROM User
 WHERE User.UserName = 'sheela27')
-ORDER BY AgeData.AgePerJobDetailcentage DESC, EdPopulation DESC LIMIT 1;
+ORDER BY AgeData.AgePercentage DESC, EdPopulation DESC LIMIT 1;
 
+#5. A teacher is moving to boston and wants to know the salary, and neighborhoods that this job is offered. 
 
-#5. A teacher or a fire captain is moving to boston and wants to know the salary, department (school), and neighborhoods that this job is offered. 
-
-SELECT DISTINCT ZipCode.NeighborhoodName, JobDetail.Zip, DepartmentName, JobTitle, Salary 
+SELECT Salary.NeighborhoodName AS 'Neighborhood with  Average Teacher Salary > Total Average Teacher Salary' , AvgTeacherSalaryPerNeighborhood
+FROM (SELECT DISTINCT ZipCode.NeighborhoodName, AVG(Salary ) AS AvgTeacherSalaryPerNeighborhood,  
+(SELECT AVG(Salary) AS 'Average Teacher Salary' FROM JobDetail  WHERE JobTitle like 'Teacher%') AS AvgTeacherSalary
 FROM JobDetail 
 LEFT OUTER JOIN  ZipCode ON JobDetail.Zip = ZipCode.Zip
-WHERE JobTitle like 'Fire Captain%'
-ORDER BY  NeighborhoodName, Salary DESC,  DepartmentName , JobDetail.Zip;
+WHERE JobTitle like 'Teacher%'
+GROUP BY ZipCode.NeighborhoodName) AS Salary
+WHERE AvgTeacherSalaryPerNeighborhood > AvgTeacherSalary
+ORDER BY AvgTeacherSalaryPerNeighborhood DESC;
 
 #6. Based on average age percentage in a neighborhood of interest, the user can find how many schools are available for that age range.
 SELECT temp1.NeighborhoodName, temp1.AgeRange, temp1.Counts AS 'Number of Schools for Age Range', temp2.AgePercentage AS 'Age Population'
@@ -80,7 +92,6 @@ FROM
 		) AS table2
 ) AS temp1
 INNER JOIN 
-
 (SELECT NeighborhoodName, AgeRange, AgePercentage 
 FROM Demographic
 LEFT JOIN AgeData ON AgeData.DemographicId = Demographic.DemographicId
@@ -88,9 +99,6 @@ LEFT JOIN AgeData ON AgeData.DemographicId = Demographic.DemographicId
 
 ON temp1.NeighborhoodName = temp2.NeighborhoodName AND temp1.AgeRange = temp2.AgeRange
 ORDER BY temp1.NeighborhoodName;
-
-
-
 #7. Busy users who depend on take out food for most of their meals would like to know top 5 neighborhoods have the most take out restaurants.
 SELECT ZipCode.NeighborhoodName,Restaurant.RestaurantType, Restaurant.LicenseStatus, Count(*) AS 'Total Take Out Restaurants'
 FROM Restaurant
@@ -102,30 +110,32 @@ LIMIT 5;
 
 #8. A rich single person wants to move to the most expensive neighborhood and live in a studio or 1 bedroom with the highest rent.
 
-SELECT * FROM ((SELECT NeighborhoodName, OccupancyType, Price FROM Rent
+SELECT * FROM ((SELECT NeighborhoodName, OccupancyType, Price 
+FROM Rent
 WHERE OccupancyType in ('1 Bed')
 ORDER BY Price DESC LIMIT 1)
 UNION 
-(SELECT NeighborhoodName, OccupancyType, Price FROM Rent
-WHERE OccupancyType in ('Studio')
+	(SELECT NeighborhoodName, OccupancyType, Price
+    FROM Rent
+	WHERE OccupancyType in ('Studio')
 ORDER BY Price DESC LIMIT 1)) AS ExpensiveAccomodation;
+
+
+
+
 
 #9. A user trying to switch careers to something more popular may want to know which job departments and neighborhoods in the city have the most jobs.
 ##A user wants to switch to a more profitable career and wants to see for each neighborhood in Boston, the Job Departments with the highest salary #Just can't get the department name
-SELECT SALARIES.Neighborhood, MAX(SALARIES.AverageSalary)
-FROM(
-SELECT  ZipCode.NeighborhoodName AS Neighborhood, SALARY.DepartmentName AS Department, AVG(SALARY.MONEY) AS AverageSalary
-FROM ZipCode
-LEFT OUTER JOIN(
-SELECT DepartmentName, Zip, AVG(Salary) AS MONEY
-FROM JobDetail
-GROUP BY DepartmentName, Salary, Zip) AS SALARY
-ON ZipCode.Zip = SALARY.Zip
-GROUP BY ZipCode.NeighborhoodName, SALARY.MONEY, SALARY.DepartmentName ) AS SALARIES
-GROUP BY SALARIES.Neighborhood;
 
-
-
+	SELECT  ZipCode.NeighborhoodName AS Neighborhood, SALARY.DepartmentName AS Department, SALARY.MONEY AS 'Avg Salary'
+	FROM ZipCode
+	LEFT OUTER JOIN(
+		SELECT DepartmentName, Zip, AVG(Salary) AS MONEY
+		FROM JobDetail
+		GROUP BY DepartmentName, Salary, Zip) AS SALARY
+	ON ZipCode.Zip = SALARY.Zip
+	GROUP BY ZipCode.NeighborhoodName, SALARY.MONEY, SALARY.DepartmentName
+    ORDER BY ZipCode.NeighborhoodName, SALARY.MONEY DESC;
 
 #10. A foreign born retired (65+) hispanic couple wants to move to a neighborhood with similar people to be able to make more friends. 
 # - Age percentage, foreign born percentage (foreign born/pop), for every neighborhood containing hispanic type.
@@ -137,20 +147,3 @@ LEFT OUTER JOIN Ethnicity ON Demographic.DemographicId = Ethnicity.DemographicId
 LEFT OUTER JOIN AgeData ON Demographic.DemographicId = AgeData.DemographicId
 WHERE EthnicityType = 'Hispanic' AND AgeData.AgeRange = '65 years and over'
 ORDER BY (AgePercentage/Population)*100 DESC,(EthnicityPopulation/Population)*100 DESC, (ForiegnBorn/Population)*100 DESC;
-
-
-##ratio of average rent to number of restaurants for each neighborhood
-SELECT RESTANDRENT.Neighborhood, RESTANDRENT.AverageRent/RESTANDRENT.NumberOfRestaurants AS AverageRentPerRestaurant
-FROM (
-SELECT RESTAURANTS.NeighborhoodName AS Neighborhood, RESTAURANTS.NumberOfRestaurants AS NumberOfRestaurants , AVG(Rent.Price) AS AverageRent 
-FROM 
-(SELECT ZipCode.NeighborhoodName AS NeighborhoodName, COUNT(*) AS NumberOfRestaurants
-FROM Restaurant 
-LEFT OUTER JOIN ZipCode
-ON Restaurant.Zip = ZipCode.Zip
-GROUP BY ZipCode.NeighborhoodName) AS RESTAURANTS
-INNER JOIN Rent
-ON RESTAURANTS.NeighborhoodName = Rent.NeighborhoodName
-GROUP BY RESTAURANTS.NeighborhoodName) AS RESTANDRENT
-GROUP BY RESTANDRENT.Neighborhood
-ORDER BY AverageRentPerRestaurant;

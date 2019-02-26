@@ -1,0 +1,37 @@
+NeighborhoodName,AgeRange,"Number of Schools for Age Range","Age Population"
+Allston,"0-9 years",2,644
+Allston,"10-19 years",4,3152
+"Back Bay","10-19 years",3,1372
+"Back Bay","0-9 years",0,756
+Brighton,"0-9 years",5,2852
+Brighton,"10-19 years",4,3016
+Charlestown,"10-19 years",4,1256
+Charlestown,"0-9 years",3,2559
+Dorchester,"10-19 years",13,16428
+Dorchester,"0-9 years",19,15841
+"East Boston","0-9 years",10,5778
+"East Boston","10-19 years",3,4237
+Fenway,"0-9 years",0,452
+Fenway,"10-19 years",2,8582
+"Hyde Park","0-9 years",5,4006
+"Hyde Park","10-19 years",6,4805
+"Jamaica Plain","0-9 years",10,4126
+"Jamaica Plain","10-19 years",9,3273
+"Longwood Medical Area","0-9 years",0,12
+"Longwood Medical Area","10-19 years",1,2358
+Mattapan,"0-9 years",5,2625
+Mattapan,"10-19 years",2,3118
+"Mission Hill","0-9 years",1,1129
+"Mission Hill","10-19 years",3,2026
+"North End","0-9 years",3,285
+"North End","10-19 years",3,128
+Roslindale,"10-19 years",2,2742
+Roslindale,"0-9 years",6,3601
+Roxbury,"0-9 years",11,6844
+Roxbury,"10-19 years",8,7959
+"South Boston","0-9 years",3,2680
+"South Boston","10-19 years",3,2671
+"South End","10-19 years",1,1841
+"South End","0-9 years",2,2752
+"West Roxbury","10-19 years",6,3211
+"West Roxbury","0-9 years",5,4209
