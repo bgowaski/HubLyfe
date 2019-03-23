@@ -8,7 +8,7 @@ import java.util.Map;
 public class EducationalAttainment {
 
 	protected int edAttainmentId;
-	protected int demographicId;
+	protected Demographic demographicId;
 	protected EdType edType;
 	protected int edPopulation;
 	
@@ -42,7 +42,7 @@ public class EducationalAttainment {
 	    }
 	}
 	
-	public EducationalAttainment(int edAttainmentId, int demographicId, EdType edType, int edPopulation) {
+	public EducationalAttainment(int edAttainmentId, Demographic demographicId, EdType edType, int edPopulation) {
 		this.edAttainmentId = edAttainmentId;
 		this.demographicId = demographicId;
 		this.edType = edType;
@@ -63,11 +63,11 @@ public class EducationalAttainment {
 		this.edAttainmentId = edAttainmentId;
 	}
 
-	public int getDemographicId() {
+	public Demographic getDemographicId() {
 		return demographicId;
 	}
 
-	public void setDemographicId(int demographicId) {
+	public void setDemographicId(Demographic demographicId) {
 		this.demographicId = demographicId;
 	}
 
