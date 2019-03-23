@@ -6,6 +6,7 @@ import java.util.List;
 
 import dal.*;
 import model.*;
+import model.EducationalAttainment.EdType;
 import model.Ethnicity.EthnicityType;
 import model.Rent.OccupancyType;
 import model.Restaurant.RestaurantType;
@@ -26,9 +27,10 @@ public class Inserter {
 		UserDao userDao = UserDao.getInstance();
 		JobDepartmentDao jobDepartmentDao = JobDepartmentDao.getInstance();
 		JobDetailDao jobDetailDao = JobDetailDao.getInstance();
+		EducationalAttainmentDao edAttainmentDao = EducationalAttainmentDao.getInstance();
 		
-/*		// INSERT 
-		
+		// INSERT 
+/*		
 		//Create Neighborhood
 		Neighborhood neighborhood = new Neighborhood("Fenway");
 		neighborhood = neighborhoodDao.create(neighborhood);
@@ -87,8 +89,13 @@ public class Inserter {
 		JobDetail jobDetail = new JobDetail(1,"Teacher",jobDepartment,50000,zipCode2);
 		jobDetail = jobDetailDao.create(jobDetail);
 		System.out.println("Created JobDetail");
+
+		// Create EducationalAttainment
+		EducationalAttainment edAttainment = new EducationalAttainment(demographic,EdType.LESS_THAN_HIGHSCHOOL,2000);
+		edAttainment = edAttainmentDao.create(edAttainment);
+		System.out.println("Created EducationalAttainment");
 		System.out.println("-----------------------------------------------------------------------------\n");
-*/
+
 		//READ
 		
 /*		//getNeighborhoodByNeighborhoodName
@@ -257,12 +264,26 @@ public class Inserter {
 		System.out.format("Reading JobDetail: JobTitleId is %d, JobTitle is %s, DepartmentName is %s, Salary is %d, ZipCode is %d",
 				jobDetailRead.getJobTitleId(),jobDetailRead.getJobTitle(),jobDetailRead.getDepartmentName(),
 				jobDetailRead.getSalary(),jobDetailRead.getZip());
-		
+		System.out.println("-----------------------------------------------------------------------------\n");
+
 		List<JobDetail> jobDetailRead2 = jobDetailDao.getJobDetailByDepartmentName("departmentName");
 		for(JobDetail jd : jobDetailRead2) {
 			System.out.format("Reading JobDetail: JobTitle is %s, DepartmentName is %s \n",
 					jd.getJobTitle(),jd.getDepartmentName());
 		}
+        System.out.println("-----------------------------------------------------------------------------\n");
+		// get edAttainment
+		EducationalAttainment edAtRead = edAttainmentDao.getEdAttainmentByEdAttainmentId(1);
+		System.out.format("Reading EducationalAttainment: EdAttainmentId is %d, DemographicId is %d, EdType is %s, EdPopulation is %d",
+				edAtRead.getEdAttainmentId(),edAtRead.getDemographicId(),edAtRead.getEdType(),edAtRead.getEdPopulation());
+		System.out.println("-----------------------------------------------------------------------------\n");
+
+		List<EducationalAttainment> edAtt = edAttainmentDao.getEdAttainmentByEdType(EdType.LESS_THAN_HIGHSCHOOL);
+		for(EducationalAttainment eA : edAtt) {
+			System.out.format("Reading EducationalAttainment: EdAttainmentId is %d, DemographicId is %d, EdType is %s, EdPopulation is %d"
+					, eA.getEdAttainmentId(),eA.getDemographicId(),eA.getEdType(),eA.getEdPopulation());
+		}
+		System.out.println("-----------------------------------------------------------------------------\n");
 */
 		// DELETE
 		
@@ -295,11 +316,13 @@ public class Inserter {
 		System.out.println("Deleting Ethnicity");
 				
 		jobDepartmentDao.delete(jobDepartment);
-		System.out.println("Deleting jobDepartment");
+		System.out.println("Deleting Job Department");
 		
 		jobDetailDao.delete(jobDetail);
-		System.out.println("Deleting jobDetail");
-		
+		System.out.println("Deleting Job Detail");
+
+		edAttainmentDao.delete(edAttainment);
+		System.out.println("Deleting Educational Attainment");
 		*/
 	}
 }

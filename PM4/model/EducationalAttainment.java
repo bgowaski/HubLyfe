@@ -48,6 +48,12 @@ public class EducationalAttainment {
 		this.edType = edType;
 		this.edPopulation = edPopulation;
 	}
+	
+	public EducationalAttainment(Demographic demographicId, EdType edType, int edPopulation) {
+		this.demographicId = demographicId;
+		this.edType = edType;
+		this.edPopulation = edPopulation;
+	}
 
 	public EducationalAttainment(int edAttainmentId) {
 		this.edAttainmentId=edAttainmentId;
