@@ -1,6 +1,7 @@
 package tools;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import dal.*;
@@ -22,8 +23,9 @@ public class Inserter {
 		RestaurantDao restaurantDao = RestaurantDao.getInstance();
 		DemographicDao demographicDao = DemographicDao.getInstance();
 		EthnicityDao ethnicityDao = EthnicityDao.getInstance();
+		UserDao userDao = UserDao.getInstance();
 		
-		// INSERT 
+/*		// INSERT 
 		
 		//Create Neighborhood
 		Neighborhood neighborhood = new Neighborhood("Fenway");
@@ -68,11 +70,19 @@ public class Inserter {
 		Ethnicity ethnicity = new Ethnicity(demographic, EthnicityType.HISPANIC, 123);
 		ethnicity = ethnicityDao.create(ethnicity);
 		System.out.println("Created Ethnicity");
-		System.out.println("-----------------------------------------------------------------------------\n");
 		
+		//Create User
+		Date date = new Date();
+		User user = new User("username", "firstname", "lastname", "password", date, 2215, 2216, "Teacher");
+		user = userDao.create(user);
+		System.out.println("Created User");
+
+		
+		System.out.println("-----------------------------------------------------------------------------\n");
+*/
 		//READ
 		
-		//getNeighborhoodByNeighborhoodName
+/*		//getNeighborhoodByNeighborhoodName
 		Neighborhood neighborhoodRead = neighborhoodDao.getNeighborhoodByNeighborhoodName("Fenway");
 		System.out.format("Reading Neighborhood: NeighborhoodName is %s \n",
 				neighborhoodRead.getNeighborhoodName());
@@ -212,11 +222,27 @@ public class Inserter {
 					et3.getEthnicityId(), et3.getEthnicityType().value());
 		}
 		System.out.println("-----------------------------------------------------------------------------\n");
+*/		
+		//getUserByUserName
+		User userRead = userDao.getUserByUserName("sheela27");
+		System.out.format("Reading User: Username is %s, Firstname is %s \n",
+				userRead.getUserName(), userRead.getFirstName());
 		
+		System.out.println("-----------------------------------------------------------------------------\n");
+		
+		//
+		List<User> userRead2 = userDao.getUserByFirstName("Sheela");
+		for(User ur : userRead2) {
+			System.out.format("Reading User: Username is %s, Firstname is %s \n",
+					ur.getUserName(), ur.getFirstName());
+		}
+		System.out.println("-----------------------------------------------------------------------------\n");
 		
 		// DELETE
 		
-		//Remove CreditCard
+/*		userDao.delete(user);
+		System.out.println("Deleting User");
+		
 		neighborhoodDao.delete(neighborhood);
 		System.out.println("Deleting Neighborhood");
 		
@@ -241,5 +267,6 @@ public class Inserter {
 		
 		ethnicityDao.delete(ethnicity);
 		System.out.println("Deleting Ethnicity");
+		*/
 	}
 }
