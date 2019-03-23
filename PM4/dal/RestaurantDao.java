@@ -152,7 +152,7 @@ public class RestaurantDao {
 				selectStmt.setInt(1, zip);
 				results = selectStmt.executeQuery();
 				ZipCodeDao zipCodeDao = ZipCodeDao.getInstance();
-				if(results.next()) {
+				while(results.next()) {
 					int resultRestaurantId = results.getInt("RestaurantId");
 					String restaurantName = results.getString("RestaurantName");
 					String licenseStatus = results.getString("LicenseStatus");
@@ -200,7 +200,7 @@ public class RestaurantDao {
 				selectStmt.setString(1, restaurantType.value());
 				results = selectStmt.executeQuery();
 				ZipCodeDao zipCodeDao = ZipCodeDao.getInstance();
-				if(results.next()) {
+				while(results.next()) {
 					int restaurantId = results.getInt("RestaurantId");
 					String restaurantName = results.getString("RestaurantName");
 					String licenseStatus = results.getString("LicenseStatus");

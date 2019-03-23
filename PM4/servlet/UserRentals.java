@@ -51,6 +51,7 @@ public class UserRentals extends HttpServlet {
         	User user = userDao.getUserByUserName(userName);
         	ZipCode zipCode = zipCodeDao.getZipCodeByZip(user.getResidenceZip());
         	rents = rentDao.getRentByNeighborhoodName(zipCode.getNeighborhood().getNeighborhoodName());
+        
         } catch (SQLException e) {
 			e.printStackTrace();
 			throw new IOException(e);

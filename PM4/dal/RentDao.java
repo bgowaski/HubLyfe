@@ -108,7 +108,7 @@ public class RentDao {
 			selectStmt.setInt(1, rentId);
 			results = selectStmt.executeQuery();
 			NeighborhoodDao neighborhoodDao = NeighborhoodDao.getInstance();
-			if(results.next()) {
+			while(results.next()) {
 				int resultRentId = results.getInt("RentId");
 				String neighborhoodName = results.getString("NeighborhoodName");
 				Rent.OccupancyType occupancyType = Rent.OccupancyType.get(results.getString("OccupancyType"));
@@ -151,7 +151,7 @@ public class RentDao {
 				selectStmt.setString(1, neighborhoodName);
 				results = selectStmt.executeQuery();
 				NeighborhoodDao neighborhoodDao = NeighborhoodDao.getInstance();
-				if(results.next()) {
+				while(results.next()) {
 					int resultRentId = results.getInt("RentId");
 					String resultNeighborhoodName = results.getString("NeighborhoodName");
 					Rent.OccupancyType occupancyType = Rent.OccupancyType.get(results.getString("OccupancyType"));
@@ -159,6 +159,7 @@ public class RentDao {
 					
 					Neighborhood neighborhood = neighborhoodDao.getNeighborhoodByNeighborhoodName(resultNeighborhoodName);
 					Rent rent = new Rent(resultRentId,  neighborhood, occupancyType, price);
+					
 					rents.add(rent);
 			}
 		} catch (SQLException e) {
@@ -194,7 +195,7 @@ public class RentDao {
 				selectStmt.setString(1, occupancyType.value());
 				results = selectStmt.executeQuery();
 				NeighborhoodDao neighborhoodDao = NeighborhoodDao.getInstance();
-				if(results.next()) {
+				while(results.next()) {
 					int rentId = results.getInt("RentId");
 					String resultNeighborhoodName = results.getString("NeighborhoodName");
 					Rent.OccupancyType resultOccupancyType = Rent.OccupancyType.get(results.getString("OccupancyType"));

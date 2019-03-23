@@ -169,7 +169,7 @@ public class DemographicDao {
 				selectStmt.setString(1, neighborhoodName);
 				results = selectStmt.executeQuery();
 				NeighborhoodDao neighborhoodDao = NeighborhoodDao.getInstance();
-				if(results.next()) {
+				while(results.next()) {
 					int demographicId = results.getInt("DemographicId");
 					double population = results.getDouble("Population");
 					int foriegnBorn = results.getInt("ForiegnBorn");
