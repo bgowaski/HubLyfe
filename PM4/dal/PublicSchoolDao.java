@@ -172,7 +172,7 @@ public class PublicSchoolDao {
 				selectStmt.setString(1, neighborhoodName);
 				results = selectStmt.executeQuery();
 				NeighborhoodDao neighborhoodDao = NeighborhoodDao.getInstance();
-				if(results.next()) {
+				while(results.next()) {
 					int schoolId = results.getInt("SchoolId");
 					String schoolName = results.getString("SchoolName");
 					String historicalName = results.getString("HistoricalName");
