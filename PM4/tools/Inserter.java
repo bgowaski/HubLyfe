@@ -24,6 +24,8 @@ public class Inserter {
 		DemographicDao demographicDao = DemographicDao.getInstance();
 		EthnicityDao ethnicityDao = EthnicityDao.getInstance();
 		UserDao userDao = UserDao.getInstance();
+		JobDepartmentDao jobDepartmentDao = JobDepartmentDao.getInstance();
+		JobDetailDao jobDetailDao = JobDetailDao.getInstance();
 		
 /*		// INSERT 
 		
@@ -77,7 +79,14 @@ public class Inserter {
 		user = userDao.create(user);
 		System.out.println("Created User");
 
-		
+		//Create JobDepartment
+		JobDepartment jobDepartment = new JobDepartment("departmentName");
+		jobDepartment = jobDepartmentDao.create(jobDepartment);
+		System.out.println("Created JobDepartment");
+		//Create JobDetail
+		JobDetail jobDetail = new JobDetail(1,"Teacher",jobDepartment,50000,zipCode2);
+		jobDetail = jobDetailDao.create(jobDetail);
+		System.out.println("Created JobDetail");
 		System.out.println("-----------------------------------------------------------------------------\n");
 */
 		//READ
@@ -222,7 +231,7 @@ public class Inserter {
 					et3.getEthnicityId(), et3.getEthnicityType().value());
 		}
 		System.out.println("-----------------------------------------------------------------------------\n");
-*/		
+		
 		//getUserByUserName
 		User userRead = userDao.getUserByUserName("sheela27");
 		System.out.format("Reading User: Username is %s, Firstname is %s \n",
@@ -238,6 +247,23 @@ public class Inserter {
 		}
 		System.out.println("-----------------------------------------------------------------------------\n");
 		
+		//getJobDepartmentByDepartmentName
+		JobDepartment jobDepartmentRead = jobDepartmentDao.getJobDepartmentByDepartmentName("departmentName");
+		System.out.format("Reading JobDepartment: JobDepartment is %s",jobDepartmentRead.getDepartmentName());
+		System.out.println("-----------------------------------------------------------------------------\n");
+
+		//Get JobDetail
+		JobDetail jobDetailRead = jobDetailDao.getJobDetailByJobTitleId(1);
+		System.out.format("Reading JobDetail: JobTitleId is %d, JobTitle is %s, DepartmentName is %s, Salary is %d, ZipCode is %d",
+				jobDetailRead.getJobTitleId(),jobDetailRead.getJobTitle(),jobDetailRead.getDepartmentName(),
+				jobDetailRead.getSalary(),jobDetailRead.getZip());
+		
+		List<JobDetail> jobDetailRead2 = jobDetailDao.getJobDetailByDepartmentName("departmentName");
+		for(JobDetail jd : jobDetailRead2) {
+			System.out.format("Reading JobDetail: JobTitle is %s, DepartmentName is %s \n",
+					jd.getJobTitle(),jd.getDepartmentName());
+		}
+*/
 		// DELETE
 		
 /*		userDao.delete(user);
@@ -267,6 +293,13 @@ public class Inserter {
 		
 		ethnicityDao.delete(ethnicity);
 		System.out.println("Deleting Ethnicity");
+				
+		jobDepartmentDao.delete(jobDepartment);
+		System.out.println("Deleting jobDepartment");
+		
+		jobDetailDao.delete(jobDetail);
+		System.out.println("Deleting jobDetail");
+		
 		*/
 	}
 }
