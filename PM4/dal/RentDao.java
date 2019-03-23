@@ -159,7 +159,7 @@ public class RentDao {
 					
 					Neighborhood neighborhood = neighborhoodDao.getNeighborhoodByNeighborhoodName(resultNeighborhoodName);
 					Rent rent = new Rent(resultRentId,  neighborhood, occupancyType, price);
-					System.out.println(resultRentId);
+					
 					rents.add(rent);
 			}
 		} catch (SQLException e) {

@@ -14,7 +14,6 @@
 	<h1>${messages.title}</h1>
         <table border="1">
             <tr>
-                <th>RentId</th>
                 <th>Neighborhood Name</th>
                 <th>Occupancy Type</th>
                 <th>Price</th>
@@ -22,7 +21,6 @@
             </tr>
             <c:forEach items="${rents}" var="rents" >
                 <tr>
-                    <td><c:out value="${rents.getRentId()}" /></td>
                     <td><c:out value="${rents.getNeighborhood().getNeighborhoodName()}" /></td>
                     <td><c:out value="${rents.getOccupancyType().value()}" /></td>
                     <td><c:out value="${rents.getPrice()}" /></td>

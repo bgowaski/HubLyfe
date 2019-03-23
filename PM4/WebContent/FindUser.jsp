@@ -33,6 +33,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Date of Birth</th>
+                <th> Rentals </th>
                 <th>Delete BlogUser</th>
                 <th>Update BlogUser</th>
                 
@@ -43,6 +44,7 @@
                     <td><c:out value="${user.getFirstName()}" /></td>
                     <td><c:out value="${user.getLastName()}" /></td>
                     <td><fmt:formatDate value="${user.getDob()}" pattern="yyyy-MM-dd"/></td>
+                    <td><a href="userrentals?username=<c:out value="${user.getUserName()}"/>">Rentals</a></td>
                   	<td><a href="deleteuser?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
                     <td><a href="updateuser?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
             </c:forEach>
