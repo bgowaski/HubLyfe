@@ -7,7 +7,7 @@ import java.util.Map;
 public class AgeData {
 
 	protected int ageId;
-	protected int demographicId;
+	protected Demographic demographicId;
 	protected AgeRange ageRange;
 	protected int agePercentage;
 	
@@ -42,7 +42,7 @@ public class AgeData {
 	    }
 	}
 	
-	public AgeData(int ageId, int demographicId, AgeRange ageRange, int agePercentage) {
+	public AgeData(int ageId, Demographic demographicId, AgeRange ageRange, int agePercentage) {
 		this.ageId = ageId;
 		this.demographicId = demographicId;
 		this.ageRange = ageRange;
@@ -53,6 +53,12 @@ public class AgeData {
 		this.ageId=ageId;
 	}
 	
+	public AgeData (Demographic demographicId, AgeRange ageRange, int agePercentage) {
+		
+		this.demographicId = demographicId;
+		this.ageRange = ageRange;
+		this.agePercentage = agePercentage;
+	}
 	//Getters and Setters
 	
 	public int getAgeId() {
@@ -63,11 +69,12 @@ public class AgeData {
 		this.ageId = ageId;
 	}
 
-	public int getDemographicId() {
+
+	public Demographic getDemographicId() {
 		return demographicId;
 	}
 
-	public void setDemographicId(int demographicId) {
+	public void setDemographicId(Demographic demographicId) {
 		this.demographicId = demographicId;
 	}
 

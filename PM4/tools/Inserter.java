@@ -7,6 +7,7 @@ import java.util.List;
 import dal.*;
 import model.*;
 import model.EducationalAttainment.EdType;
+import model.AgeData.AgeRange;
 import model.Ethnicity.EthnicityType;
 import model.Rent.OccupancyType;
 import model.Restaurant.RestaurantType;
@@ -23,6 +24,7 @@ public class Inserter {
 		RentDao rentDao = RentDao.getInstance();
 		RestaurantDao restaurantDao = RestaurantDao.getInstance();
 		DemographicDao demographicDao = DemographicDao.getInstance();
+		AgeDataDao ageDataDao = AgeDataDao.getInstance();
 		EthnicityDao ethnicityDao = EthnicityDao.getInstance();
 		UserDao userDao = UserDao.getInstance();
 		JobDepartmentDao jobDepartmentDao = JobDepartmentDao.getInstance();
@@ -32,9 +34,13 @@ public class Inserter {
 		// INSERT 
 /*		
 		//Create Neighborhood
+		 
+		 
 		Neighborhood neighborhood = new Neighborhood("Fenway");
 		neighborhood = neighborhoodDao.create(neighborhood);
 		System.out.println("Created Neighborhood");
+		
+		
 		
 		//Create ZipCode
 		ZipCode zipCode = new ZipCode(2215,neighborhood);
@@ -65,12 +71,16 @@ public class Inserter {
 		restaurant = restaurantDao.create(restaurant);
 		System.out.println("Created Restaurant");
 		
+		
 		//Create Demographic
+		 /*
+		  *  
+		 
 		Demographic demographic = new Demographic(11111, 12, 13, 4, 15, 16,17, neighborhood);
 		demographic = demographicDao.create(demographic);
 		System.out.println("Created Demographic");
 		
-		//Create Enthnicity
+		//Create Ethnicity
 		Ethnicity ethnicity = new Ethnicity(demographic, EthnicityType.HISPANIC, 123);
 		ethnicity = ethnicityDao.create(ethnicity);
 		System.out.println("Created Ethnicity");
@@ -80,6 +90,14 @@ public class Inserter {
 		User user = new User("username", "firstname", "lastname", "password", date, 2215, 2216, "Teacher");
 		user = userDao.create(user);
 		System.out.println("Created User");
+		
+		//Create AgeData
+		 
+		 AgeData ageData = new AgeData(demographic, AgeRange.TEN_TO_NINETEEN_YEARS, 30);
+		 ageData = ageDataDao.create(ageData);
+		 System.out.println("Created AgeData");
+			System.out.println("-----------------------------------------------------------------------------\n");
+		 
 
 		//Create JobDepartment
 		JobDepartment jobDepartment = new JobDepartment("departmentName");
@@ -284,7 +302,22 @@ public class Inserter {
 					, eA.getEdAttainmentId(),eA.getDemographicId(),eA.getEdType(),eA.getEdPopulation());
 		}
 		System.out.println("-----------------------------------------------------------------------------\n");
-*/
+
+		//getAgeDataByAgeId
+		AgeData ageDataRead = ageDataDao.getAgeDataByAgeId(1);
+		System.out.format("Reading Agedata: DemographicId is %i, AgeRange is %s, agePerntage is %i \n",
+				ageDataRead.getDemographicId(), ageDataRead.getAgeRange().value(), ageDataRead.getAgePercentage());
+		System.out.println("-----------------------------------------------------------------------------\n");
+
+		//getAgeDataByAgeRange
+		List<AgeData> ageDataRead2 = ageDataDao.getAgeDatabyAgeRange(AgeRange.TEN_TO_NINETEEN_YEARS);
+		for(AgeData age : ageDataRead2) {
+			System.out.format("Reading Agedata: DemographicId is %i, AgeRange is %s, agePercentage is %i \n",
+					ageDataRead.getDemographicId(), ageDataRead.getAgeRange().value(), ageDataRead.getAgePercentage());
+		}
+		System.out.println("-----------------------------------------------------------------------------\n");
+		
+*/	
 		// DELETE
 		
 /*		userDao.delete(user);
@@ -308,6 +341,9 @@ public class Inserter {
 		
 		restaurantDao.delete(restaurant);
 		System.out.println("Deleting Restaurant");
+		
+		ageDataDao.delete(ageData);
+		System.out.println("Deleting AgeData");
 		
 		demographicDao.delete(demographic);
 		System.out.println("Deleting Demographic");
