@@ -52,7 +52,7 @@ public class CreateUser extends HttpServlet {
         if (userName == null || userName.trim().isEmpty()) {
             messages.put("success", "Invalid UserName");
         } else {
-        	// Create the BlogUser.
+        	// Create the User
         	String firstName = req.getParameter("firstname");
         	String lastName = req.getParameter("lastname");
         	String password = req.getParameter("password");
@@ -75,10 +75,11 @@ public class CreateUser extends HttpServlet {
         	String jobTitle = req.getParameter("jobtitle");
         	
 	        try {
-	        	// Exercise: parse the input for StatusLevel.
+	        	
 	        	User user = new User(userName, firstName, lastName, password, dob, residenceZip,occupationZip,jobTitle );
 	        	user = userDao.create(user);
-	        	messages.put("success", "Successfully created " + userName);
+	        	messages.put("success", "Successfully created user " + userName);
+	        	messages.put("disableSubmit", "true");
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new IOException(e);

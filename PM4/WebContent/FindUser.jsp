@@ -44,7 +44,7 @@
                     <td><c:out value="${user.getLastName()}" /></td>
                     <td><fmt:formatDate value="${user.getDob()}" pattern="yyyy-MM-dd"/></td>
                   	<td><a href="deleteuser?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
-                    <td><a href="userupdate?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
+                    <td><a href="updateuser?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
             </c:forEach>
        </table>
 </body>

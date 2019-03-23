@@ -11,23 +11,22 @@
 <title>Update a User</title>
 </head>
 <body>
-	<h1>Update User</h1>
-	<form action="userupdate" method="post">
-		<p>
+	<h1 <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>Update User</h1>
+	<h1>${messages.success}</h1>
+	<form action="updateuser" method="post">
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="username">UserName</label>
 			<input id="username" name="username" value="${fn:escapeXml(param.username)}">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="lastname">New LastName</label>
 			<input id="lastname" name="lastname" value="">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<input type="submit">
 		</p>
 	</form>
 	<br/><br/>
-	<p>
-		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+
 </body>
 </html>

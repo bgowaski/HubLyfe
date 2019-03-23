@@ -11,47 +11,45 @@
 <title>Create a User</title>
 </head>
 <body>
-	<h1>Create BlogUser</h1>
+	<h1 <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>Enter User Details</h1>
+	<h1>${messages.success}</h1>
 	<form action="createuser" method="post">
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="username">UserName</label>
 			<input id="username" name="username" value="">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="firstname">FirstName</label>
 			<input id="firstname" name="firstname" value="">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="lastname">LastName</label>
 			<input id="lastname" name="lastname" value="">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="password">Password</label>
 			<input id="passowrd" name="passowrd" value="">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="dob">DoB (yyyy-mm-dd)</label>
 			<input id="dob" name="dob" value="">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for=residencezip>Zip of Residence Location </label>
 			<input id="residencezip" name="residencezip" value="">
 		</p>
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for=occupationzip>Zip of Occupation Location </label>
 			<input id="occupationzip" name="occupationzip" value="">
 		</p>		
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for=jobtitle>Preferred Job Title</label>
 			<input id="jobtitle" name="jobtitle" value="">
 		</p>		
-		<p>
+		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<input type="submit">
 		</p>
 	</form>
 	<br/><br/>
-	<p>
-		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
 </body>
 </html>

@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import dal.*;
 import model.*;
 
-@WebServlet("/userupdate")
-public class UserUpdate extends HttpServlet {
+@WebServlet("/updateuser")
+public class UpdateUser extends HttpServlet {
 	
 	protected UserDao userDao;
 	
@@ -48,7 +48,7 @@ public class UserUpdate extends HttpServlet {
 	        }
         }
         
-        req.getRequestDispatcher("/UserUpdate.jsp").forward(req, resp);
+        req.getRequestDispatcher("/UpdateUser.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -73,7 +73,8 @@ public class UserUpdate extends HttpServlet {
         	            messages.put("success", "Please enter a valid LastName.");
         	        } else {
         	        	user = userDao.updateLastName(user, newLastName);
-        	        	messages.put("success", "Successfully updated " + userName);
+        	        	messages.put("success", "Successfully updated lastname for " + userName);
+        	        	messages.put("disableSubmit", "true");
         	        }
         		}
         		req.setAttribute("user", user);
@@ -83,6 +84,6 @@ public class UserUpdate extends HttpServlet {
 	        }
         }
         
-        req.getRequestDispatcher("/UserUpdate.jsp").forward(req, resp);
+        req.getRequestDispatcher("/UpdateUser.jsp").forward(req, resp);
     }
 }
