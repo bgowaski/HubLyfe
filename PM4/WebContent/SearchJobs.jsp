@@ -8,25 +8,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Find a User</title>
 </head>
 <body>
+<div class="panel panel-primary">
+	<a href="/#">&#8678; Back</a>
+	<div class="panel-heading">
+		<h3>Search for Job Details by Title</h3>
+	</div>
+	<div class="panel-body">
 	<form action="searchjobs" method="post">
-		<h1>Search for a Job Details by Title</h1>
-		<p>
+		
+		<p class="form-group">
 			<label for="jobtitle">Title like</label>
-			<input id="jobtitle" name="jobtitle" value="${fn:escapeXml(param.jobtitle)}">
+			<input class="form-control" id="jobtitle" name="jobtitle" value="${fn:escapeXml(param.jobtitle)}">
 		</p>
 		<p>
-			<input type="submit">
+			<input class="btn btn-primary"  type="submit">
 			<br/><br/><br/>
-			<span id="successMessage"><b>${messages.success}</b></span>
+			<a class="alert alert-info" id="successMessage"><b>${messages.success}</b></a>
 		</p>
 	</form>
 	<br/>
 	
-	<h1>Matching Jobs</h1>
-        <table border="1">
+	<h4>Matching Jobs</h4>
+        <table class="table table-striped" >
+        <thead>
             <tr>
                
                 <th>Title</th>
@@ -34,6 +42,8 @@
                  
                 
             </tr>
+          </thead>
+          <tbody>
             <c:forEach items="${jobs}" var="jobs" >
                 <tr>
                     <td><c:out value="${jobs.getJobTitle()}" /></td>
@@ -41,6 +51,11 @@
                   
                 </tr>
             </c:forEach>
+            </tbody>
        </table>
+       </div>
+       </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

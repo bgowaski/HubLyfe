@@ -8,17 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Rentals</title>
 </head>
 <body>
-	<h1>${messages.title}</h1>
-        <table border="1">
+	<div class="panel panel-primary">
+	<a href="/#">&#8678; Back</a>
+	<div class="panel-heading">
+	<h3>${messages.title}</h3>
+	</div>
+  	<div class="panel-body">
+        <table class="table table-striped">
+        <thead>
             <tr>
                 <th>Neighborhood Name</th>
                 <th>Occupancy Type</th>
                 <th>Price</th>
                
             </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${rents}" var="rents" >
                 <tr>
                     <td><c:out value="${rents.getNeighborhood().getNeighborhoodName()}" /></td>
@@ -27,6 +36,11 @@
               
                 </tr>
             </c:forEach>
+            </tbody>
        </table>
+       </div>
+       </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

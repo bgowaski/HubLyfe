@@ -8,30 +8,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Find a User</title>
 </head>
 <body>
+<div class="panel panel-primary">
+	<a href="/#">&#8678; Back</a>
+	<div class="panel-heading">
+	<h3>Search for User by FirstName</h3>
+	</div>
+	<div class="panel-body">
 	<form action="finduser" method="post">
-		<h1>Search for a User by FirstName</h1>
-		<p>
+		
+		<p class="form-group">
 			<label for="firstname">FirstName</label>
-			<input id="firstname" name="firstname" value="${fn:escapeXml(param.firstname)}">
+			<input class="form-control" id="firstname" name="firstname" value="${fn:escapeXml(param.firstname)}">
 		</p>
 		<p>
-			<input type="submit">
+			<input class="btn btn-primary" type="submit">
 			<br/><br/><br/>
-			<span id="successMessage"><b>${messages.success}</b></span>
+			<span class="alert alert-info" id="successMessage"><b>${messages.success}</b></span>
 		</p>
 	</form>
 	<br/>
-	<div id="userCreate"><a href="createuser">Create User</a></div>
-	<br/>
-	<div id="searchRentals"><a href="searchrentals">Search Rentals by Neighborhood</a></div>
-	<br/>
-	<div id="searchJobs"><a href="searchjobs">Search Jobs by Title</a></div>
-	<br/>
-	<h1>Matching Users</h1>
-        <table border="1">
+
+	<h4>Matching Users</h4>
+        <table class="table table-striped">
+        <thead>
             <tr>
                 <th>UserName</th>
                 <th>First Name</th>
@@ -44,6 +47,8 @@
                 <th>Update User</th>
                 
             </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${user}" var="user" >
                 <tr>
                     <td><c:out value="${user.getUserName()}" /></td>
@@ -56,6 +61,9 @@
                   	<td><a href="deleteuser?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
                     <td><a href="updateuser?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
             </c:forEach>
+            </tbody>
        </table>
+       </div>
+       </div>
 </body>
 </html>

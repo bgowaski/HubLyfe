@@ -8,31 +8,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Find a User</title>
 </head>
 <body>
+	<div class="panel panel-primary">
+	<a href="/#">&#8678; Back</a>
+	<div class="panel-heading">
+		
+		<h3>Search for Rentals by Neighborhood</h3>
+	</div>
+	<div class="panel-body">
 	<form action="searchrentals" method="post">
-		<h1>Search for a Rentals by Neighborhood</h1>
-		<p>
+		<p class="form-group">
 			<label for="neighborhoodname">Neighborhood</label>
-			<input id="neighborhoodname" name="neighborhoodname" value="${fn:escapeXml(param.neighborhoodname)}">
+			<input class="form-control" id="neighborhoodname" name="neighborhoodname" value="${fn:escapeXml(param.neighborhoodname)}">
 		</p>
 		<p>
-			<input type="submit">
+			<input class="btn btn-primary" type="submit">
 			<br/><br/><br/>
-			<span id="successMessage"><b>${messages.success}</b></span>
+			<span class="alert alert-info" id="successMessage"><b>${messages.success}</b></span>
 		</p>
 	</form>
 	<br/>
 	
-	<h1>Matching Rentals</h1>
-        <table border="1">
+	<h4>Matching Rentals</h4>
+        <table class="table table-striped">
+        <thead>
             <tr>
                 <th>Occupancy Type</th>
                 <th>Price</th>
-                
-                
+               
             </tr>
+          </thead> 
+          <tbody>
             <c:forEach items="${rents}" var="rents" >
                 <tr>
                     
@@ -41,6 +50,11 @@
               
                 </tr>
             </c:forEach>
+            </tbody>
        </table>
+       </div>
+       </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

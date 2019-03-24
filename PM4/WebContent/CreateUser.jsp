@@ -8,48 +8,58 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Create a User</title>
 </head>
 <body>
-	<h1 <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>Enter User Details</h1>
-	<h1>${messages.success}</h1>
+	<div class="panel panel-primary">
+	<a href="/#">&#8678; Back</a>
+	<div class="panel-heading">
+	<h4>Create User</h4>
+	</div>
+	<div class="panel-body">
+	<h4 class="alert alert-success" <c:if test="${!messages.disableSubmit}">style="display:none"</c:if>>${messages.success}</h4>
 	<form action="createuser" method="post">
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+		<div  class="form-group" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="username">UserName</label>
-			<input id="username" name="username" value="">
-		</p>
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="form-control" id="username" name="username" value="">
+		</div>
+		<div  class="form-group"  <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="firstname">FirstName</label>
-			<input id="firstname" name="firstname" value="">
-		</p>
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="form-control" id="firstname" name="firstname" value="">
+		</div>
+		<div  class="form-group"  <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="lastname">LastName</label>
-			<input id="lastname" name="lastname" value="">
-		</p>
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="form-control" id="lastname" name="lastname" value="">
+		</div>
+		<div  class="form-group"  <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="password">Password</label>
-			<input id="passowrd" name="passowrd" value="">
-		</p>
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="form-control" id="passowrd" name="passowrd" value="">
+		</div>
+		<div  class="form-group" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="dob">DoB (yyyy-mm-dd)</label>
-			<input id="dob" name="dob" value="">
-		</p>
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="form-control" id="dob" name="dob" value="">
+		</div>
+		<div  class="form-group"  <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for=residencezip>Zip of Residence Location </label>
-			<input id="residencezip" name="residencezip" value="">
-		</p>
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="form-control" id="residencezip" name="residencezip" value="">
+		</div>
+		<div  class="form-group"  <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for=occupationzip>Zip of Occupation Location </label>
-			<input id="occupationzip" name="occupationzip" value="">
-		</p>		
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="form-control" id="occupationzip" name="occupationzip" value="">
+		</div>		
+		<div  class="form-group"  <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for=jobtitle>Preferred Job Title</label>
-			<input id="jobtitle" name="jobtitle" value="">
-		</p>		
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-			<input type="submit">
-		</p>
+			<input class="form-control" id="jobtitle" name="jobtitle" value="">
+		</div>		
+		<div  class="form-group"  <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input class="btn btn-primary" type="submit">
+		</div>
 	</form>
 	<br/><br/>
+	</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

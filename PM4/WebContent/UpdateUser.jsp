@@ -8,25 +8,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Update a User</title>
 </head>
 <body>
-	<h1 <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>Update User</h1>
-	<h1>${messages.success}</h1>
+	<div class="panel panel-primary">
+	<a href="/#">&#8678; Back</a>
+	<div class="panel-heading">
+	<h3 <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>Update User</h3>
+	</div>
+	<div class="panel-body">
+	<h3>${messages.success}</h3>
 	<form action="updateuser" method="post">
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+		<p class="form-group" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="username">UserName</label>
-			<input id="username" name="username" value="${fn:escapeXml(param.username)}">
+			<input class="form-control" id="username" name="username" value="${fn:escapeXml(param.username)}">
 		</p>
-		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+		<p class="form-group" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<label for="lastname">New LastName</label>
-			<input id="lastname" name="lastname" value="">
+			<input class="form-control" id="lastname" name="lastname" value="">
 		</p>
 		<p <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-			<input type="submit">
+			<input class="btn btn-primary" type="submit">
 		</p>
 	</form>
 	<br/><br/>
-
+	</div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
