@@ -163,7 +163,7 @@ public class JobDetailDao {
 		return null;
 	}
 	
-	//getJobDepartmentBy
+	//getJobDetailByDepartmentName
 	public List<JobDetail> getJobDetailByDepartmentName(String departmentName) throws SQLException {
 		List<JobDetail> jobDetails = new ArrayList<JobDetail>();
 		String selectJobDetail =
@@ -190,6 +190,51 @@ public class JobDetailDao {
 				JobDepartment jobDepartment = jobDepartmentDao.getJobDepartmentByDepartmentName(resultDepartmentName);
 				ZipCode zipCode = zipCodeDao.getZipCodeByZip(zip);
 				JobDetail jobDetail = new JobDetail(jobTitleId,jobTitle, jobDepartment,salary,zipCode);
+				jobDetails.add(jobDetail);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if(connection != null) {
+				connection.close();
+			}
+			if(selectStmt != null) {
+				selectStmt.close();
+			}
+			if(results != null) {
+				results.close();
+			}
+		}
+		return jobDetails;
+	}
+	//getJobDetailByPartialTitle
+	public List<JobDetail> getJobDetailByPartialTitle(String partialTitle) throws SQLException {
+		List<JobDetail> jobDetails = new ArrayList<JobDetail>();
+		String selectJobDetail =
+				"SELECT JobTitleId,JobTitle,DepartmentName,Salary,Zip\n" +
+				"FROM JobDetail " +
+				"WHERE JobTitle like ?;";
+		Connection connection = null;
+		PreparedStatement selectStmt = null;
+		ResultSet results = null;
+		try {
+			connection = connectionManager.getConnection();
+			selectStmt = connection.prepareStatement(selectJobDetail);
+			selectStmt.setString(1, "%" + partialTitle + "%");
+			results = selectStmt.executeQuery();
+			JobDepartmentDao jobDepartmentDao = JobDepartmentDao.getInstance();
+			ZipCodeDao zipCodeDao = ZipCodeDao.getInstance();
+			while(results.next()) {
+				int jobTitleId = results.getInt("JobTitleId");
+				String jobTitle = results.getString("JobTitle");
+				String resultDepartmentName = results.getString("DepartmentName");
+				double salary = results.getDouble("Salary");
+				int zip = results.getInt("Zip");
+		
+				JobDepartment jobDepartment = jobDepartmentDao.getJobDepartmentByDepartmentName(resultDepartmentName);
+				ZipCode zipCode = zipCodeDao.getZipCodeByZip(zip);
+				JobDetail jobDetail = new JobDetail(jobTitleId, jobTitle, jobDepartment,salary,zipCode);
 				jobDetails.add(jobDetail);
 			}
 		} catch (SQLException e) {

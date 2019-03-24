@@ -26,6 +26,10 @@
 	<br/>
 	<div id="userCreate"><a href="createuser">Create User</a></div>
 	<br/>
+	<div id="searchRentals"><a href="searchrentals">Search Rentals by Neighborhood</a></div>
+	<br/>
+	<div id="searchJobs"><a href="searchjobs">Search Jobs by Title</a></div>
+	<br/>
 	<h1>Matching Users</h1>
         <table border="1">
             <tr>
@@ -33,9 +37,11 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Date of Birth</th>
-                <th> Rentals </th>
-                <th>Delete BlogUser</th>
-                <th>Update BlogUser</th>
+                <th>Rentals </th>
+                <th>Demographics </th>
+                <th>Public Schools </th>
+                <th>Delete User</th>
+                <th>Update User</th>
                 
             </tr>
             <c:forEach items="${user}" var="user" >
@@ -45,6 +51,8 @@
                     <td><c:out value="${user.getLastName()}" /></td>
                     <td><fmt:formatDate value="${user.getDob()}" pattern="yyyy-MM-dd"/></td>
                     <td><a href="userrentals?username=<c:out value="${user.getUserName()}"/>">Rentals</a></td>
+                    <td><a href="userdemographics?username=<c:out value="${user.getUserName()}"/>">Demographics</a></td>
+                    <td><a href="userschools?username=<c:out value="${user.getUserName()}"/>">Schools</a></td>
                   	<td><a href="deleteuser?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
                     <td><a href="updateuser?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
             </c:forEach>
