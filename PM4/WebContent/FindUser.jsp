@@ -15,13 +15,13 @@
 <div class="panel panel-primary">
 	<a href="/#">&#8678; Back</a>
 	<div class="panel-heading">
-	<h3>Search for User by FirstName</h3>
+	<h3>Search for User by First Name</h3>
 	</div>
 	<div class="panel-body">
 	<form action="finduser" method="post">
 		
 		<p class="form-group">
-			<label for="firstname">FirstName</label>
+			<label for="firstname">Input First Name</label>
 			<input class="form-control" id="firstname" name="firstname" value="${fn:escapeXml(param.firstname)}">
 		</p>
 		<p>
