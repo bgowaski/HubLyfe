@@ -167,7 +167,7 @@ public class JobDetailDao {
 		public List<JobDetail> getJobDetailByZipCode(int zipCode) throws SQLException {
 			List<JobDetail> jobDetails = new ArrayList<JobDetail>();
 			String selectJobDetail =
-					"SELECT  JobTitle,DepartmentName,Salary" +
+					"SELECT  JobTitle,DepartmentName,Salary,Zip" +
 					"FROM JobDetail " +
 					"WHERE ZipCode=?;";
 			Connection connection = null;
@@ -176,17 +176,20 @@ public class JobDetailDao {
 			try {
 				connection = connectionManager.getConnection();
 				selectStmt = connection.prepareStatement(selectJobDetail);
-				selectStmt.setString(1, zipCode);
+				selectStmt.setInt(1, zipCode);
 				results = selectStmt.executeQuery();
-				ZipCodeDao ZipCodeDao = ZipCodeDao.getInstance();
 				ZipCodeDao zipCodeDao = ZipCodeDao.getInstance();
+				JobDepartmentDao jobDepartmentDao = JobDepartmentDao.getInstance();
 				while(results.next()) {
 					String jobTitle = results.getString("JobTitle");
 					String departmentName = results.getString("DepartmentName");
 					double salary = results.getDouble("Salary");
+					int zip = results.getInt("Zip");
 			
-					ZipCode zipCode = zipCodeDao.getZipCodeByZip(zip);
-					JobDetail jobDetail = new JobDetail(jobTitle, departmentName,salary);
+					JobDepartment department = jobDepartmentDao.getJobDepartmentByDepartmentName(departmentName);
+					ZipCode resiltZipCode = zipCodeDao.getZipCodeByZip(zip);
+					
+					JobDetail jobDetail = new JobDetail(jobTitle, department,salary,resiltZipCode);
 					jobDetails.add(jobDetail);
 				}
 			} catch (SQLException e) {

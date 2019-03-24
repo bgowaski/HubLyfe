@@ -17,7 +17,16 @@ public class JobDetail {
 		this.salary = salary;
 		this.zip = zip;
 	}
-
+	
+	public JobDetail(String jobTitle, JobDepartment departmentName,
+			double salary, ZipCode zip)
+	{
+		this.jobTitle = jobTitle;
+		this.departmentName = departmentName;
+		this.salary = salary;
+		this.zip = zip;
+	}
+	
 	public int getJobTitleId() {
 		return jobTitleId;
 	}

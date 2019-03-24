@@ -19,6 +19,8 @@
 	  	<li><a href="finduser">Find User and their details</a></li>
 	  	<li><a href="searchrentals">Search Rentals</a></li>
 	  	<li><a href="searchjobs">Search Jobs</a></li>
+	  	<li><a href="searchrestaurants">Search Restaurants By Zip Code</a></li>
+	  	<li><a href="searchrestaurantsbytype">Search Restaurants By Type</a></li>
 	</ul>
 	
 	
