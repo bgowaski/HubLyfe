@@ -43,6 +43,7 @@
                 <th>Rentals </th>
                 <th>Demographics </th>
                 <th>Public Schools </th>
+                <th>Job Titles </th>
                 <th>Delete User</th>
                 <th>Update User</th>
                 
@@ -58,6 +59,7 @@
                     <td><a href="userrentals?username=<c:out value="${user.getUserName()}"/>">Rentals</a></td>
                     <td><a href="userdemographics?username=<c:out value="${user.getUserName()}"/>">Demographics</a></td>
                     <td><a href="userschools?username=<c:out value="${user.getUserName()}"/>">Schools</a></td>
+                    <td><a href="userjobdetails?username=<c:out value="${user.getUserName()}"/>">JobDetails</a></td>
                   	<td><a href="deleteuser?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
                     <td><a href="updateuser?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
             </c:forEach>
