@@ -31,7 +31,7 @@ public class DeleteUser extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
         // Provide a title and render the JSP.
-        messages.put("title", "Delete BlogUser");        
+        messages.put("title", "Delete User");        
         req.getRequestDispatcher("/DeleteUser.jsp").forward(req, resp);
 	}
 	

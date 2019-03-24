@@ -21,7 +21,7 @@
 	<form action="deleteuser" method="post">
 		<p class="form-group">
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-				<label for="username">UserName</label>
+				<label for="username">User Name</label>
 				<input class="form-control" id="username" name="username" value="${fn:escapeXml(param.username)}">
 			</div>
 		</p>
