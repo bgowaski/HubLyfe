@@ -38,8 +38,9 @@
             <tr>
                
                 <th>Title</th>
-                <th>Salary</th>
                 <th>JobDepartment</th>
+                <th>Salary</th>
+                <th>Zip</th>
                 
             </tr>
           </thead>
@@ -47,8 +48,9 @@
             <c:forEach items="${jobs}" var="jobs" >
                 <tr>
                     <td><c:out value="${jobs.getJobTitle()}" /></td>
+                    <td><c:out value="${jobs.getDepartmentName()}" /></td>
                     <td><c:out value="${jobs.getSalary()}" /></td>
-                  	 <td><c:out value="${jobs.getJobDepartment()}" /></td>
+                  	<td><c:out value="${jobs.getZipCode()}" /></td> 
                   
                 </tr>
             </c:forEach>

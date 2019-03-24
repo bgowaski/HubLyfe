@@ -4,25 +4,26 @@ public class JobDetail {
 
 	protected int jobTitleId;
 	protected String jobTitle;
-	protected JobDepartment departmentName;
+	protected JobDepartment department;
 	protected double salary;
 	protected ZipCode zip;
 	
-	public JobDetail(int jobTitleId, String jobTitle, JobDepartment departmentName,
+	
+	public JobDetail(int jobTitleId, String jobTitle, JobDepartment department,
 			double salary, ZipCode zip)
 	{
 		this.jobTitleId = jobTitleId;
 		this.jobTitle = jobTitle;
-		this.departmentName = departmentName;
+		this.department = department;
 		this.salary = salary;
 		this.zip = zip;
 	}
 	
-	public JobDetail(String jobTitle, JobDepartment departmentName,
+	public JobDetail(String jobTitle, JobDepartment department,
 			double salary, ZipCode zip)
 	{
 		this.jobTitle = jobTitle;
-		this.departmentName = departmentName;
+		this.department = department;
 		this.salary = salary;
 		this.zip = zip;
 	}
@@ -43,12 +44,16 @@ public class JobDetail {
 		this.jobTitle = jobTitle;
 	}
 
-	public JobDepartment getDepartmentName() {
-		return departmentName;
+	public JobDepartment getDepartment() {
+		return department;
+	}
+	
+	public String getDepartmentName() {
+		return getDepartment().getDepartmentName();
 	}
 
-	public void setDepartmentName(JobDepartment departmentName) {
-		this.departmentName = departmentName;
+	public void setDepartment(JobDepartment department) {
+		this.department = department;
 	}
 
 	public double getSalary() {
@@ -61,6 +66,10 @@ public class JobDetail {
 
 	public ZipCode getZip() {
 		return zip;
+	}
+	
+	public int getZipCode() {
+		return getZip().getZip();
 	}
 
 	public void setZip(ZipCode zip) {

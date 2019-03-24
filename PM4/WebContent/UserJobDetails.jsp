@@ -29,11 +29,11 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${jobDetail}" var="jobDetail" >
+            <c:forEach items="${jobdetails}" var="jobdetails" >
                 <tr>
-                    <td><c:out value="${jobDetail.getJobTitle}" /></td>
-                    <td><c:out value="${jobDetail.getSalary}" /></td>
-                    <td><c:out value="${jobDetail.getJobDepartment()}" /></td>
+                    <td><c:out value="${jobdetails.getJobTitle()}"/></td>
+                    <td><c:out value="${jobdetails.getSalary()}" /></td>
+                    <td><c:out value="${jobdetails.getDepartmentName()}" /></td>
                    
               
                 </tr>

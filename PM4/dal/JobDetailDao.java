@@ -39,7 +39,7 @@ public class JobDetailDao {
 
 			insertStmt.setInt(1, jobDetail.getJobTitleId());
 			insertStmt.setString(2, jobDetail.getJobTitle());
-			insertStmt.setString(3, jobDetail.getDepartmentName().getDepartmentName());
+			insertStmt.setString(3, jobDetail.getDepartment().getDepartmentName());
 			insertStmt.setDouble(4, jobDetail.getSalary());
 			insertStmt.setInt(5, jobDetail.getZip().getZip());
 			
@@ -167,9 +167,9 @@ public class JobDetailDao {
 		public List<JobDetail> getJobDetailByZipCode(int zipCode) throws SQLException {
 			List<JobDetail> jobDetails = new ArrayList<JobDetail>();
 			String selectJobDetail =
-					"SELECT  JobTitle,DepartmentName,Salary,Zip" +
+					"SELECT  JobTitle,DepartmentName,Salary,Zip\n" +
 					"FROM JobDetail " +
-					"WHERE ZipCode=?;";
+					"WHERE Zip=?;";
 			Connection connection = null;
 			PreparedStatement selectStmt = null;
 			ResultSet results = null;

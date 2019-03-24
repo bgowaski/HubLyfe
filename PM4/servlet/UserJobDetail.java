@@ -20,14 +20,12 @@ import model.*;
 public class UserJobDetail extends HttpServlet {
 	
 	protected JobDetailDao jobDetailDao;
-	protected ZipCodeDao zipCodeDao;
 	protected UserDao userDao;
 	
 	@Override
 	public void init() throws ServletException {
 		jobDetailDao = JobDetailDao.getInstance();
 		userDao = UserDao.getInstance();
-		zipCodeDao = ZipCodeDao.getInstance();
 		}
 	
 	@Override
@@ -49,8 +47,7 @@ public class UserJobDetail extends HttpServlet {
         List<JobDetail> jobdetails = new ArrayList<JobDetail>();
         try {
         	User user = userDao.getUserByUserName(userName);
-        	ZipCode zipCode = zipCodeDao.getZipCodeByZip(user.getResidenceZip());
-        	jobdetails = jobDetailDao.getJobDetailByZipCode(user.getResidenceZip());
+        	jobdetails = jobDetailDao.getJobDetailByZipCode(user.getOccupationZip());
         
         } catch (SQLException e) {
 			e.printStackTrace();
