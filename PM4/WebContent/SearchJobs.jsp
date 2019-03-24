@@ -39,7 +39,7 @@
                
                 <th>Title</th>
                 <th>Salary</th>
-                 
+                <th>JobDepartment</th>
                 
             </tr>
           </thead>
@@ -48,6 +48,7 @@
                 <tr>
                     <td><c:out value="${jobs.getJobTitle()}" /></td>
                     <td><c:out value="${jobs.getSalary()}" /></td>
+                  	 <td><c:out value="${jobs.getJobDepartment()}" /></td>
                   
                 </tr>
             </c:forEach>
