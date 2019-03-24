@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS HublyfeTest;
-USE HublyfeTest;
+CREATE SCHEMA IF NOT EXISTS Hublyfe;
+USE Hublyfe;
 
 
 
@@ -7,15 +7,11 @@ DROP TABLE IF EXISTS Ethnicity;
 DROP TABLE IF EXISTS EducationalAttainment;
 DROP TABLE IF EXISTS AgeData;
 DROP TABLE IF EXISTS Demographic;
-
-
 DROP TABLE IF EXISTS Restaurant;
 DROP TABLE IF EXISTS Rent;
-#--- Jeremy---
 DROP TABLE IF EXISTS JobDetail;
 DROP TABLE IF EXISTS JobDepartment;
 DROP TABLE IF EXISTS User;
-#-----Sheela--
 DROP TABLE IF EXISTS SchoolType;
 DROP TABLE IF EXISTS PublicSchool;
 DROP TABLE IF EXISTS ZipCode;

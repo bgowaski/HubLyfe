@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.*;
+import model.AgeData.AgeRange;
+import model.EducationalAttainment.EdType;
+import model.Ethnicity.EthnicityType;
 
 public class DemographicDao {
 	protected ConnectionManager connectionManager;
@@ -203,6 +206,62 @@ public class DemographicDao {
 		return demographics;
 	}
 
+	//getDemographicByNeighborhoodName
+		public List<Demographic> getAllDemographicByNeighborhoodName(String neighborhoodName) throws SQLException {
+			List<Demographic> demographics = new ArrayList<Demographic>();
+			String selectDemographic =
+					"SELECT Demographic.DemographicId AS DemographicId , Population, ForiegnBorn, FemaleLaborForce, MaleLaborForce" + 
+					",OccupiedHousingUnits, OwnerOccupiedUnits, RenterOccupiedUnits, NeighborhoodName," +
+					" EdAttainmentId, EdType, EdPopulation\n"+
+					"FROM Demographic\n " +
+					"INNER JOIN EducationalAttainment ON EducationalAttainment.DemographicId = Demographic.DemographicId\n " +
+					"WHERE NeighborhoodName=?;";
+				Connection connection = null;
+				PreparedStatement selectStmt = null;
+				ResultSet results = null;
+				try {
+					connection = connectionManager.getConnection();
+					selectStmt = connection.prepareStatement(selectDemographic);
+					selectStmt.setString(1, neighborhoodName);
+					results = selectStmt.executeQuery();
+					NeighborhoodDao neighborhoodDao = NeighborhoodDao.getInstance();
+					while(results.next()) {
+						int demographicId = results.getInt("DemographicId");
+						double population = results.getDouble("Population");
+						int foriegnBorn = results.getInt("ForiegnBorn");
+						int femaleLaborForce = results.getInt("FemaleLaborForce");
+						int maleLaborForce = results.getInt("MaleLaborForce");
+						int occupiedHousingUnits = results.getInt("OccupiedHousingUnits");
+						int ownerOccupiedUnits = results.getInt("OwnerOccupiedUnits");
+						int renterOccupiedUnits = results.getInt("RenterOccupiedUnits");
+						String resultNeighborhoodName = results.getString("NeighborhoodName");
+						int educationalAttainmentId = results.getInt("EdAttainmentId");
+						EducationalAttainment.EdType edType = EducationalAttainment.EdType.get(results.getString("EdType"));
+						int edPopulation = results.getInt("EdPopulation");
+						
+						
+						Neighborhood neighborhood = neighborhoodDao.getNeighborhoodByNeighborhoodName(resultNeighborhoodName);
+						Demographic demographic = new Demographic(demographicId,population, foriegnBorn,
+								femaleLaborForce, maleLaborForce, occupiedHousingUnits, ownerOccupiedUnits,renterOccupiedUnits, 
+								 neighborhood, educationalAttainmentId, edType, edPopulation);
+						demographics.add(demographic);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw e;
+			} finally {
+				if(connection != null) {
+					connection.close();
+				}
+				if(selectStmt != null) {
+					selectStmt.close();
+				}
+				if(results != null) {
+					results.close();
+				}
+			}
+			return demographics;
+		}
 
 
 }

@@ -1,5 +1,9 @@
 package model;
 
+import model.AgeData.AgeRange;
+import model.EducationalAttainment.EdType;
+import model.Ethnicity.EthnicityType;
+
 public class Demographic {
 
 	protected int demographicId;
@@ -11,6 +15,53 @@ public class Demographic {
 	protected int ownerOccupiedUnits;
 	protected int renterOccupiedUnits;
 	protected Neighborhood neighborhood;
+
+	public int getEdAttainmentId() {
+		return edAttainmentId;
+	}
+
+	public void setEdAttainmentId(int edAttainmentId) {
+		this.edAttainmentId = edAttainmentId;
+	}
+
+	public EdType getEdType() {
+		return edType;
+	}
+
+	public void setEdType(EdType edType) {
+		this.edType = edType;
+	}
+
+	public int getEdPopulation() {
+		return edPopulation;
+	}
+
+	public void setEdPopulation(int edPopulation) {
+		this.edPopulation = edPopulation;
+	}
+
+	protected int edAttainmentId;
+	protected EdType edType;
+	protected int edPopulation;
+	
+	public Demographic(int demographicId,double population,int foriegnBorn,int femaleLaborForce,
+			int maleLaborForce,int occupiedHousingUnits, int ownerOccupiedUnits, int renterOccupiedUnits,
+		    Neighborhood neighborhood, 
+		    int edAttainmentId, EdType edType, int edPopulation) {
+
+		this.demographicId = demographicId;
+		this.population = population;
+		this.foriegnBorn = foriegnBorn;
+		this.femaleLaborForce = femaleLaborForce;
+		this.maleLaborForce = maleLaborForce;
+		this.occupiedHousingUnits = occupiedHousingUnits;
+		this.ownerOccupiedUnits = ownerOccupiedUnits;
+		this.renterOccupiedUnits = renterOccupiedUnits;
+		this.neighborhood = neighborhood;
+		this.edAttainmentId = edAttainmentId;
+		this.edType = edType;
+		this.edPopulation = edPopulation;
+	}
 	
 	public Demographic(int demographicId,double population,int foriegnBorn,int femaleLaborForce,
 			int maleLaborForce,int occupiedHousingUnits, int ownerOccupiedUnits, int renterOccupiedUnits,

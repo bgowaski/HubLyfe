@@ -50,7 +50,7 @@ public class UserDemographics extends HttpServlet {
         try {
         	User user = userDao.getUserByUserName(userName);
         	ZipCode zipCode = zipCodeDao.getZipCodeByZip(user.getResidenceZip());
-        	demographics = demographicDao.getDemographicByNeighborhoodName(zipCode.getNeighborhood().getNeighborhoodName());
+        	demographics = demographicDao.getAllDemographicByNeighborhoodName(zipCode.getNeighborhood().getNeighborhoodName());
         
         } catch (SQLException e) {
 			e.printStackTrace();

@@ -19,14 +19,17 @@
 	</div>
 	<div class="panel-body">
         <table class="table table-striped">
+         
         <thead>
             <tr>
                 <th>Neighborhood Name</th>
                 <th>Total Population</th>
                 <th>Foreign Born Population</th>
-                <th>Number of housing units</th>
-                <th>Number of owner occupied housing units</th>
-                <th>Number of renter occupied housing units</th>
+                <th>Housing units</th>
+                <th>Owner occupied units</th>
+                <th>Renter occupied units</th>
+                <th>Education Type</th>
+                <th>Education Type Population</th>
                
             </tr>
             </thead>
@@ -39,11 +42,14 @@
                     <td><c:out value="${demographics.getOccupiedHousingUnits()}" /></td>
                     <td><c:out value="${demographics.getOwnerOccupiedUnits()}" /></td>
                     <td><c:out value="${demographics.getRenterOccupiedUnits()}" /></td>
+                    <td><c:out value="${demographics.getEdType().value()}" /></td>
+                    <td><c:out value="${demographics.getEdPopulation()}" /></td>
               
                 </tr>
             </c:forEach>
             </tbody>
        </table>
+       
        </div>
        </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
