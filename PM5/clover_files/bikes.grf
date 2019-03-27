@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="ben.gowaski" created="Wed Mar 27 17:56:55 EDT 2019" guiVersion="5.1.1" id="1553724725116" licenseCode="Unlicensed" name="bikes" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="," name="fremontBikeCounts" previewAttachment="${DATAIN_DIR}/fremontBikeCounts.csv" previewAttachmentCharset="UTF-8" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field format="mm/dd/yyyy hh:mm:ss a" label="Date" name="Date" type="date"/>
+<Field label="Fremont Bridge East Sidewalk" name="Fremont_Bridge_East_Sidewalk" type="integer"/>
+<Field eofAsDelimiter="true" label="Fremont Bridge West Sidewalk" name="Fremont_Bridge_West_Sidewalk" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="|" name="joinResult" recordDelimiter="\n" type="delimited">
+<Field format="MM/dd/yyyy hh:mm:ss a" name="Date" type="date"/>
+<Field name="count" type="integer"/>
+<Field name="AirTemp" type="decimal"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="," name="weather" previewAttachment="${DATAIN_DIR}/fremontWeather.csv" previewAttachmentCharset="UTF-8" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field name="StationName" type="string"/>
+<Field name="StationLocation" type="string"/>
+<Field format="MM/dd/yyyy hh:mm:ss a" name="DateTime" type="date"/>
+<Field name="RecordId" type="integer"/>
+<Field name="RoadSurfaceTemperature" scale="2" type="decimal"/>
+<Field eofAsDelimiter="true" name="AirTemperature" scale="2" type="decimal"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node guiName="DBOutputTable" guiX="686" guiY="348" id="DBOUTPUT_TABLE" type="DB_OUTPUT_TABLE"/>
+<Node guiName="ExtHashJoin" guiX="378" guiY="222" id="EXT_HASH_JOIN" joinKey="$DateTime=$Date" type="EXT_HASH_JOIN">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.Date = $in.1.Date;
+	$out.0.count = nvl($in.1.Fremont_Bridge_East_Sidewalk+$in.1.Fremont_Bridge_West_Sidewalk,0);
+	$out.0.AirTemp = nvl($in.0.AirTemperature,0);
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Trash" guiX="686" guiY="270" id="TRASH" type="TRASH"/>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/fremontWeather.csv" guiName="UniversalDataReader" guiX="111" guiY="144" id="UNIVERSAL_DATA_READER" numSourceRecords="15000" quoteCharacter="&quot;" quotedStrings="true" skipFirstLine="true" trim="true" type="DATA_READER"/>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/fremontBikeCounts.csv" guiName="UniversalDataReader" guiX="111" guiY="260" id="UNIVERSAL_DATA_READER1" numRecords="100000" skipFirstLine="true" trim="true" type="DATA_READER"/>
+<Edge fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge7" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 0 (out)" toNode="DBOUTPUT_TABLE:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (driver)" metadata="Metadata0" outPort="Port 0 (output)" toNode="EXT_HASH_JOIN:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 1 (slave)" metadata="Metadata1" outPort="Port 0 (output)" toNode="EXT_HASH_JOIN:1"/>
+</Phase>
+</Graph>
