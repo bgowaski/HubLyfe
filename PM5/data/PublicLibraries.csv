@@ -1,27 +1,27 @@
-﻿LibraryId,Neighborhood,Address,Branch,Zip
-1, ,151 Cambridge St,West End,2114
-2, ,690 Washington St,Codman Square,2124
-3,HYDE PARK,35 Harvard Av,Hyde Park,2136
-4,JAMAICA PLAIN,433 Centre St,Connolly,2130
-5,ROXBURY,65 Warren St,Dudley,2119
-6,COPLEY SQUARE,700 Boylston St,Central,2116
-7, ,25 Parmenter St,North End,2113
-8, ,685 Tremont St,South End,2118
-9,BRIGHTON,300 North Harvard St,Honan-Allston,2134
-10, ,40 Academy Hill Rd,Brighton,2135
-11, ,419 Faneuil St,Faneuil,2135
-12,CHARLESTOWN,179 Main St,Charlestown,2129
-13,DORCHESTER,690 Adams St,Adams Street,2122
-14, ,1520 Dorchester Av,Fields Corner,2122
-15, ,27 Richmond St,Lower Mills,2124
-16, ,500 Columbia Rd,Uphams Corner,2125
-17,EAST BOSTON,365 Bremen St,East Boston,2128
-18, ,12 Sedgwick St,Jamaica Plain,2130
-19,MATTAPAN,1350 Blue Hill Avenue,Mattapan,2126
-20,ROSLINDALE,4246 Washington St,Roslindale,2131
-21, ,2044 Columbus Av,Egleston Square,2119
-22, ,41 Geneva Ave,Grove Hall,2121
-23, ,1497 Tremont St,Parker Hill,2120
-24,WEST ROXBURY,1961 Centre St,West Roxbury,2132
-25, SOUTH BOSTON,646 East Broadway,South Boston,2127
-27,CHINATOWN,2 Boylston St,Chinatown,2116
+LibraryId,Neighborhood,Address,Zip
+1,West End,151 Cambridge St,2114
+2,Dorchester / Codman Square,690 Washington St,2124
+3,Hyde Park,35 Harvard Av,2136
+4,Jamaica Plain,433 Centre St,2130
+5,Roxbury,65 Warren St,2119
+6,Back Bay,700 Boylston St,2116
+7,North End,25 Parmenter St,2113
+8,South End,685 Tremont St,2118
+9,Brighton,300 North Harvard St,2134
+10,Brighton,40 Academy Hill Rd,2135
+11,Financial District,419 Faneuil St,2135
+12,Charlestown,179 Main St,2129
+13,Dorchester,690 Adams St,2122
+14,Dorchester / Fields Corner,1520 Dorchester Av,2122
+15,Mattapan,27 Richmond St,2124
+16,Dorchester,500 Columbia Rd,2125
+17,East Boston,365 Bremen St,2128
+18,Jamaica Plain,12 Sedgwick St,2130
+19,Mattapan,1350 Blue Hill Avenue,2126
+20,Roslindale,4246 Washington St,2131
+21,Jamaica Plain,2044 Columbus Av,2119
+22,Roxbury,41 Geneva Ave,2121
+23,Roxbury,1497 Tremont St,2120
+24,West Roxbury,1961 Centre St,2132
+25,South Boston,646 East Broadway,2127
+27,Chinatown,2 Boylston St,2116
