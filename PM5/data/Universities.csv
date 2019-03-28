@@ -50,9 +50,9 @@ UniversityID,UniversityName,Neighborhood,Cost,NumStudents
 49,Kaplan Career Institute (Closed),Fenway - Kenmore,3854600,0
 50,New England School of Photography,Fenway - Kenmore,452500,66
 51,Art Institute of Boston at Lesley University,Fenway - Kenmore,7212500,0
-52,New England College of Business and Finance,Financial District / Wharves,12889200,1145
-53,Empire Beauty School-Boston,Financial District / Wharves,1618800,241
-54,Urban College of Boston,Financial District / Wharves,4285100,762
+52,New England College of Business and Finance,Financial District,12889200,1145
+53,Empire Beauty School-Boston,Financial District,1618800,241
+54,Urban College of Boston,Financial District,4285100,762
 55,Boston Baptist College,Hyde Park,3326900,96
 56,Pine Manor College,Jamaica Plain,0,346
 57,University of Massachusetts-Boston,Dorchester,195575300,16277
