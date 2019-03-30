@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="ben.gowaski" created="Sat Mar 30 11:05:13 EDT 2019" guiVersion="5.1.1" id="1553959190625" licenseCode="CLP1DNORTH19006165EX" name="communityCenters" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata7">
+<Record fieldDelimiter="|" name="CommunityCenterData" recordDelimiter="\n" type="delimited">
+<Field name="Neighborhood" type="string"/>
+<Field name="NumCommunityCenters" trim="true" type="integer"/>
+<Field name="Population" trim="true" type="integer"/>
+<Field name="ForeignBornPop" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="," name="CommunityCenters" previewAttachment="${DATAIN_DIR}/CommunityCenters.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="true" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="CommunityCenterId" type="integer"/>
+<Field name="CommunityCenterName" type="string"/>
+<Field name="Address" type="string"/>
+<Field name="Neighborhood" type="string"/>
+<Field eofAsDelimiter="true" name="Zip" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="|" name="CommunityCentersPerNeighborhood" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field delimiter="|" name="Neighborhood" type="string"/>
+<Field delimiter="\n" name="NumberCommCenters" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata5">
+<Record fieldDelimiter="," name="CommunityCentersPerNeighborhood_1" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field delimiter="," name="Neighborhood" type="string"/>
+<Field name="NumberCommCenters" type="integer"/>
+<Field name="Population" type="integer"/>
+<Field name="ForeignBornPopulation" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata6" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter="|" name="CommunityCentersPerNeighborhood1" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field delimiter="|" name="Neighborhood" type="string"/>
+<Field delimiter="\n" name="NumberCommCenters" trim="true" type="integer"/>
+<Field name="Population" type="integer"/>
+<Field name="ForeginBorn" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3">
+<Record fieldDelimiter="," name="Demographic" previewAttachment="${DATAIN_DIR}/Demographic.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="DemographicId" type="integer"/>
+<Field name="NeighborhoodName" type="string"/>
+<Field name="Population" type="integer"/>
+<Field name="ForeignBorn" type="integer"/>
+<Field name="FemaleLaborForce" type="integer"/>
+<Field name="MaleLaborForce" type="integer"/>
+<Field name="OccupiedHousingUnits" type="integer"/>
+<Field name="RenterOccupiedUnits" type="integer"/>
+<Field eofAsDelimiter="true" name="OwnerOccupiedUnits" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata4">
+<Record fieldDelimiter="|" name="DemographicsForCommunityCenters" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="Neighborhood" type="string"/>
+<Field name="NumCommCenters" type="integer"/>
+<Field name="Population" type="integer"/>
+<Field name="ForeignBornPopulation" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="None &quot;null&quot;" name="Neighborhood" previewAttachment="${DATAIN_DIR}/Neighborhood.csv" previewAttachmentCharset="UTF-8" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\r\n" skipSourceRows="0" type="delimited">
+<Field eofAsDelimiter="true" name="Field1" type="string"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node aggregateKey="Neighborhood" guiName="Aggregate" guiX="315" guiY="140" id="AGGREGATE" mapping="$Neighborhood:=$Neighborhood;$NumberCommCenters:=count();" type="AGGREGATE"/>
+<Node guiName="ExtHashJoin" guiX="568" guiY="248" id="EXT_HASH_JOIN" joinKey="$Neighborhood=$NeighborhoodName" joinType="inner" transformClass="MyTransform" type="EXT_HASH_JOIN">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.Neighborhood = $in.0.Neighborhood;
+	$out.0.NumCommunityCenters = $in.0.NumberCommCenters;
+	$out.0.Population = $in.1.Population;
+	$out.0.ForeignBornPop = $in.1.ForeignBorn;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node existingSheetsActions="DO_NOTHING" fileURL="${DATAOUT_DIR}/CommunityCenterData.xls" guiName="SpreadsheetDataWriter" guiX="768" guiY="260" id="SPREADSHEET_DATA_WRITER" type="SPREADSHEET_WRITER" writeMode="OVERWRITE_SHEET_IN_MEMORY">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapping>
+    <globalAttributes>
+        <orientation>VERTICAL</orientation>
+        <step>1</step>
+        <writeHeader>true</writeHeader>
+    </globalAttributes>
+    <defaultSkip>1</defaultSkip>
+    <headerGroups>
+        <headerGroup skip="1">
+            <cloverField>Neighborhood</cloverField>
+            <headerRanges>
+                <headerRange begin="A1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="1">
+            <cloverField>NumCommunityCenters</cloverField>
+            <headerRanges>
+                <headerRange begin="B1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="1">
+            <cloverField>Population</cloverField>
+            <headerRanges>
+                <headerRange begin="C1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="1">
+            <cloverField>ForeignBornPop</cloverField>
+            <headerRanges>
+                <headerRange begin="D1"/>
+            </headerRanges>
+        </headerGroup>
+    </headerGroups>
+</mapping>
+]]></attr>
+</Node>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/CommunityCenters.csv" guiName="UniversalDataReader" guiX="87" guiY="65" id="UNIVERSAL_DATA_READER" skipFirstLine="true" trim="true" type="DATA_READER"/>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/Demographic.csv" guiName="UniversalDataReader" guiX="87" guiY="295" id="UNIVERSAL_DATA_READER1" skipFirstLine="true" trim="true" type="DATA_READER"/>
+<Edge fromNode="AGGREGATE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge7" inPort="Port 0 (driver)" metadata="Metadata2" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:0"/>
+<Edge fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge12" inPort="Port 0 (input)" metadata="Metadata7" outPort="Port 0 (out)" toNode="SPREADSHEET_DATA_WRITER:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (output)" toNode="AGGREGATE:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 1 (slave)" metadata="Metadata3" outPort="Port 0 (output)" toNode="EXT_HASH_JOIN:1"/>
+</Phase>
+</Graph>
