@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="sheelasathyanarayana" created="Sat Mar 30 10:26:06 EDT 2019" guiVersion="5.1.1" id="1553960127499" licenseCode="CLP1DNORTH28309451EX" name="NumberOfUniversitiesToRent" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="," name="AverageRent" previewAttachment="${DATAIN_DIR}/AverageRent.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field name="NeighborhoodName" type="string"/>
+<Field eofAsDelimiter="true" name="AverageRent" scale="1" type="decimal"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3">
+<Record fieldDelimiter="|" name="NumberOfUniversityAndRent" recordDelimiter="\n" type="delimited">
+<Field name="NeighborhoodName" type="string"/>
+<Field name="NumberOfUniversities" type="integer"/>
+<Field name="NumberOfStudents" type="integer"/>
+<Field name="AverageRent" type="decimal"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="," name="Universities" previewAttachment="${DATAIN_DIR}/Universities.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="UniversityID" type="integer"/>
+<Field name="UniversityName" type="string"/>
+<Field name="Neighborhood" type="string"/>
+<Field name="Cost" type="integer"/>
+<Field eofAsDelimiter="true" name="NumStudents" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="|" name="UniverstyCount" recordDelimiter="\n" type="delimited">
+<Field name="NeighborhoodName" type="string"/>
+<Field name="NumberOfUniversities" type="integer"/>
+<Field name="NumberOfStudents" type="integer"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node aggregateKey="Neighborhood" guiName="Aggregate" guiX="390" guiY="117" id="AGGREGATE" mapping="$NeighborhoodName:=$Neighborhood;$NumberOfUniversities:=count();$NumberOfStudents:=sum($NumStudents);" sorted="false" type="AGGREGATE"/>
+<Node guiName="ExtHashJoin" guiX="554" guiY="279" id="EXT_HASH_JOIN" joinKey="$NeighborhoodName=$NeighborhoodName" type="EXT_HASH_JOIN">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.NeighborhoodName = $in.0.NeighborhoodName;
+	$out.0.NumberOfStudents = nvl($in.0.NumberOfStudents,0);
+	$out.0.NumberOfUniversities = nvl($in.0.NumberOfUniversities,0);
+	$out.0.AverageRent = nvl($in.1.AverageRent,0);
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node debugPrint="true" guiName="Trash" guiX="720" guiY="123" id="TRASH" type="TRASH"/>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/Universities.csv" guiName="UniversalDataReader" guiX="114" guiY="117" id="UNIVERSAL_DATA_READER" skipFirstLine="true" type="DATA_READER">
+<attr name="guiDescription"><![CDATA[Universities]]></attr>
+</Node>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/AverageRent.csv" guiName="UniversalDataReader" guiX="105" guiY="229" id="UNIVERSAL_DATA_READER1" skipFirstLine="true" type="DATA_READER">
+<attr name="guiDescription"><![CDATA[Avegare Rent]]></attr>
+</Node>
+<Edge fromNode="AGGREGATE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (driver)" metadata="Metadata1" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:0"/>
+<Edge fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (out)" toNode="TRASH:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (output)" toNode="AGGREGATE:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 1 (slave)" metadata="Metadata2" outPort="Port 0 (output)" toNode="EXT_HASH_JOIN:1"/>
+</Phase>
+</Graph>
