@@ -1,0 +1,142 @@
+SchoolId,SchoolName,HistoricalName,AbbreviatedName,Address,NeighborhoodName,YearFounded ,YearBuilt,SchoolOpen,SchoolClose
+1,"Adams, Samuel Elementary",Adams,Adams,"165 Webster St East Boston, MA 02128",East Boston,1910,1910,7:30:00 AM,1:30:00 PM
+2,"Alighieri, Dante Montessori School",Alighieri,Alighieri,"37 Gove Street East Boston, MA 02128",East Boston,1924,1924,7:30:00 AM,1:30:00 PM
+3,Another Course to College*,Taft,ACC*,"20 Warren Street Brighton, MA 02135",Allston,1939,1895,7:30:00 AM,2:30:00 PM
+4,Baldwin Early Learning Pilot Academy,Baldwin ELC,Baldwin,"121 Corey Rd Brighton, MA 02135",Brighton,1926,1926,7:30:00 AM,4:35:00 PM
+5,"Bates, Phineas Elementary",Bates,Bates,"426 Beech St Roslindale, MA 02131",Roslindale,1929,1929,9:30:00 AM,3:30:00 PM
+6,"Beethoven, Ludwig Van Elementary",Beethoven,Beethoven,"5125 Washington St West Roxbury, MA 02132",West Roxbury,1925,1925,8:30:00 AM,2:30:00 PM
+7,"Blackstone, William Elementary",Blackstone,Blackstone,"380 Shawmut Ave Boston, MA 02118",South End,1975,1975,8:30:00 AM,3:00:00 PM
+8,Boston Adult Technical Academy,NA,BATA,"20 Church Street Boston, MA 02116",Bay Village,2005,1899,8:50:00 AM,3:30:00 PM
+9,Boston Arts Academy,Boston Arts Academy,BAA,"174 Ipswich St Boston, MA 02215",Fenway,1998,1899,8:50:00 AM,3:55:00 PM
+10,Boston Community Leadership Academy*,Hyde Park High Complex,BCLA,"655 Metropolitan Av Hyde Park, MA 02136",Hyde Park,2005,1929,7:45:00 AM,2:30:00 PM
+11,Boston Day & Evening Academy,Wheatley,Day & Evening,"20 Kearsarge Avenue, Roxbury 02119",Roxbury,1929,1995,,
+12,Boston Green Academy*,Taft,Boston Green*,"20 Warren Street Brighton, MA 02135",Allston,,1895,8:00 AM,3:00 PM
+13,Boston International Newcomers Academy,Thompson,BINCA*,"100 Maxwell St Dorchester, MA 02124",Dorchester,2003,1922,8:00:00 AM,2:30:00 PM
+14,Boston Latin Academy,Boston Technical High School,BLA,"205 Townsend St Dorchester, MA 02121",Roxbury,1926,1926,7:20:00 AM,1:40:00 PM
+15,Boston Latin School,Boston Latin School,BLS,"78 Louis Pasteur Avenue Boston, MA 02115",Longwood Medical Area,1922,1922,7:45:00 AM,2:15:00 PM
+16,Boston Teachers Union K-8 School,BTU K-8,BTU,"25 Walk Hill St Jamaica Plain, MA 02130",Jamaica Plain,1899,1889,8:30:00 AM,3:00:00 PM
+17,"Bradley, Manassah E. Elementary",Bradley,Bradley,"110 Beachview Rd East Boston, MA 02128",East Boston,1958,1958,9:30:00 AM,3:30:00 PM
+18,Brighton High,Brighton High,Brighton,"25 Warren St Brighton, MA 02135",Brighton,1930,1930,7:30:00 AM,1:55:00 PM
+19,"Burke, Jeremiah E. High*",Burke High,Burke,"60 Washington St Dorchester, MA 02121",Dorchester,1934,1934,7:25:00 AM,2:20:00 PM
+20,Carter Development Center,Carter School,Carter,"396 Northampton St Boston, MA 02118",Roxbury,1971,1971,9:30:00 AM,3:30:00 PM
+21,"Channing, William E. Elementary",Channing Elementary,Channing,"35 Sunnyside St Hyde Park, MA 02136",Hyde Park,1928,1928,8:30:00 AM,3:00:00 PM
+22,Charlestown High,Charlestown High,Charlestown,"240 Medford St Charlestown, MA 02129",Charlestown,1978,1978,7:30:00 AM,1:50:00 PM
+23,"Chittick, James J. Elementary",Chittick Elementary,Chittick,"154 Ruskindale Rd Mattapan, MA 02126",Hyde Park,1931,1931,8:30:00 AM,2:30:00 PM
+24,Clap Innovation School,Clap Elementary,Clap,"35 Harvest Street, Dorchester",Dorchester,2011,1896,9:30:00 AM,4:00:00 PM
+25,Community Academy,Fuller,Community,"25 Glen Road, Jamaica Plain",Jamaica Plain,,1892,8:00:00 AM,2:20:00 PM
+26,Community Academy of Science & Health*,Cleveland,CASH*,"11 Charles St Dorchester, MA 02122",Dorchester,2005,1928,8:00:00 AM,2:25:00 PM
+27,"Condon, James F. Elementary",Condon Elementary,Condon,"200 D St South Boston, MA 02127",South Boston,1975,1975,8:30:00 AM,2:30:00 PM
+28,"Conley, George H. Elementary",Conley Elementary School,Conley,"450 Poplar St Roslindale, MA 02131",Roslindale,1931,1931,8:30:00 AM,2:30:00 PM
+29,Curley K-8 (Lower School),James Curley Elementary School,Curley Lower,"40 Pershing Rd Jamaica Plain, MA 02130",Jamaica Plain,2007,1970,8:30:00 AM,2:30:00 PM
+30,Curley K-8 (Upper School),Mary Curley Middle School,Curley Upper,"493 Centre Street, Jamaica Plain",Jamaica Plain,2007,1931,8:30:00 AM,2:30:00 PM
+31,Dearborn STEM Academy*,Dearborn,Dearborn,"35 Greenville Street Roxbury, MA",Roxbury,1912,2018,7:25:00 AM,2:20:00 PM
+32,"Dever, Paul A. Elementary",Dever Elementary,Dever,"325 Mt Vernon St Dorchester, MA 02125",Dorchester,1957,1957,,
+33,Dickerman Elementary,Dickerman Elementary,Dickerman,"206 Magnolia St, Dorchester, MA 02121",Dorchester,1915,1915,,
+34,Dorchester Academy*,Cleveland,Dorchester*,"11 Charles St. Dorchester, MA 02122",Dorchester,1919,1928,7:30:00 AM,1:55:00 PM
+35,Dudley Street Neighborhood School,Emerson Elementary,Dudley,"6 Shirley St Roxbury, MA 02119",Roxbury,,1924,7:30:00 AM,4:30:00 PM
+36,East Boston Early Education Center,East Boston EEC,East Boston EEC,"135 Gove St East Boston, MA 02128",East Boston,1998,1998,7:30:00 AM,4:45:00 PM
+37,East Boston High,East Boston High,East Boston,"86 White St East Boston, MA 02128",East Boston,1924,1924,7:30:00 AM,1:50:00 PM
+38,"Edison, Thomas A. K-8",Edison Middle,Edison,"60 Glenmont Rd Brighton, MA 02135",Brighton,1932,1932,8:30:00 AM,2:30:00 PM
+39,"Edwards, Clarence R. Middle",Edwards Middle,Edwards,"28 Walker St Charlestown, MA 02129",Charlestown,1932,1932,7:20:00 AM,4:15:00 PM
+40,"Eliot, John K-8 (Lower School)",Eliot Elementary,Eliot Lower,"16 Charter St Boston, MA 02113",North End,1932,1932,8:30:00 AM,3:15:00 PM
+41,"Eliot, John K-8 (Upper School)",NA,Eliot Upper,"585 Commercial Street Boston, MA 02109",North End,,1872,8:30:00 AM,3:30:00 PM
+42,"Eliot, John K-8 (Upper School) - (In Construction)",W Bennet St. School,Eliot Upper - Constr.,"150 North Street Boston, MA 02109",North End,,2018,8:30:00 AM,3:30:00 PM
+43,"Ellis, David A. Elementary",Ellis Elementary,Ellis,"302 Walnut Ave Roxbury, MA 02119",Roxbury,1932,1932,9:30:00 AM,3:30:00 PM
+44,Ellison/Parks Early Education School,Mattapan EEC,Ellison Parks,"108 Babson St Mattapan, MA 02126",Mattapan,1998,1998,7:30:00 AM,4:35:00 PM
+45,Endicott,Endicott,Endicott,"2 McLellan St, Boston, MA 02121",Dorchester,1906,1906,,
+46,"English High, The",English High,English HS,"144 McBride St Jamaica Plain, MA 02130",Jamaica Plain,1821,1979,7:20:00 AM,2:20:00 PM
+47,"Everett, Edwards Elementary",Everett Elementary,Everett,"71 Pleasant St Dorchester, MA 02125",Dorchester,1908,1909,9:30:00 AM,3:30:00 PM
+48,Excel High,South Boston Ed Complex,Excel,"95 G St South Boston, MA 02127",South Boston,2001,1901,7:25:00 AM,1:45:00 PM
+49,Fenway High,Fenway High School,Fenway,"67 Alleghany Street Boston, MA 02120",Mission Hill,1997,1925,8:30:00 AM,3:35:00 PM
+50,"Frederick, Lilla G. Middle",New Boston Pilot Middle School,Frederick,"270 Columbia Rd Dorchester, MA 02121",Dorchester,2003,2002,9:30:00 AM,3:40:00 PM
+51,Gardner Pilot Academy K-8,Gardner Elementary,Gardener,"30 Athol St Allston, MA 02134",Allston,1906,1906,8:30:00 AM,2:30:00 PM
+52,Greater Egleston Community High,Greater Egleston,Egleston,"80 School St Roxbury, MA 02119",Jamaica Plain,,1920,7:50:00 AM,2:30:00 PM
+53,"Greenwood, Elihu Leadership Academy",E. Greenwood Elementary,E. Greenwood,"612 Metropolitan Ave Hyde Park, MA 02136",Hyde Park,1957,1957,,
+54,"Greenwood, Sarah K-8",Sarah Greenwood,S. Greenwood,189 Glenway Street,Dorchester,,1925,8:30:00 AM,4:10:00 PM
+55,"Grew, Henry Elementary",Grew Elementary,Grew,"40 Gordon Ave Hyde Park, MA 02136",Hyde Park,1956,1958,8:30:00 AM,2:30:00 PM
+56,"Guild, Curtis Elementary",Guild Elementary,Guild,"5 Ashley Street/195 Leyden St East Boston, MA 02128",East Boston,1921,1921,8:30:00 AM,2:30:00 PM
+57,"Hale, Nathan Elementary",Hale Elementary,Hale,"51 Cedar St Roxbury, MA 02119",Roxbury,1909,1909,8:30:00 AM,2:30:00 PM
+58,"Haley K - 8, Dennis",Haley Pilot School,Haley,"570 Amer Legion Hwy Roslindale, MA 02131",Roslindale,1973,1971,8:30:00 AM,2:30:00 PM
+59,"Hamilton, Alexander",NA,Hamilton,"198 Strathmore Road, Brighton",Brighton,1924,,,
+60,Harvard/Kent Elementary,Harvard/Kent Elementary,Harvard/Kent,"50 Bunker Hill St Charlestown, MA 02129",Charlestown,1972,1971,9:30:00 AM,3:30:00 PM
+61,Haynes Early Education Center,Haynes EEC,Haynes,"263 Blue Hill Ave Roxbury, MA 02119",Roxbury,1998,1998,7:30:00 AM,4:35:00 PM
+62,"Henderson, Dr. William W. Inclusion (Lower School)",O'Hearn Elementary,Henderson Lower,"1669 Dorchester Ave Dorchester, MA 02122",Dorchester,2009,1972,8:30:00 AM,12:00:00 AM
+63,"Henderson, Dr. William W. Inclusion (Upper School)",Wilson,Henderson Upper,"18 Croftland Avenue Dorchester, MA 02124",Dorchester,2009,1932,7:40:00 AM,3:05:00 PM
+64,"Hennigan, James W. K-8*",Hennigan Elementary School,Hennigan*,"200 Heath St Jamaica Plain, MA 02130",Jamaica Plain,1972,1972,9:30:00 AM,3:30:00 PM
+65,"Hernandez, Rafael K-8",Hernandez,Hernandez,"61 School St Roxbury, MA 02119",Jamaica Plain,1923,1923,8:30:00 AM,2:30:00 PM
+66,Higginson Elementary,Higginson,Higginson,"160 Harrishof Street Roxbury, MA 02119",Roxbury,,1922,9:30:00 AM,3:30:00 PM
+67,Higginson/Lewis K-8,Lewis,Higginson/Lewis,"131 Walnut Ave Roxbury, MA 02119",Roxbury,1911,1912,9:30:00 AM,3:30:00 PM
+68,"Holmes, Oliver Wendell Elementary",Holmes Elementary,Holmes,"40 School St Dorchester, MA 02124",Dorchester,1906,1905,9:30:00 AM,3:30:00 PM
+69,Horace Mann School for the Deaf and Hard of Hearing*,Horace Mann School,Horace Mann*,"40 Armington St Allston, MA 02134",Allston,1975,1975,7:20:00 AM,1:40:00 PM
+70,"Hurley, Joseph K-8",Hurley,Hurley,"70 Worcester St Boston, MA 02118",South End,1961,1961,8:30:00 AM,2:30:00 PM
+71,"Irving, Washington Middle",Irving Middle,Irving,"105 Cummins Hgwy Roslindale, MA 02131",Roslindale,1936,1937,7:15:00 AM,4:15:00 PM
+72,Jackson/Mann K-8*,Horace Mann School,Jackson/Mann*,"40 Armington St Allston, MA 02134",Allston,1975,1975,9:30:00 AM,3:30:00 PM
+73,"Kennedy, Edward M. Academy for Health Careers 11-12",EMK Health Careers Academy,EMK,"110 The Fenway Boston, MA 02115",Fenway,,,8:00:00 AM,3:00:00 PM
+74,"Kennedy, Edward M. Academy for Health Careers 9-10",Farragut,EMK,"10 Fenwood Street Boston, MA",Mission Hill,,1904,,
+75,"Kennedy, John F Elementary",JFK Elementary,JFKennedy,"7 Bolster St Jamaica Plain, MA 02130",Jamaica Plain,1963,1963,8:30:00 AM,3:00:00 PM
+76,"Kennedy, Patrick Elementary",Patrick Kennedy Elementary,Pkennedy,"343 Saratoga St East Boston, MA 02128",East Boston,1926,1933,9:30:00 AM,3:30:00 PM
+77,"Kenny, Thomas J. Elementary",Kenny Elementary,Kenny,"19 Oakton Ave Dorchester, MA 02122",Dorchester,1926,1926,9:30:00 AM,3:30:00 PM
+78,"Kilmer, Joyce K-8 (Lower School)",Kilmer K-8 Lower,Kilmer Lower,"35 Baker St West Roxbury, MA 02132",West Roxbury,,1935,9:30:00 AM,3:30:00 PM
+79,"Kilmer, Joyce K-8 (Upper School)",Kilmer K-8 Upper,Kilmer Upper,"140 Russett Rd West Roxbury, MA 02132",West Roxbury,1935,1928,9:20:00 AM,3:20:00 PM
+80,"King, Martin Luther, Jr K-8",King Middle,King,"77 Lawrence Ave Dorchester, MA 02121",Dorchester,1937,1937,8:30:00 AM,2:30:00 PM
+81,Lee Academy at the Fifield,Fifield,Lee Acad.,"25 Dunbar Av Dorchester, MA 02124",Dorchester,1971,1916,9:30:00 AM,3:30:00 PM
+82,"Lee, Joseph K-8",Joseph Lee Elementary,Lee,"155 Talbot Ave Dorchester, MA02124",Dorchester,1971,1971,7:30:00 AM,1:30:00 PM
+83,"Lyndon, Patrick K-8",Lyndon K-8,Lyndon,"20 Mt Vernon St West Roxbury, MA 02132",West Roxbury,1919,1919,9:30:00 AM,3:30:00 PM
+84,"Lyon, Mary High",Garfield,Lyon Upper,"95 Beechcroft St Brighton, MA 02135",Brighton,1935,1925,8:30:00 AM,3:30:00 PM
+85,"Lyon, Mary K-8",Mary Lyon School,Lyon Lower,"50 Beechcroft St Brighton, MA 02135",Brighton,1926,1926,9:30:00 AM,3:30:00 PM
+86,Madison Park Technical Vocational High,Madison Park High,Madison Park,"75 Malcolm X Blvd Roxbury, MA 02120",Roxbury,1977,1977,7:15:00 AM,3:00:00 PM
+87,"Manning, Joseph P. Elementary",Manning Elementary,Manning,"130 Louders Lane Jamaica Plain, MA 02130",Jamaica Plain,1941,1941,9:30:00 AM,3:30:00 PM
+88,"Mason, Samuel W. Elementary",Mason Elementary,Mason,"150 Norfolk Ave Roxbury, MA 02119",Roxbury,1905,1905,8:30:00 AM,2:30:00 PM
+89,Mather Elementary,Mather Elementary,Mather,"24 Parish St Dorchester, MA 02122",Dorchester,1905,1905,9:30:00 AM,3:30:00 PM
+90,Mattahunt Elementary,Mattahunt Elementary,Mattahunt,"100 Hebron St Mattapan, MA 02126",Mattapan,1972,1977,9:30:00 AM,4:00:00 PM
+91,"McCormack, John W Middle",McCormack Middle,McCormack,"315 Mt Vernon St Dorchester, MA 02125",Dorchester,1967,1967,7:15:00 AM,4:15:00 PM
+92,"McKay, Donald K-8",McKay School,McKay,"122 Cottage St East Boston, MA 02128",East Boston,1926,1926,8:30:00 AM,2:30:00 PM
+93,McKinley Middle,McKinley Middle,McKinley Middle,"50 St Mary St Boston, MA 02215",Fenway,1923,1923,9:30:00 AM,3:40:00 PM
+94,"McKinley, Wm So. End Academy",McKinley Elementary,McKinley So. End,"90 Warren Ave Boston, MA 02116",South End,1959,1959,7:20:00 AM,1:40:00 PM
+95,"McKinley, Wm. Preparatory High ",McKinley Preparatory High,McKinley Prep,"97 Peterborough St Boston, MA 02215",Fenway,1929,1929,7:20:00 AM,1:40:00 PM
+96,"Mendell, Ellis Elementary",Mendell,Mendell,"164 School St Roxbury, MA 02119",Jamaica Plain,1903,1904,9:30:00 AM,3:30:00 PM
+97,Mildred Avenue K-8,Mildred Avenue Middle,Mildred Ave,"5 Mildred Ave Mattapan, MA 02126",Mattapan,2002,2002,7:30:00 AM,2:00:00 PM
+98,Mission Hill K-8*,Agassiz,Mission Hill*,"20 Child St Jamaica Plain, MA 02130",Jamaica Plain,1997,1972,9:25:00 AM,3:25:00 PM
+99,"Mozart, Wolfgang A. Elementary",Mozart,Mozart,"236 Beech St Roslindale, MA 02131",Roslindale,1932,1932,9:30:00 AM,3:30:00 PM
+100,"Muniz, Margarita Academy*",Agassiz,Muniz*,"20 Child Street Jamaica Plain, MA 02130",Jamaica Plain,2012,1972,8:30:00 AM,3:30:00 PM
+101,"Murphy, Richard K-8",Murphy K-8,Murphy,"1 Worrell St South Boston, MA 02122",Dorchester,1973,1973,8:30:00 AM,2:30:00 PM
+102,New Mission High*,Hyde Park High Complex,New Mission,"655 Metropolitan Av Hyde Park, MA 02136",Hyde Park,2005,1929,7:45:00 AM,2:30:00 PM
+103,"O'Bryant, John D. School of Mathematics & Science",O'Bryant,O'Bryant,"55 Malcolm X Blvd Roxbury, MA 02120",Roxbury,1977,1977,7:20:00 AM,1:40:00 PM
+104,"O'Donnell, Hugh R. Elementary",O'Donnell Elementary,O'Donnell,"33 Trenton St East Boston, MA 02128",East Boston,1931,1932,9:30:00 AM,3:30:00 PM
+105,"Ohrenberger, William H. K-8",Ohrenberger,Ohrenberger,"175 W Boundary Rd West Roxbury, MA 02132",West Roxbury,1972,1972,8:30:00 AM,2:30:00 PM
+106,Orchard Gardens K-8,Orchard Gardens K-8,Orchard Gardens,"906 Albany St Roxbury, MA 02119",Roxbury,2002,2002,7:25:00 AM,2:30:00 PM
+107,"Otis, James Elementary",Otis Elementary,Otis,"218 Marion St East Boston, MA 02128",East Boston,1905,1905,8:30:00 AM,2:30:00 PM
+108,"Perkins, Michael J. Elementary",Perkins Elementary,Perkins,"50 Rev Burke St Boston, MA 02127",Roxbury,1926,1926,8:30:00 AM,2:30:00 PM
+109,"Perry, Oliver Hazard K-8",Perry Elementary,Perry,"745 E Seventh St South Boston, MA 02127",South Boston,1905,1904,9:30:00 AM,3:30:00 PM
+110,"Philbrick, John D. Elementary",Philbrick Elementary,Philbrick,"40 Philbrick St Roslindale, MA 02131",Roslindale,1913,1913,9:30:00 AM,3:30:00 PM
+111,"Quincy, Josiah Elementary",Josiah Quincy Elementary,Quincy Lower,"885 Washington St Boston, MA 02111",Chinatown,1976,1976,9:30:00 AM,3:30:00 PM
+112,"Quincy, Josiah Upper (Modulars)",NA,Quincy Upper Mods,"900 Washington St Boston, MA 02111",Chinatown,1999,1999,,
+113,"Quincy, Josiah Upper School",Josiah Quincy Upper School,Quincy Upper,"152 Arlington St Boston, MA 02116",Bay Village,2020,2020,8:40:00 AM,3:40:00 PM
+114,Rogers Middle School,Rogers Middle,Rogers,"15 Everett St Hyde Park, MA 02136",Hyde Park,1902,1902,7:20:00 AM,1:30:00 PM
+115,"Roosevelt, Franklin D. K-8 (Lower School)",Hemenway,FDR Lower,"30 Millstone Road, Hyde Park 02136",Hyde Park,,1951,8:30:00 AM,2:30:00 PM
+116,"Roosevelt, Franklin D. K-8 (Upper School)",Roosevelt Upper Campus,FDR Upper,"95 Needham Rd Hyde Park, MA 02136",Hyde Park,1956,1967,8:30:00 AM,2:30:00 PM
+117,"Russell, William E. Elementary",Russell Elementary,Russell,"750 Columbia Rd Dorchester, MA 02125",Dorchester,1903,1903,8:30:00 AM,2:30:00 PM
+118,"Shaw, Pauline A. Elementary",Shaw Elementary,Shaw,"429 Norfolk St. Dorchester, MA 02124",Dorchester,,1919,9:30:00 AM,3:30:00 PM
+119,Snowden International School at Copley,Snowden International High,Snowden,"150 Newbury St Boston, MA 02116",Back Bay,1970,1885,7:30:00 AM,2:15:00 PM
+120,Snowden International School at Copley (Leased 1),Old South Church,Snowden L1,645 Boylston St. Boston MA 02116,Back Bay,,,,
+121,Snowden International School at Copley (Leased 2),YWCA,Snowden L2,"140 Clarendon St Boston, MA 02116",Back Bay,,,,
+122,"Stone, Lucy Elementary",Lucy Stone Elementary,Stone,"22 Regina Road Dorchester Center, MA 02124",Dorchester,1937,1937,,
+123,"Sumner, Charles Elementary",Sumner Elementary,Sumner,"15 Basile St Roslindale, MA 02131",Roslindale,1931,1931,9:30:00 AM,3:30:00 PM
+124,"Taylor, Charles H. Elementary",Taylor Elementary,Taylor,"1060 Morton St Mattapan, MA 02126",Mattapan,1931,1931,9:30:00 AM,3:30:00 PM
+125,TechBoston Academy,Dorchester Education Complex,TechBoston,"9 Peacevale Rd Dorchester, MA 02124",Dorchester,2002,1925,7:30:00 AM,2:30:00 PM
+126,"Timilty, James P. Middle",Timilty Middle,Timilty,"205 Roxbury St Roxbury, MA 02119",Roxbury,1937,1937,7:30:00 AM,3:10:00 PM
+127,"Tobin, Maurice J. K-8",Tobin K-8,Tobin,"40 Smith St Roxbury, MA 02120",Mission Hill,1959,1959,9:30:00 AM,3:30:00 PM
+128,"Trotter, William Monroe K-8",Trotter Elementary,Trotter,"135 Humboldt Ave Dorchester, MA 02121",Roxbury,1968,1969,7:30:00 AM,2:00:00 PM
+129,"Tynan, Joseph P. Elementary",Tynan Elementary,Tynan,"650 E Fourth St South Boston, MA02127",South Boston,1972,1972,8:30:00 AM,2:30:00 PM
+130,"Umana Academy, Mario K-8",Mario Umana Academy,Umana,"312 Border St East Boston, MA 02128",East Boston,1975,1975,7:20:00 AM,4:15:00 PM
+131,UP Academy Boston,Gavin,UP Boston,"215 Dorchester St South Boston, MA 02127",South Boston,2011,1936,7:20:00 AM,1:20:00 PM
+132,UP Academy Dorchester,Marshall Elementary,UP Dorchester,"35 Westville Street, Dorchester",Dorchester,,1971,,
+133,UP Academy Holland,Holland,UP Holland,"85 Olney Street, Dorchester",Dorchester,2014,1972,,
+134,Urban Science Academy*,West Roxbury High School,Urban Science*,"1205 VFW Pkwy West Roxbury, MA 02132",West Roxbury,2011,1976,7:20:00 AM,1:40:00 PM
+135,Warren/Prescott K-8 Lower,Warren/Prescott,Warren/Prescott Lower,"50 School St Charlestown, MA 02129",Charlestown,2006,1963,8:30:00 AM,2:30:00 PM
+136,Warren/Prescott K-8 Upper,Holden School,Warren/Prescott Upper,"8 Pearl St. Charlestown, MA 02129",Charlestown,,,8:30:00 AM,2:30:00 PM
+137,West Roxbury Academy*,West Roxbury High School,West Roxbury*,"1205 VFW Pkwy, West Roxbury, MA 02132",West Roxbury,2011,1976,,
+138,West Zone Early Learning Center*,Hennigan Elementary School,West Zone*,"200 Heath St Jamaica Plain, MA 02130",Jamaica Plain,1997,1972,7:30:00 AM,4:35:00 PM
+139,"Winship, F. Lyman Elementary",Winship,Winship,"54 Dighton St Brighton, MA 02135",Brighton,1899,1901,9:30:00 AM,3:30:00 PM
+140,"Winthrop, John Elementary",Winthrop Elementary,Winthrop,"35 Brookford St Dorchester, MA 02125",Roxbury,1911,1911,8:30:00 AM,3:00:00 PM
+141,Young Achievers Science & Math K-8,Lewenberg,Young Achievers,"20 Outlook Rd Mattapan, MA02126",Mattapan,1995,1930,8:30:00 AM,4:00:00 PM
