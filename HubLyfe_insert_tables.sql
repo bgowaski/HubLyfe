@@ -2,10 +2,10 @@ USE Hublyfe;
 
 
 INSERT INTO User(Username, FirstName, LastName, Password, DateOfBirth, ResidenceZip, OccupationZip, JobTitle)
-	VALUES('jgoldst', 'Jeremy', 'Goldstein', 'blackmamba',NOW(), 2119, '2132', 'Fire Captain'),
-    ('sheela27', 'Sheela', 'Satathyanarayana', 'wadlefjkh', NOW(), '2125', '2155', 'Sr Traffic Engineer'),
-    ('gost444', 'Ben', 'Gostkowski', 'hhhtttt', NOW(), '2119', '2132', 'Spec Library Asst V'),
-    ('teacher', 'First1', 'Last1', 'teacher',NOW(), 2119, '2132', 'Fire Captain');
+	VALUES('jgoldst', 'Jeremy', 'Goldstein', 'blackmamba',null, 2119, '2132', 'Fire Captain'),
+    ('sheela27', 'Sheela', 'Satathyanarayana', 'wadlefjkh', null, '2125', '2155', 'Sr Traffic Engineer'),
+    ('gost444', 'Ben', 'Gostkowski', 'hhhtttt', null, '2119', '2132', 'Spec Library Asst V'),
+    ('teacher', 'First1', 'Last1', 'teacher',null, 2119, '2132', 'Fire Captain');
 
     
 LOAD DATA INFILE '/var/mysql/Neighborhood.csv' INTO TABLE Neighborhood

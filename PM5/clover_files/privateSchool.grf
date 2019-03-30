@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="sheelasathyanarayana" created="Thu Mar 28 22:49:56 EDT 2019" guiVersion="5.1.1" id="1553830512642" licenseCode="CLP1DNORTH28309451EX" name="privateSchool" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="|" name="Count" recordDelimiter="\n" type="delimited">
+<Field name="Neighborhood" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="|" name="Count_of_private_schools_per_neighborhood" recordDelimiter="\n" type="delimited">
+<Field name="NeighborhoodName" type="string"/>
+<Field name="NumnerOfPrivateSchools" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata6">
+<Record fieldDelimiter="," name="DemographicEducationalPopulation" previewAttachment="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/PM5/DB data/DemographicEducationalPopulation.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field name="NeighborhoodName" type="string"/>
+<Field name="AgePopulation" type="integer"/>
+<Field eofAsDelimiter="true" name="EducationalPopulation" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata4">
+<Record fieldDelimiter="|" name="Number_of_Public_Schools_per_Neighborhood" recordDelimiter="\n" type="delimited">
+<Field name="Neighborhood" type="string"/>
+<Field name="NumberOfPublicSchools" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="," name="PrivateSchool" previewAttachment="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/PM5/data/PrivateSchool.csv" previewAttachmentCharset="UTF-8" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="PrivateSchoolId" type="integer"/>
+<Field name="PrivateSchoolName" type="string"/>
+<Field name="Address" type="string"/>
+<Field name="NeighborhoodName" type="string"/>
+<Field name="Zip" type="integer"/>
+<Field name="Phone" type="string"/>
+<Field name="Fax" type="string"/>
+<Field eofAsDelimiter="true" name="SchoolType" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3">
+<Record fieldDelimiter="," name="PublicSchool" previewAttachment="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/data/PublicSchool.csv" previewAttachmentCharset="UTF-8" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field label="SchoolId" name="SchoolId" type="integer"/>
+<Field label="SchoolName" name="SchoolName" type="string"/>
+<Field label="HistoricalName" name="HistoricalName" type="string"/>
+<Field label="AbbreviatedName" name="AbbreviatedName" type="string"/>
+<Field label="Address" name="Address" type="string"/>
+<Field label="NeighborhoodName" name="NeighborhoodName" type="string"/>
+<Field label="YearFounded " name="YearFounded" type="integer"/>
+<Field label="YearBuilt" name="YearBuilt" type="integer"/>
+<Field label="SchoolOpen" name="SchoolOpen" type="string"/>
+<Field eofAsDelimiter="true" label="SchoolClose" name="SchoolClose" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata5">
+<Record fieldDelimiter="|" name="School" recordDelimiter="\n" type="delimited">
+<Field name="NeighborhoodNae" type="string"/>
+<Field name="PrivateSchools" trim="true" type="integer"/>
+<Field name="PublicSchools" trim="true" type="integer"/>
+<Field name="AgePopulation" type="integer"/>
+<Field name="EducationalPopulation" type="integer"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node aggregateKey="NeighborhoodName" guiName="Aggregate" guiX="272" guiY="59" id="AGGREGATE" mapping="$NeighborhoodName:=$NeighborhoodName;$NumnerOfPrivateSchools:=count();" type="AGGREGATE">
+<attr name="guiDescription"><![CDATA[Number of private schools per neighborhood]]></attr>
+</Node>
+<Node aggregateKey="NeighborhoodName" guiName="Aggregate" guiX="279" guiY="217" id="AGGREGATE1" mapping="$Neighborhood:=$NeighborhoodName;$NumberOfPublicSchools:=count();" sorted="false" type="AGGREGATE">
+<attr name="guiDescription"><![CDATA[Number of public schools per neighborhood]]></attr>
+</Node>
+<Node guiName="ExtHashJoin" guiX="519" guiY="120" id="EXT_HASH_JOIN" joinKey="$NeighborhoodName=$Neighborhood" type="EXT_HASH_JOIN">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.NeighborhoodNae = nvl($in.0.NeighborhoodName, 'none');
+	$out.0.AgePopulation = nvl($in.2.AgePopulation,0);
+	$out.0.PrivateSchools = nvl($in.0.NumnerOfPrivateSchools,0);
+	$out.0.PublicSchools = nvl($in.1.NumberOfPublicSchools,0);
+	$out.0.EducationalPopulation = nvl($in.2.EducationalPopulation,0);
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node debugPrint="true" guiName="Trash" guiX="725" guiY="135" id="TRASH2" type="TRASH"/>
+<Node dataPolicy="lenient" fileURL="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/data/PublicSchool.csv" guiName="UniversalDataReader" guiX="46" guiY="223" id="UNIVERSAL_DATA_READER" skipFirstLine="true" type="DATA_READER">
+<attr name="guiDescription"><![CDATA[Public School]]></attr>
+</Node>
+<Node dataPolicy="lenient" fileURL="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/PM5/DB data/DemographicEducationalPopulation.csv" guiName="UniversalDataReader" guiX="46" guiY="347" id="UNIVERSAL_DATA_READER1" skipFirstLine="true" type="DATA_READER">
+<attr name="guiDescription"><![CDATA[Educational Attainment <20 years]]></attr>
+</Node>
+<Node dataPolicy="lenient" fileURL="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/PM5/data/PrivateSchool.csv" guiName="UniversalDataReader" guiX="59" guiY="59" id="UNIVERSAL_DATA_READER2" skipFirstLine="true" trim="true" type="DATA_READER">
+<attr name="guiDescription"><![CDATA[Private School]]></attr>
+</Node>
+<Edge fromNode="AGGREGATE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (driver)" metadata="Metadata2" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:0"/>
+<Edge fromNode="AGGREGATE1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge7" inPort="Port 1 (slave)" metadata="Metadata4" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:1"/>
+<Edge fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 0 (in)" metadata="Metadata5" outPort="Port 0 (out)" toNode="TRASH2:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (output)" toNode="AGGREGATE1:0"/>
+<Edge fromNode="UNIVERSAL_DATA_READER1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 2 (slave)" metadata="Metadata6" outPort="Port 0 (output)" toNode="EXT_HASH_JOIN:2"/>
+<Edge fromNode="UNIVERSAL_DATA_READER2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (output)" toNode="AGGREGATE:0"/>
+</Phase>
+</Graph>
