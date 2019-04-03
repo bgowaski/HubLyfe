@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="jmgoldstein7" created="Sat Mar 30 10:51:00 EDT 2019" guiVersion="5.1.1" id="1553958885278" licenseCode="CLP1DNORTH31067555EX" name="Permit" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="," name="aggregatebyNeighborhood" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="Neighborhood" type="string"/>
+<Field name="Count" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="," name="BuildingPermits" previewAttachment="${DATAIN_DIR}/BuildingPermits.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="PermitId" type="integer"/>
+<Field name="Description" type="string"/>
+<Field name="DeclaredValuation" type="integer"/>
+<Field name="Address" type="string"/>
+<Field name="Neighborhood" type="string"/>
+<Field eofAsDelimiter="true" name="Zip" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="," name="Demographic" previewAttachment="${DATAIN_DIR}/Demographic.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="DemographicId" type="integer"/>
+<Field name="NeighborhoodName" type="string"/>
+<Field name="Population" type="integer"/>
+<Field name="ForeignBorn" type="integer"/>
+<Field name="FemaleLaborForce" type="integer"/>
+<Field name="MaleLaborForce" type="integer"/>
+<Field name="OccupiedHousingUnits" type="integer"/>
+<Field name="RenterOccupiedUnits" type="integer"/>
+<Field eofAsDelimiter="true" name="OwnerOccupiedUnits" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata4">
+<Record fieldDelimiter="," name="Demographic" previewAttachment="${DATAIN_DIR}/Demographic.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="DemographicId" type="integer"/>
+<Field name="NeighborhoodName" type="string"/>
+<Field name="Population" type="integer"/>
+<Field name="ForeignBorn" type="integer"/>
+<Field name="FemaleLaborForce" type="integer"/>
+<Field name="MaleLaborForce" type="integer"/>
+<Field name="OccupiedHousingUnits" type="integer"/>
+<Field name="RenterOccupiedUnits" type="integer"/>
+<Field eofAsDelimiter="true" name="OwnerOccupiedUnits" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata6">
+<Record fieldDelimiter="," name="JoinpermitandRenters" recordDelimiter="\n" type="delimited">
+<Field name="Neighborhood" type="string"/>
+<Field name="NumberPermits" type="integer"/>
+<Field name="RenterUnits" type="integer"/>
+<Field name="TotalUnits" type="integer"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3">
+<Record fieldDelimiter="None &quot;null&quot;" name="Neighborhood" previewAttachment="${DATAIN_DIR}/Neighborhood.csv" previewAttachmentCharset="UTF-8" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\r\n" skipSourceRows="0" type="delimited">
+<Field eofAsDelimiter="true" name="Field1" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata5" previewAttachmentCharset="UTF-8">
+<Record fieldDelimiter="," name="RenterUnits" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
+<Field name="Neighborhood" type="string"/>
+<Field name="PermitCount" trim="true" type="integer"/>
+<Field length="12" name="RenterOccupied" scale="2" trim="true" type="integer"/>
+<Field length="12" name="TotalOccupied" scale="2" trim="true" type="integer"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node aggregateKey="Neighborhood" guiName="Aggregate" guiX="420" guiY="127" id="AGGREGATE" mapping="$Neighborhood:=$Neighborhood;$Count:=count();" sorted="false" type="AGGREGATE">
+<attr name="guiDescription"><![CDATA[number of building permits per neighborhood]]></attr>
+</Node>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/BuildingPermits.csv" guiName="BuildingPermits" guiX="154" guiY="115" id="BUILDING_PERMITS" numRecords="100" skipFirstLine="true" trim="true" type="DATA_READER"/>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/Demographic.csv" guiName="Demographics" guiX="144" guiY="287" id="DEMOGRAPHICS" skipFirstLine="true" trim="true" type="DATA_READER"/>
+<Node guiName="ExtHashJoin" guiX="601" guiY="236" id="EXT_HASH_JOIN" joinKey="$Neighborhood=$NeighborhoodName" type="EXT_HASH_JOIN">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.Neighborhood = $in.0.Neighborhood;
+	$out.0.NumberPermits = nvl($in.0.Count,0);
+	$out.0.RenterUnits = nvl($in.1.RenterOccupiedUnits,0);
+	$out.0.TotalUnits = nvl($in.1.OccupiedHousingUnits,0);
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node existingSheetsActions="DO_NOTHING" fileURL="${DATAOUT_DIR}/permits.xls" guiName="SpreadsheetDataWriter" guiX="877" guiY="215" id="SPREADSHEET_DATA_WRITER" type="SPREADSHEET_WRITER" writeMode="OVERWRITE_SHEET_IN_MEMORY">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapping>
+    <globalAttributes>
+        <orientation>VERTICAL</orientation>
+        <step>1</step>
+        <writeHeader>true</writeHeader>
+    </globalAttributes>
+    <defaultSkip>1</defaultSkip>
+    <headerGroups>
+        <headerGroup skip="1">
+            <cloverField>Neighborhood</cloverField>
+            <headerRanges>
+                <headerRange begin="A1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="1">
+            <cloverField>NumberPermits</cloverField>
+            <headerRanges>
+                <headerRange begin="B1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="1">
+            <cloverField>RenterUnits</cloverField>
+            <headerRanges>
+                <headerRange begin="C1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="1">
+            <cloverField>TotalUnits</cloverField>
+            <headerRanges>
+                <headerRange begin="D1"/>
+            </headerRanges>
+        </headerGroup>
+    </headerGroups>
+</mapping>
+]]></attr>
+</Node>
+<Edge fromNode="AGGREGATE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 0 (driver)" metadata="Metadata1" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:0"/>
+<Edge fromNode="BUILDING_PERMITS:0" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (output)" toNode="AGGREGATE:0"/>
+<Edge fromNode="DEMOGRAPHICS:0" guiBendpoints="" guiRouter="Manhattan" id="Edge9" inPort="Port 1 (slave)" metadata="Metadata2" outPort="Port 0 (output)" toNode="EXT_HASH_JOIN:1"/>
+<Edge fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge10" inPort="Port 0 (input)" metadata="Metadata6" outPort="Port 0 (out)" toNode="SPREADSHEET_DATA_WRITER:0"/>
+</Phase>
+</Graph>
