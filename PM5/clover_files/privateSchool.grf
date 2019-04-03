@@ -52,7 +52,7 @@
 </Record>
 </Metadata>
 <Metadata id="Metadata5">
-<Record fieldDelimiter="|" name="School" recordDelimiter="\n" type="delimited">
+<Record fieldDelimiter="|" name="School" previewAttachmentCharset="UTF-8" recordDelimiter="\n" type="delimited">
 <Field name="NeighborhoodNae" type="string"/>
 <Field name="PrivateSchools" trim="true" type="integer"/>
 <Field name="PublicSchools" trim="true" type="integer"/>
@@ -72,7 +72,7 @@
 <Node aggregateKey="NeighborhoodName" guiName="Aggregate" guiX="279" guiY="217" id="AGGREGATE1" mapping="$Neighborhood:=$NeighborhoodName;$NumberOfPublicSchools:=count();" sorted="false" type="AGGREGATE">
 <attr name="guiDescription"><![CDATA[Number of public schools per neighborhood]]></attr>
 </Node>
-<Node guiName="ExtHashJoin" guiX="519" guiY="120" id="EXT_HASH_JOIN" joinKey="$NeighborhoodName=$Neighborhood" type="EXT_HASH_JOIN">
+<Node guiName="ExtHashJoin" guiX="515" guiY="122" id="EXT_HASH_JOIN" joinKey="$NeighborhoodName=$Neighborhood" type="EXT_HASH_JOIN">
 <attr name="transform"><![CDATA[//#CTL2
 
 // Transforms input record into output record.
@@ -105,19 +105,62 @@ function integer transform() {
 // function string getMessage() {}
 ]]></attr>
 </Node>
-<Node debugPrint="true" guiName="Trash" guiX="725" guiY="135" id="TRASH2" type="TRASH"/>
-<Node dataPolicy="lenient" fileURL="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/data/PublicSchool.csv" guiName="UniversalDataReader" guiX="46" guiY="223" id="UNIVERSAL_DATA_READER" skipFirstLine="true" type="DATA_READER">
+<Node existingSheetsActions="DO_NOTHING" fileURL="${DATAOUT_DIR}/privateSchools.xls" guiName="SpreadsheetDataWriter" guiX="802" guiY="159" id="SPREADSHEET_DATA_WRITER" type="SPREADSHEET_WRITER" writeMode="OVERWRITE_SHEET_IN_MEMORY">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapping>
+    <globalAttributes>
+        <orientation>VERTICAL</orientation>
+        <step>2</step>
+        <writeHeader>true</writeHeader>
+    </globalAttributes>
+    <defaultSkip>2</defaultSkip>
+    <headerGroups>
+        <headerGroup skip="2">
+            <cloverField>NeighborhoodNae</cloverField>
+            <headerRanges>
+                <headerRange begin="A1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="2">
+            <cloverField>PrivateSchools</cloverField>
+            <headerRanges>
+                <headerRange begin="B1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="2">
+            <cloverField>PublicSchools</cloverField>
+            <headerRanges>
+                <headerRange begin="C1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="2">
+            <cloverField>AgePopulation</cloverField>
+            <headerRanges>
+                <headerRange begin="D1"/>
+            </headerRanges>
+        </headerGroup>
+        <headerGroup skip="2">
+            <cloverField>EducationalPopulation</cloverField>
+            <headerRanges>
+                <headerRange begin="E1"/>
+            </headerRanges>
+        </headerGroup>
+    </headerGroups>
+</mapping>
+]]></attr>
+</Node>
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/PublicSchool.csv" guiName="UniversalDataReader" guiX="46" guiY="223" id="UNIVERSAL_DATA_READER" skipFirstLine="true" type="DATA_READER">
 <attr name="guiDescription"><![CDATA[Public School]]></attr>
 </Node>
-<Node dataPolicy="lenient" fileURL="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/PM5/DB data/DemographicEducationalPopulation.csv" guiName="UniversalDataReader" guiX="46" guiY="347" id="UNIVERSAL_DATA_READER1" skipFirstLine="true" type="DATA_READER">
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/DemographicEducationalPopulation.csv" guiName="UniversalDataReader" guiX="46" guiY="347" id="UNIVERSAL_DATA_READER1" skipFirstLine="true" trim="true" type="DATA_READER">
 <attr name="guiDescription"><![CDATA[Educational Attainment <20 years]]></attr>
 </Node>
-<Node dataPolicy="lenient" fileURL="/Users/sheelasathyanarayana/Documents/GitHub/HubLyfe/PM5/data/PrivateSchool.csv" guiName="UniversalDataReader" guiX="59" guiY="59" id="UNIVERSAL_DATA_READER2" skipFirstLine="true" trim="true" type="DATA_READER">
+<Node dataPolicy="lenient" fileURL="${DATAIN_DIR}/PrivateSchool.csv" guiName="UniversalDataReader" guiX="59" guiY="59" id="UNIVERSAL_DATA_READER2" skipFirstLine="true" trim="true" type="DATA_READER">
 <attr name="guiDescription"><![CDATA[Private School]]></attr>
 </Node>
 <Edge fromNode="AGGREGATE:0" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (driver)" metadata="Metadata2" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:0"/>
 <Edge fromNode="AGGREGATE1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge7" inPort="Port 1 (slave)" metadata="Metadata4" outPort="Port 0 (out)" toNode="EXT_HASH_JOIN:1"/>
-<Edge fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge8" inPort="Port 0 (in)" metadata="Metadata5" outPort="Port 0 (out)" toNode="TRASH2:0"/>
+<Edge fromNode="EXT_HASH_JOIN:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (input)" metadata="Metadata5" outPort="Port 0 (out)" toNode="SPREADSHEET_DATA_WRITER:0"/>
 <Edge fromNode="UNIVERSAL_DATA_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge6" inPort="Port 0 (in)" metadata="Metadata3" outPort="Port 0 (output)" toNode="AGGREGATE1:0"/>
 <Edge fromNode="UNIVERSAL_DATA_READER1:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 2 (slave)" metadata="Metadata6" outPort="Port 0 (output)" toNode="EXT_HASH_JOIN:2"/>
 <Edge fromNode="UNIVERSAL_DATA_READER2:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (output)" toNode="AGGREGATE:0"/>
